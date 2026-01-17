@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { MobileNav } from "@/components/nav/mobile-nav";
+import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { mainMenu } from "@/menu.config";
 import { siteConfig } from "@/site.config";
 import { cn } from "@/lib/utils";
@@ -51,6 +52,7 @@ export function Nav({ className, children, id }: NavProps) {
           <Button asChild className="hidden sm:flex">
             <Link href="https://github.com/9d8dev/next-wp">Get Started</Link>
           </Button>
+          <ThemeToggle />
           <MobileNav />
         </div>
       </div>
