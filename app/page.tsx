@@ -27,10 +27,9 @@ export default function Home() {
 // This is just some example TSX
 const ToDelete = () => {
   return (
-    <main className="space-y-6">
+    <main className="space-y-6 mb-3">
       <Prose>
         <h1>Headless WordPress built with the Next.js</h1>
-
         <p>
           This is <a href="https://github.com/9d8dev/next-wp">next-wp</a>,
           created as a way to build WordPress sites with Next.js at rapid speed.
