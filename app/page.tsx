@@ -9,12 +9,16 @@ import { File, Pen, Tag, Diamond, User, Folder } from "lucide-react";
 import { WordPressIcon } from "@/components/icons/wordpress";
 import { NextJsIcon } from "@/components/icons/nextjs";
 
+// Components imports
+import { ContactForm } from "@/components/contactForm";
+
 // This page is using the craft.tsx component and design system
 export default function Home() {
   return (
     <Section>
       <Container>
         <ToDelete />
+        <ContactForm />
       </Container>
     </Section>
   );
