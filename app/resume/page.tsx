@@ -10,14 +10,6 @@ import { Skills } from "./skills";
 import { Education } from "./education";
 import { Navigation } from "./navigation";
 
-// Data imports
-import {
-  contactData,
-  educationData,
-  resumeNavItems,
-  skillsData,
-} from "../data";
-
 export default function ResumePage() {
   return (
     <div className="min-h-screen bg-background">
@@ -27,9 +19,9 @@ export default function ResumePage() {
           <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
             <div>
               <Header />
+              <SocialLinks />
               <Navigation />
             </div>
-            <SocialLinks />
           </header>
 
           {/* Right Column - Scrollable */}
@@ -52,7 +44,7 @@ function SocialLinks() {
     <ul className="mt-8 flex items-center gap-5" aria-label="Social media">
       <li>
         <a
-          href="https://github.com"
+          href="https://github.com/alfredrafael"
           target="_blank"
           rel="noreferrer noopener"
           aria-label="GitHub"
@@ -70,7 +62,7 @@ function SocialLinks() {
       </li>
       <li>
         <a
-          href="https://linkedin.com"
+          href="https://www.linkedin.com/in/alfredo-rafael/"
           target="_blank"
           rel="noreferrer noopener"
           aria-label="LinkedIn"
@@ -86,9 +78,9 @@ function SocialLinks() {
           </svg>
         </a>
       </li>
-      <li>
+      {/* <li>
         <a
-          href="https://twitter.com"
+          href="https://x.com/HabershamPabon"
           target="_blank"
           rel="noreferrer noopener"
           aria-label="Twitter"
@@ -103,10 +95,49 @@ function SocialLinks() {
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
           </svg>
         </a>
+      </li> */}
+      <li>
+        <a
+          href="https://github.com/alfredrafael"
+          target="_blank"
+          rel="noreferrer noopener"
+          aria-label="GitHub"
+          className="text-muted-foreground transition-colors hover:text-foreground"
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 512 512"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            className="h-7 w-7"
+          >
+            <title>pdf-document</title>
+            <g
+              id="Page-1"
+              stroke="none"
+              strokeWidth="1"
+              fill="none"
+              fillRule="evenodd"
+            >
+              <g
+                id="add"
+                fill="currentColor"
+                transform="translate(85.333333, 42.666667)"
+              >
+                <path
+                  d="M75.9466667,285.653333 C63.8764997,278.292415 49.6246897,275.351565 35.6266667,277.333333 L1.42108547e-14,277.333333 L1.42108547e-14,405.333333 L28.3733333,405.333333 L28.3733333,356.48 L40.5333333,356.48 C53.1304778,357.774244 65.7885986,354.68506 76.3733333,347.733333 C85.3576891,340.027178 90.3112817,328.626053 89.8133333,316.8 C90.4784904,304.790173 85.3164923,293.195531 75.9466667,285.653333 L75.9466667,285.653333 Z M53.12,332.373333 C47.7608867,334.732281 41.8687051,335.616108 36.0533333,334.933333 L27.7333333,334.933333 L27.7333333,298.666667 L36.0533333,298.666667 C42.094796,298.02451 48.1897668,299.213772 53.5466667,302.08 C58.5355805,305.554646 61.3626692,311.370371 61.0133333,317.44 C61.6596233,323.558965 58.5400493,329.460862 53.12,332.373333 L53.12,332.373333 Z M150.826667,277.333333 L115.413333,277.333333 L115.413333,405.333333 L149.333333,405.333333 C166.620091,407.02483 184.027709,403.691457 199.466667,395.733333 C216.454713,383.072462 225.530463,362.408923 223.36,341.333333 C224.631644,323.277677 218.198313,305.527884 205.653333,292.48 C190.157107,280.265923 170.395302,274.806436 150.826667,277.333333 L150.826667,277.333333 Z M178.986667,376.32 C170.098963,381.315719 159.922142,383.54422 149.76,382.72 L144.213333,382.72 L144.213333,299.946667 L149.333333,299.946667 C167.253333,299.946667 174.293333,301.653333 181.333333,308.053333 C189.877212,316.948755 194.28973,329.025119 193.493333,341.333333 C194.590843,354.653818 189.18793,367.684372 178.986667,376.32 L178.986667,376.32 Z M254.506667,405.333333 L283.306667,405.333333 L283.306667,351.786667 L341.333333,351.786667 L341.333333,329.173333 L283.306667,329.173333 L283.306667,299.946667 L341.333333,299.946667 L341.333333,277.333333 L254.506667,277.333333 L254.506667,405.333333 L254.506667,405.333333 Z M234.666667,7.10542736e-15 L9.52127266e-13,7.10542736e-15 L9.52127266e-13,234.666667 L42.6666667,234.666667 L42.6666667,192 L42.6666667,169.6 L42.6666667,42.6666667 L216.96,42.6666667 L298.666667,124.373333 L298.666667,169.6 L298.666667,192 L298.666667,234.666667 L341.333333,234.666667 L341.333333,106.666667 L234.666667,7.10542736e-15 L234.666667,7.10542736e-15 Z"
+                  id="document-pdf"
+                ></path>
+              </g>
+            </g>
+          </svg>
+        </a>
       </li>
       <li>
         <a
-          href="mailto:hello@alexchen.dev"
+          href="mailto:alfredrafael@gmail.com"
           aria-label="Email"
           className="text-muted-foreground transition-colors hover:text-foreground"
         >

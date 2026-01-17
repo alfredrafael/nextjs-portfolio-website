@@ -22,25 +22,16 @@ export function Experience() {
                 <header className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground sm:col-span-2">
                   {exp.period}
                 </header>
-                <div className="z-10 sm:col-span-6 experience-content">
-                  <h3 className="font-medium leading-snug text-foreground">
-                    <a
-                      href={exp.companyUrl}
-                      className="group/link inline-flex items-baseline text-base font-medium leading-tight text-foreground hover:text-primary focus-visible:text-primary"
-                      target="_blank"
-                      rel="noreferrer noopener"
-                    >
-                      <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block" />
-                      <span>
-                        {exp.title} ·{" "}
-                        <span className="inline-block">
-                          {exp.company}
-                          <ExternalLink className="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none" />
-                        </span>
-                      </span>
-                    </a>
+                <div className="z-10 sm:col-span-6 experience-content ml-0 -sm:ml-2">
+                  <h3 className="text-base font-medium leading-tight text-foreground">
+                    <span className="relative inline-block">
+                      <strong className="block">{exp.title}</strong>
+                      <i className="block text-muted-foreground">
+                        {exp.company}
+                      </i>
+                    </span>
                   </h3>
-                  <div className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  <div className="mt-2 text-sm leading-relaxed text-foreground">
                     {exp.description}
                   </div>
                   <ul

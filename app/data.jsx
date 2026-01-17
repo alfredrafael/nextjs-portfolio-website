@@ -39,7 +39,7 @@ export const experienceData = [
           style={{
             listStyleType: "disc",
             paddingLeft: "1rem",
-            marginBottom: "0.5rem",
+            marginTop: "1rem",
           }}
           className=" leading-relaxed"
         >
@@ -68,13 +68,43 @@ export const experienceData = [
     technologies: ["React", "TypeScript", "Next.js", "GraphQL", "Tailwind CSS"],
   },
   {
-    period: "2020 — 2022",
-    title: "Software Engineer",
-    company: "InnovateLabs",
+    period: "2020 — Present",
+    title: "Assistant Web Developer",
+    company: "Massachusetts Institute of Technology (MIT)",
     companyUrl: "#",
-    description:
-      "Developed and shipped highly interactive web applications for diverse clients. Engineered and improved major features of the customer-facing web app using React and Redux. Collaborated with product teams to implement new features and optimize performance.",
-    technologies: ["JavaScript", "React", "Redux", "Node.js", "PostgreSQL"],
+    description: (
+      <>
+        <ul
+          style={{
+            listStyleType: "disc",
+            paddingLeft: "1rem",
+            margin: "1rem 0",
+          }}
+          className=" leading-relaxed"
+        >
+          <li className="mb-4">
+            Develop and implement reusable components using Next.js, React and
+            TypeScript in headless CMS environment.
+          </li>
+          <li className="mb-4">
+            Collaborate with cross-functional teams with GIT for version
+            control, JIRA for agile project management, and Figma for user
+            interface (UI) design.
+          </li>
+          <li className="mb-4">
+            Leaverage TailwindCSS to craft responsive and visually appealing
+            user interfaces while adhering to best practices and modern design
+            principles.
+          </li>
+          <li className="mb-4">
+            Enhance data-management with Advanced Custom Fields (ACF) and
+            optimize admin panel's UI, improving publishers' user experience
+            (UX).
+          </li>
+        </ul>
+      </>
+    ),
+    technologies: ["WordPress", "PHP", "ACF"],
   },
   {
     period: "2018 — 2020",
