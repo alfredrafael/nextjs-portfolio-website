@@ -22,7 +22,7 @@ export function Experience() {
                 <header className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground sm:col-span-2">
                   {exp.period}
                 </header>
-                <div className="z-10 sm:col-span-6">
+                <div className="z-10 sm:col-span-6 experience-content">
                   <h3 className="font-medium leading-snug text-foreground">
                     <a
                       href={exp.companyUrl}
@@ -40,9 +40,9 @@ export function Experience() {
                       </span>
                     </a>
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  <div className="mt-2 text-sm leading-relaxed text-muted-foreground">
                     {exp.description}
-                  </p>
+                  </div>
                   <ul
                     className="mt-2 flex flex-wrap gap-2"
                     aria-label="Technologies used"

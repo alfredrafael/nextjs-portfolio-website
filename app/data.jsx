@@ -30,11 +30,41 @@ export const contactData = [
 export const experienceData = [
   {
     period: "2022 — Present",
-    title: "Senior Software Engineer",
-    company: "TechCorp",
-    companyUrl: "#",
-    description:
-      "Build and maintain critical components used to construct TechCorp's frontend, across the entire product. Work closely with cross-functional teams, including developers, designers, and product managers, to implement and advocate for best practices in web accessibility.",
+    title: "Front-End Software Engineer",
+    company: "Trane Technologies",
+    companyUrl: "https://trane.com/residential",
+    description: (
+      <>
+        <ul
+          style={{
+            listStyleType: "disc",
+            paddingLeft: "1rem",
+            marginBottom: "0.5rem",
+          }}
+          className=" leading-relaxed"
+        >
+          <li className="mb-4">
+            Develop and implement reusable components using Next.js, React and
+            TypeScript in headless CMS environment.
+          </li>
+          <li className="mb-4">
+            Collaborate with cross-functional teams with GIT for version
+            control, JIRA for agile project management, and Figma for user
+            interface (UI) design.
+          </li>
+          <li className="mb-4">
+            Leaverage TailwindCSS to craft responsive and visually appealing
+            user interfaces while adhering to best practices and modern design
+            principles.
+          </li>
+          <li className="mb-4">
+            Enhance data-management with Advanced Custom Fields (ACF) and
+            optimize admin panel's UI, improving publishers' user experience
+            (UX).
+          </li>
+        </ul>
+      </>
+    ),
     technologies: ["React", "TypeScript", "Next.js", "GraphQL", "Tailwind CSS"],
   },
   {

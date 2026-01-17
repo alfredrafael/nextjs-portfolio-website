@@ -9,7 +9,7 @@ export function About() {
           About
         </h2>
       </div>
-      <div className="space-y-4 text-muted-foreground">
+      <div className="space-y-4 text-base text-foreground md:leading-8">
         <p>
           I&apos;m a developer passionate about crafting accessible,
           pixel-perfect user interfaces that blend thoughtful design with robust
@@ -30,7 +30,7 @@ export function About() {
           our applications meet the highest standards of quality and
           accessibility.
         </p>
-        <p>
+        {/* <p>
           In the past, I&apos;ve had the opportunity to develop software across
           a variety of settings — from{" "}
           <a
@@ -60,7 +60,7 @@ export function About() {
           When I&apos;m not at the computer, I&apos;m usually exploring hiking
           trails, experimenting with new recipes, or diving into a good sci-fi
           novel.
-        </p>
+        </p> */}
       </div>
     </section>
   );
