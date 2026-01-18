@@ -1,4 +1,4 @@
-export function PDFIcon({
+export default function PDFIcon({
   className,
   currentColor = "currentColor",
   width,

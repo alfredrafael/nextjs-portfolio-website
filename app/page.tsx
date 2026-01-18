@@ -11,16 +11,22 @@ import { NextJsIcon } from "@/components/icons/nextjs";
 
 // Components imports
 import { ContactForm } from "@/components/contactForm";
+import Hero from "@/components/heroVideo";
+import Services from "@/components/services";
 
 // This page is using the craft.tsx component and design system
 export default function Home() {
   return (
-    <Section>
+    <>
+      <Hero />
+      <div className="-mt-8">
+        <Services />
+      </div>
       <Container>
         <ToDelete />
         <ContactForm />
       </Container>
-    </Section>
+    </>
   );
 }
 
