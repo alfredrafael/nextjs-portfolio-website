@@ -32,7 +32,7 @@ export default function Home() {
         Contact Form (add page + contact details components)
         <hr />
         Additionally: Format footer, Copy edit edits (resume + homepage), Make
-        Schema, Make svg logo, Resume footer, Add resume data, etc.
+        Schema, Make svg logo, Resume footer, Add resume data, Favicon, etc.
         {/* <ToDelete /> */}
         <ContactForm />
       </Container>

@@ -1,7 +1,6 @@
 import { ExternalLink, Github } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { projectsData } from "../../data";
-
+import { ProjectsData } from "../data/projectsData";
 export function Projects() {
   return (
     <section
@@ -15,9 +14,9 @@ export function Projects() {
       </div>
       <div>
         <ul className="group/list">
-          {projectsData.map((project, index) => (
+          {ProjectsData.map((project: any, index: number) => (
             <li key={index} className="mb-12">
-              <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+              <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:opacity-100! lg:group-hover/list:opacity-50">
                 <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-secondary/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg" />
                 <div className="z-10 sm:order-2 sm:col-span-6">
                   <h3>
@@ -54,7 +53,7 @@ export function Projects() {
                     className="mt-2 flex flex-wrap gap-2"
                     aria-label="Technologies used"
                   >
-                    {project.technologies.map((tech) => (
+                    {project.technologies.map((tech: any) => (
                       <li key={tech}>
                         <Badge
                           variant="secondary"
