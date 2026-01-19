@@ -146,7 +146,7 @@ export const educationData = [
 export const resumeNavItems = [
   { id: "about", label: "ABOUT" },
   { id: "experience", label: "EXPERIENCE" },
-  { id: "projects", label: "PROJECTS" },
+  //   { id: "projects", label: "PROJECTS" },
   { id: "skills", label: "SKILLS" },
   { id: "education", label: "EDUCATION" },
 ];

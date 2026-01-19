@@ -13,7 +13,7 @@ import { NextJsIcon } from "@/components/icons/nextjs";
 import { ContactForm } from "@/components/contactForm";
 import Hero from "@/components/heroVideo";
 import Services from "@/components/services";
-
+import About from "@/components/about";
 // This page is using the craft.tsx component and design system
 export default function Home() {
   return (
@@ -22,8 +22,18 @@ export default function Home() {
       <div className="-mt-8">
         <Services />
       </div>
+      <About />
+
       <Container>
-        <ToDelete />
+        Code samples (may need modals)
+        <br />
+        Ribbon (may need bg picture)
+        <br />
+        Contact Form (add page + contact details components)
+        <hr />
+        Additionally: Format footer, Copy edit edits (resume + homepage), Make
+        Schema, Make svg logo, Resume footer, Add resume data, etc.
+        {/* <ToDelete /> */}
         <ContactForm />
       </Container>
     </>

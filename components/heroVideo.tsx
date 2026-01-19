@@ -16,19 +16,10 @@ export default function Hero() {
           loop
           muted
         />
-        {/* <div className="absolute inset-0 bg-linear-to-b from-transparent via-background/10 to-background" /> */}
-        {/* Dark fade */}
-        <div
-          className="absolute inset-0 bg-linear-to-b
-    from-black/50 via-black/20 to-transparent"
-        />
-
-        {/* Background blend */}
-        <div
-          className="absolute inset-0 bg-linear-to-b
-    from-transparent via-background/20 to-background"
-        />
       </div>
+      {/* <div className="absolute inset-0 bg-linear-to-b from-transparent via-background/10 to-background" /> */}
+
+      <div className="hero-gradient" />
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-6 pb-60 text-center sm:px-8 sm:pb-24 lg:px-12 lg:pb-45">

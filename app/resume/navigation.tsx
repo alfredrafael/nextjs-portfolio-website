@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { resumeNavItems } from "../data";
+import { resumeNavItems } from "@/app/data/resumeData";
 import { cn } from "@/lib/utils";
 
 export function Navigation() {

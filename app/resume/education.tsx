@@ -1,5 +1,5 @@
 import { ExternalLink } from "lucide-react";
-import { certificationsData, educationData } from "../data";
+import { certificationsData, educationData } from "@/app/data/resumeData";
 
 export function Education() {
   return (

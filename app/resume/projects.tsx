@@ -1,6 +1,6 @@
 import { ExternalLink, Github } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { projectsData } from "../data";
+import { projectsData } from "../../data";
 
 export function Projects() {
   return (

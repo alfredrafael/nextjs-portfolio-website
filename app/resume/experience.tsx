@@ -1,6 +1,6 @@
 import { ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { experienceData } from "../data";
+import { experienceData } from "@/app/data/resumeData";
 
 export function Experience() {
   return (

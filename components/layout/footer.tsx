@@ -1,5 +1,5 @@
 import { Section, Container } from "@/components/craft";
-import { mainMenu, contentMenu } from "@/menu.config";
+import { contentMenu, mainMenu } from "@/app/data/navsData";
 import { siteConfig } from "@/site.config";
 import Logo from "@/public/logo.svg";
 import Image from "next/image";

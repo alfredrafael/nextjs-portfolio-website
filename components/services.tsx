@@ -1,5 +1,8 @@
 import { Section, Container, Prose } from "@/components/craft";
 import PDFIcon from "@/components/icons/pdfIcon";
+import UXIcon from "@/components/icons/uxIcon";
+import SEOIcon from "./icons/seoIcon";
+import FastTruckIcon from "./icons/fastTruckIcon";
 
 // make div component to use for each service with icon, title, and description
 function Service({
@@ -29,24 +32,23 @@ export default function Services() {
       <div className="xl:flex px-6 lg:px-36">
         <div className="flex-1">
           <Service
-            icon={<PDFIcon />}
-            title="Custom Architectural Design"
-            description="Tailored architectural design for new construction projects, from single-family homes to small commercial and multifamily buildings. We translate ideas into clear, buildable designs that balance aesthetics, code compliance, and real-world construction."
+            icon={<UXIcon />}
+            title="User Experience Design"
+            description="Develop a modern, user-friendly and professional looking site that converts visitors into customers."
           />
         </div>
         <div className="flex-1 md:border-r md:border-l">
           <Service
-            icon={<PDFIcon />}
-            title="Residential & Commercial Renovations"
-            description="Architectural services for home renovations, additions and interiors, as well as commercial designs for retail, office, hospitality, and mixed-use projects. We focus on efficiency, code compliance, and permit-ready documentation that supports smooth approvals & construction."
+            icon={<SEOIcon />}
+            title="SEO Techniques"
+            description="Implement Search Engine Optimization (SEO) so that your site ranks well and users can find you, without ongoing fees."
           />
         </div>
         <div className="flex-1">
           <Service
-            icon={<PDFIcon />}
-            title="Multifamily & Development Projects"
-            description="Architectural services for duplexes, townhomes, & small multifamily developments. From feasibility studies to permit-ready documentation, we help projects move efficiently from concept to permit. Designing thoughtful upgrades that increase value, and integrate seamlessly.
-"
+            icon={<FastTruckIcon />}
+            title="Fast Performance"
+            description="Ensure your site loads quickly and efficiently, providing users with a seamless, professional experience."
           />
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { skillsData } from "../data";
+import { skillsData } from "@/app/data/resumeData";
 export function Skills() {
   return (
     <section
