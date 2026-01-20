@@ -176,6 +176,9 @@
   }
 }
 
+/* Custom Styles */
+
+/*//Hero /////////////*/
 .hero-gradient {
   position: absolute;
   inset: 0;
@@ -203,6 +206,7 @@
   );
 }
 
+/*//About /////////////*/
 .about-section {
   .circle-image {
     float: left;
@@ -211,4 +215,14 @@
     margin: 0 1.5rem 1rem 0;
     display: block;
   }
+}
+
+/*//Customized Light/Dark /////////////*/
+.iconBlue,
+.textBlue {
+  color: #040182;
+}
+.dark .iconBlue,
+.dark .textBlue {
+  color: white;
 }

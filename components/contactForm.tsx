@@ -177,7 +177,7 @@ export function ContactForm() {
           type="submit"
           size="lg"
           disabled={isSubmitting}
-          className="hover:bg-primary/80"
+          variant="buttonBlue"
         >
           {isSubmitting ? "Sending..." : "Send Message"}
         </Button>

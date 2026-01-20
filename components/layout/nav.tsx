@@ -66,10 +66,10 @@ export function Nav({ className, children, id }: NavProps) {
             ))}
           </div>
 
-          <Button asChild className="hidden sm:flex">
+          <Button variant="buttonBlue" className="hidden sm:flex">
             <Link href="/contact">Contact</Link>
           </Button>
-          {/* <ThemeToggle /> */}
+          <ThemeToggle />
           <MobileNav />
         </div>
       </div>
