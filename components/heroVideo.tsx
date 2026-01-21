@@ -24,7 +24,7 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-6 pb-60 text-center sm:px-8 sm:pb-24 lg:px-12 lg:pb-45">
         <h1
-          className="text-balance text-7xl tracking-tight text-white sm:text-4xl md:text-5xl lg:text-7xl mt-1"
+          className="text-balance text-4xl tracking-tight text-white sm:text-4xl md:text-5xl lg:text-7xl mt-1"
           style={{
             textShadow: "2px 2px 4px rgba(0, 0, 0, 1)",
             fontFamily: "'Courier New', monospace",

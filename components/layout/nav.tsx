@@ -45,7 +45,7 @@ export function Nav({ className, children, id }: NavProps) {
           href="/"
         >
           {/* <PDFIcon className="text-foreground" /> */}
-          <Logo className="scale-200 iconBlue" />
+          <Logo className="scale-200 iconBlue ml-3 sm:ml-0" />
           <h2 className="hidden text-sm">{siteConfig.site_name}</h2>
         </Link>
 
@@ -65,8 +65,8 @@ export function Nav({ className, children, id }: NavProps) {
           <Button variant="buttonBlue" className="hidden sm:flex">
             <Link href="/contact">Contact</Link>
           </Button>
-          <ThemeToggle />
           <MobileNav />
+          <ThemeToggle />
         </div>
       </div>
     </nav>
