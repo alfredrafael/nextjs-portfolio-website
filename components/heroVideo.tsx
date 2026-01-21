@@ -12,6 +12,7 @@ export default function Hero() {
         {/* Video for desktop */}
         <video
           src="https://www.alfredorafael.com/wp-content/uploads/2023/12/hero-clip.mp4"
+          poster="http://www.alfredorafael.com/wp-content/uploads/2020/08/P1000149-scaled.jpg"
           className="hidden h-full w-full object-cover will-change-transform md:block"
           autoPlay
           loop
