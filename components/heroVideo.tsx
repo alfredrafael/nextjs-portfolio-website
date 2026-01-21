@@ -9,12 +9,19 @@ export default function Hero() {
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-background">
       {/* Background */}
       <div className="absolute inset-0 z-0">
+        {/* Video for desktop */}
         <video
           src="https://www.alfredorafael.com/wp-content/uploads/2023/12/hero-clip.mp4"
-          className="h-full w-full object-cover will-change-transform"
+          className="hidden h-full w-full object-cover will-change-transform md:block"
           autoPlay
           loop
           muted
+        />
+        {/* Image for mobile */}
+        <img
+          src="http://www.alfredorafael.com/wp-content/uploads/2026/01/pexels-life-of-pix-7974-scaled-e1769021899692.jpg"
+          alt="Hero background"
+          className="block h-full w-full object-cover md:hidden"
         />
       </div>
       {/* <div className="absolute inset-0 bg-linear-to-b from-transparent via-background/10 to-background" /> */}
