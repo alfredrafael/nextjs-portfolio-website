@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <div className="-mt-8">
+      <div className="-mt-6">
         <Services />
       </div>
       <About />

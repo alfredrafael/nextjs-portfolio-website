@@ -34,20 +34,20 @@ export default function Services() {
           <Service
             icon={<UXIcon />}
             title="User Experience Design"
-            description="Develop a modern, user-friendly and professional looking site that converts visitors into customers."
+            description="Develop a modern, professional looking website that converts visitors into customers."
           />
         </div>
         <div className="flex-1 md:border-r md:border-l">
           <Service
             icon={<SEOIcon />}
-            title="SEO Techniques"
+            title="SEO Performant Sites"
             description="Implement Search Engine Optimization (SEO) so that your site ranks well and users can find you, without ongoing fees."
           />
         </div>
         <div className="flex-1">
           <Service
             icon={<FastTruckIcon />}
-            title="Fast Performance"
+            title="Speed Optimization"
             description="Ensure your site loads quickly and efficiently, providing users with a seamless, professional experience."
           />
         </div>

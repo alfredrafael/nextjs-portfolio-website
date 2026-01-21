@@ -7,7 +7,7 @@ import { mainMenu } from "@/app/data/navsData";
 import { siteConfig } from "@/site.config";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import PDFIcon from "@/components/icons/pdfIcon";
+import Logo from "@/components/icons/logo";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 
 interface NavProps {
@@ -45,11 +45,7 @@ export function Nav({ className, children, id }: NavProps) {
           href="/"
         >
           {/* <PDFIcon className="text-foreground" /> */}
-          <img
-            src="http://www.alfredorafael.com/wp-content/uploads/2019/02/myLogo.png"
-            alt="Logo"
-            className="max-w-16 h-auto"
-          />
+          <Logo className="scale-200 iconBlue" />
           <h2 className="hidden text-sm">{siteConfig.site_name}</h2>
         </Link>
 
