@@ -1,7 +1,8 @@
 import { Section, Container } from "@/components/craft";
 import { contentMenu, mainMenu } from "@/app/data/navsData";
 import { siteConfig } from "@/site.config";
-import Logo from "@/public/logo.svg";
+// import Logo from "@/public/logo.svg";
+import Logo from "@/components/icons/logo";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,7 +10,7 @@ export function Footer() {
   return (
     <footer>
       <Section>
-        <Container className="grid md:grid-cols-[1.5fr_0.5fr_0.5fr] gap-12">
+        {/* <Container className="grid md:grid-cols-[1.5fr_0.5fr_0.5fr] gap-12">
           <div className="flex flex-col gap-6 not-prose">
             <Link href="/">
               <h3 className="sr-only">{siteConfig.site_name}</h3>
@@ -47,12 +48,16 @@ export function Footer() {
               </Link>
             ))}
           </div>
-        </Container>
+        </Container> */}
         <Container className="border-t not-prose flex flex-col md:flex-row md:gap-2 gap-6 justify-between md:items-center">
-          <p className="text-muted-foreground">
-            &copy; <a href="https://9d8.dev">9d8</a>. All rights reserved.
-            2025-present.
-          </p>
+          <span className="text-muted-foreground text-sm flex items-center gap-2">
+            &copy; <Logo />
+            <span className="text-xs">{new Date().getFullYear()}</span>
+            {/* {siteConfig.site_name}. */}
+          </span>
+          {/* <span className="text-muted-foreground text-sm">
+            All rights reserved.
+          </span> */}
         </Container>
       </Section>
     </footer>

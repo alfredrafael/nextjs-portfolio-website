@@ -18,16 +18,17 @@ export default function About() {
             className="circle-image w-38! h-38! sm:w-40! sm:h-40! md:w-48! md:h-48! lg:w-52! lg:h-52!"
           />
           <p>
-            Hi! I'm a US Army veteran, educator and a front end developer. I
-            create React.js and WordPress applications for your business or
-            organization. My experience coding responsive and engaging user
-            interfaces (from wireframe to deployment) and teamwork attitude are
-            my greatest assets. I look forward to combining my software
-            engineering skills with my teaching ability and experience. Welcome
-            to my website! Lorem Ipsum is simply dummy text of the printing and
-            typesetting industry. Lorem Ipsum has been the industry's standard
-            dummy text ever since the 1500s, when an unknown printer took a
-            galley of type and scrambled it to make a type specimen book.
+            Front-End Software Engineer with a strong foundation in modern
+            JavaScript frameworks and a growing focus on application
+            architecture and scalable systems. I design and implement robust UI
+            layers using React, Next.js, and TypeScript within headless and
+            API-driven ecosystems, emphasizing accessibility, performance, and
+            long-term maintainability. My experience spans enterprise
+            organizations such as Trane Technologies, MIT, and Merrill Lynch,
+            where I collaborate cross-functionally to translate complex
+            requirements into reliable digital products. Looking forward to new
+            challenges, I am eager to contribute to innovative projects that
+            prioritize user-centric design and cutting-edge web technologies.
           </p>
         </section>
       </Prose>

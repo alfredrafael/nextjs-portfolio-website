@@ -56,8 +56,10 @@ export function Experience() {
         </ol>
         <div className="mt-12">
           <a
-            href="/resume.pdf"
+            href="https://www.alfredorafael.com/wp-content/uploads/2025/12/Alfredo-R-Pabon-Resume-2026-.pdf"
             className="group inline-flex items-center font-semibold leading-tight text-foreground hover:text-primary"
+            target="_blank"
+            rel="noreferrer noopener"
           >
             View Full Résumé
             <ExternalLink className="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 motion-reduce:transition-none" />

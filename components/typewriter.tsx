@@ -55,6 +55,7 @@ const Typewriter = ({
         style={{
           opacity: cursorOn ? 1 : 0,
           transition: "opacity 120ms linear",
+          marginLeft: "-0.7rem",
         }}
         aria-hidden="true"
       >

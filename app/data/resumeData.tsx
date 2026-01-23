@@ -1,32 +1,4 @@
 import { Mail, Phone, MapPin, Clock, ExternalLink, Badge } from "lucide-react";
-
-export const contactData = [
-  {
-    icon: Phone,
-    label: "Phone",
-    value: "+1 (412) 320-9569",
-    href: "tel:+14123209569",
-    plusSignAndOnlyDashesValue: "+1-412-320-9569",
-  },
-  {
-    icon: Mail,
-    label: "Email",
-    value: "dacarchdesign@gmail.com",
-    href: "mailto:dacarchdesign@gmail.com",
-  },
-  {
-    icon: MapPin,
-    label: "Office",
-    value: "5767 75th Ave, Pinellas Park\n FL 33781",
-    href: "https://www.google.com/maps/place/Pinellas+Park,+FL/@27.8597714,-82.7524459,13z/data=!3m1!4b1!4m6!3m5!1s0x88c2e4eeef314f25:0x3f127ac896cd422d!8m2!3d27.8428025!4d-82.6995443!16zL20vMHJyMzQ?entry=ttu&g_ep=EgoyMDI2MDExMS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D",
-  },
-  {
-    icon: Clock,
-    label: "Hours",
-    value: "Mon - Fri: 9:00 AM - 6:00 PM\nSat: 10:00 AM - 4:00 PM",
-    href: null,
-  },
-];
 export const experienceData = [
   {
     period: "2022 — Present",
@@ -35,32 +7,25 @@ export const experienceData = [
     companyUrl: "https://trane.com/residential",
     description: (
       <>
-        <ul
-          style={{
-            listStyleType: "disc",
-            paddingLeft: "1rem",
-            marginTop: "1rem",
-          }}
-          className=" leading-relaxed"
-        >
-          <li className="mb-4">
-            Develop and implement reusable components using Next.js, React and
-            TypeScript in headless CMS environment.
+        <ul className="leading-relaxed resume-duties-list">
+          <li>
+            Develop and implement reusable components with React, Next.js, and
+            TypeScript in a headless CMS environment
           </li>
-          <li className="mb-4">
-            Collaborate with cross-functional teams with GIT for version
+          <li>
+            Collaborate with cross-functional teams using GIT for version
             control, JIRA for agile project management, and Figma for user
             interface (UI) design.
           </li>
-          <li className="mb-4">
-            Leaverage TailwindCSS to craft responsive and visually appealing
-            user interfaces while adhering to best practices and modern design
+          <li>
+            Leverage TailwindCSS to craft responsive and visually appealing user
+            interfaces while adhering to best practices and modern design
             principles.
           </li>
-          <li className="mb-4">
-            Enhance data-management with Advanced Custom Fields (ACF) and
-            optimize admin panel's UI, improving publishers' user experience
-            (UX).
+          <li>
+            Improve data management using Advanced Custom Fields (ACF),
+            streamline admin panel UI/UX for better usability, and develop
+            JavaScript integrations with GraphQL and RESTful APIs.
           </li>
         </ul>
       </>
@@ -74,73 +39,123 @@ export const experienceData = [
     companyUrl: "#",
     description: (
       <>
-        <ul
-          style={{
-            listStyleType: "disc",
-            paddingLeft: "1rem",
-            margin: "1rem 0",
-          }}
-          className=" leading-relaxed"
-        >
-          <li className="mb-4">
-            Develop and implement reusable components using Next.js, React and
-            TypeScript in headless CMS environment.
+        <ul className="leading-relaxed resume-duties-list">
+          <li>
+            Develop and enhance user interfaces using HTML5 and CSS, modernizing
+            legacy codebases while ensuring responsiveness and cross-browser
+            compatibility.
           </li>
-          <li className="mb-4">
-            Collaborate with cross-functional teams with GIT for version
-            control, JIRA for agile project management, and Figma for user
-            interface (UI) design.
+          <li>
+            Manage and optimize 30+ websites ensuring compliance with Section
+            508 accessibility standards and WCAG 2.1.
           </li>
-          <li className="mb-4">
-            Leaverage TailwindCSS to craft responsive and visually appealing
-            user interfaces while adhering to best practices and modern design
-            principles.
+          <li>
+            Create instructional content and train web administrators
+            one-on-one, translating non-technical requirements into solid
+            technical solutions.
           </li>
-          <li className="mb-4">
-            Enhance data-management with Advanced Custom Fields (ACF) and
-            optimize admin panel's UI, improving publishers' user experience
-            (UX).
+          <li>
+            Edit and create logos, banners, and other graphic elements using
+            Sketch, ensuring brand consistency and visual appeal.
           </li>
         </ul>
       </>
     ),
-    technologies: ["WordPress", "PHP", "ACF"],
+    technologies: ["WordPress", "PHP", "ACF", "Sketch"],
   },
   {
-    period: "2018 — 2020",
-    title: "Frontend Developer",
-    company: "CreativeStudio",
+    period: "2020 — 2021",
+    title: "Software Developer II",
+    company: "Merrill Lynch",
     companyUrl: "#",
-    description:
-      "Developed, maintained, and shipped production code for client websites. Worked alongside creative teams to bring designs to life with pixel-perfect implementation and smooth interactions.",
-    technologies: ["HTML", "CSS", "JavaScript", "Vue.js", "SCSS"],
+    description: (
+      <>
+        <ul className="leading-relaxed resume-duties-list">
+          <li>
+            Transformed UX designs into pixel-perfect, responsive landing pages
+            using vanilla JavaScript, jQuery, CSS, and HTML5.
+          </li>
+          <li>
+            Managed content for both private and client-facing applications in a
+            fast-paced environment using Documentum CMS.
+          </li>
+        </ul>
+      </>
+    ),
+    technologies: ["HTML", "CSS", "JavaScript"],
   },
   {
-    period: "2017 — 2018",
-    title: "Web Development Intern",
-    company: "StartupXYZ",
+    period: "2019 — 2020",
+    title: "Front End Developer",
+    company: "Softworld Consulting & Solutions",
     companyUrl: "#",
-    description:
-      "Assisted in the development of the company's main product. Learned industry best practices and modern development workflows while contributing to real-world projects.",
-    technologies: ["HTML", "CSS", "JavaScript", "Python", "Django"],
+    description: (
+      <>
+        <ul className="leading-relaxed resume-duties-list">
+          <li>
+            Led the design and development of modern, user-friendly websites
+            tailored to meet the marketing department's specific wants and needs
+          </li>
+          <li>
+            Enhanced legacy pages for responsiveness, user experience, and
+            cross-browser compatibility, and used jQuery for DOM manipulation.
+          </li>
+          <li>
+            Improved marketing department's performance by designing,
+            developing, and integrating iterable JSON databases for all company
+            products.
+          </li>
+        </ul>
+      </>
+    ),
+    technologies: ["HTML", "CSS", "JavaScript", "jQuery", "JSON"],
+  },
+  {
+    period: "2019",
+    title: "Software Developer",
+    company: "Commonwealth Financial",
+    companyUrl: "#",
+    description: (
+      <>
+        <ul className="leading-relaxed resume-duties-list">
+          <li>
+            Developed reusable components for internal applications using
+            React.js, ReactBootstrap, and styled-components.
+          </li>
+          <li>
+            Managed and optimized content workflows using ServiceNow and
+            OpenText CMS, while collaborating using GIT for robust version
+            control.
+          </li>
+        </ul>
+      </>
+    ),
+    technologies: [
+      "React",
+      "ReactBootstrap",
+      "styled-components",
+      "ServiceNow",
+      "OpenText CMS",
+      "GIT",
+    ],
   },
 ];
 export const educationData = [
   {
-    degree: "Master of Science in Computer Science",
-    school: "Stanford University",
-    schoolUrl: "#",
-    period: "2015 — 2017",
+    degree: "Web Development",
+    school: "Antioch University, LA",
+    schoolUrl: "https://www.antioch.edu/los-angeles/",
+    period: "2016 — 2017",
     description:
-      "Specialized in Human-Computer Interaction and Machine Learning. Thesis on accessible web interfaces.",
+      "Accelerated Software Development Program. Focused on full-stack web development with MERN stack.",
   },
   {
-    degree: "Bachelor of Science in Software Engineering",
-    school: "MIT",
-    schoolUrl: "#",
-    period: "2011 — 2015",
+    degree: "Master of Education",
+    school: "University of Oulu, Finland",
+    schoolUrl: "https://www.oulu.fi/en",
+    period: "2011 — 2013",
     description:
-      "Dean's List. Active member of the Computer Science Society. Led multiple hackathon-winning teams.",
+      "Education & Globalization Program. Thesis on History Education and Digital Learning Tools.",
   },
 ];
 export const resumeNavItems = [
@@ -187,19 +202,19 @@ export const projectsData = [
 export const skillsData = [
   {
     title: "Languages",
-    skills: ["TypeScript", "JavaScript", "Python", "Go", "SQL", "HTML", "CSS"],
+    skills: ["TypeScript", "JavaScript", "PHP"],
   },
   {
-    title: "Frontend",
-    skills: ["React", "Next.js", "Vue.js", "Tailwind CSS", "Redux", "GraphQL"],
+    title: "Frameworks",
+    skills: ["React.js", "Next.js", "jQuery", "GraphQL"],
   },
   {
-    title: "Backend",
-    skills: ["Node.js", "Express", "Django", "FastAPI", "PostgreSQL", "Redis"],
+    title: "Style & Design",
+    skills: ["CSS", "Tailwind CSS", "Styled Components", "Sketch", "Bootstrap"],
   },
   {
     title: "Tools & Platforms",
-    skills: ["Git", "Docker", "AWS", "Vercel", "Figma", "Linear"],
+    skills: ["Git", "Docker", "Vercel", "Figma", "JIRA", "WordPress"],
   },
 ];
 export const testimonialsData = [

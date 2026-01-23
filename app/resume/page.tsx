@@ -29,7 +29,7 @@ export default function ResumePage() {
             {/* <Projects /> */}
             <Skills />
             <Education />
-            <Footer />
+            {/* <Footer /> */}
           </main>
         </div>
       </div>

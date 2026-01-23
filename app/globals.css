@@ -226,3 +226,17 @@
 .dark .textBlue {
   color: white;
 }
+
+/*// Resume ////////////////// */
+.resume-duties-list li {
+  margin-bottom: 0.75rem;
+  list-style-type: disc;
+  padding-left: 1rem;
+  margin-top: 1rem;
+}
+.resume-duties-list {
+  margin-top: 1rem;
+}
+.resume-duties-list li:last-child {
+  margin-bottom: 0;
+}

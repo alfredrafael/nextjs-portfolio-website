@@ -88,7 +88,7 @@ export function ContactForm() {
           {"Send a message"}
         </h2>
         <p className="mt-3 text-pretty leading-relaxed text-muted-foreground">
-          {"Fill out the form below and we'll get back to you within 24 hours."}
+          {"Fill out the form below and I'll get back to you within 24 hours."}
         </p>
       </div>
 

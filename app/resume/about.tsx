@@ -11,56 +11,18 @@ export function About() {
       </div>
       <div className="space-y-4 text-base text-foreground md:leading-8">
         <p>
-          I&apos;m a developer passionate about crafting accessible,
-          pixel-perfect user interfaces that blend thoughtful design with robust
-          engineering. My favorite work lies at the intersection of design and
-          development, creating experiences that not only look great but are
-          meticulously built for performance and usability.
+          Front-End Software Engineer with experience building production-grade
+          React and Next.js applications in enterprise, headless CMS, and
+          design-driven environments.{" "}
         </p>
         <p>
-          Currently, I&apos;m a Senior Software Engineer at{" "}
-          <a
-            href="#"
-            className="font-medium text-foreground hover:text-primary"
-          >
-            TechCorp
-          </a>
-          , specializing in full-stack development. I contribute to building and
-          maintaining the core platform that powers millions of users, ensuring
-          our applications meet the highest standards of quality and
-          accessibility.
+          I specialize in reusable component architecture, accessibility-first
+          development (WCAG 2.1 / Section 508), and modern UI systems powered by
+          TypeScript, Tailwind CSS, GraphQL, and REST APIs. I've worked across
+          regulated, large-scale organizations including Trane Technologies,
+          MIT, and Merrill Lynch, delivering maintainable solutions that scale
+          across teams and products.
         </p>
-        {/* <p>
-          In the past, I&apos;ve had the opportunity to develop software across
-          a variety of settings — from{" "}
-          <a
-            href="#"
-            className="font-medium text-foreground hover:text-primary"
-          >
-            innovative startups
-          </a>{" "}
-          and{" "}
-          <a
-            href="#"
-            className="font-medium text-foreground hover:text-primary"
-          >
-            tech giants
-          </a>{" "}
-          to{" "}
-          <a
-            href="#"
-            className="font-medium text-foreground hover:text-primary"
-          >
-            creative agencies
-          </a>
-          . I also enjoy sharing knowledge through technical writing and
-          open-source contributions.
-        </p>
-        <p>
-          When I&apos;m not at the computer, I&apos;m usually exploring hiking
-          trails, experimenting with new recipes, or diving into a good sci-fi
-          novel.
-        </p> */}
       </div>
     </section>
   );
