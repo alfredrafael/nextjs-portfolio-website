@@ -16,6 +16,7 @@ import Services from "@/components/services";
 import About from "@/components/about";
 import Ribbon from "@/components/ribbon";
 import ContactInfo from "@/components/contactInfo";
+import Projects from "@/components/projects";
 
 export default function Home() {
   return (
@@ -25,6 +26,9 @@ export default function Home() {
         <Services />
       </div>
       <About />
+      <div className="max-w-[75%] mx-auto">
+        <Projects />
+      </div>
 
       <Ribbon
         ribbonImage="http://www.alfredorafael.com/wp-content/uploads/2020/05/computer-background.png"
@@ -40,6 +44,14 @@ export default function Home() {
             <ContactInfo />
           </div>
         </div>
+        <ul>
+          <li className="text-sm text-muted-foreground">
+            Projects (project-card + modal + layout)
+          </li>
+          <li className="text-sm text-muted-foreground"></li>{" "}
+          <li className="text-sm text-muted-foreground"></li>{" "}
+          <li className="text-sm text-muted-foreground"></li>
+        </ul>
       </Container>
     </>
   );
