@@ -19,11 +19,17 @@ const font = FontSans({
 export const metadata: Metadata = {
   title: "Alfredo Rafael - Software Engineer",
   description:
-    "Portfolio website of Alfredo Rafael, a software engineer specializing in web development and accessibility.",
+    "Portfolio website of Alfredo Rafael; software engineer specializing in web development and accessibility.",
   metadataBase: new URL(siteConfig.site_domain),
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
@@ -33,7 +39,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head />
       <body
         className={cn("min-h-screen font-sans antialiased", font.variable)}
         suppressHydrationWarning
