@@ -1,8 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { Section, Prose } from "@/components/craft";
+import { ExternalLink } from "lucide-react";
 import Modal from "@/components/modal";
 
 // Define the project data type
@@ -33,7 +35,7 @@ const projectsData: Project[] = [
     imageUrl:
       "http://www.alfredorafael.com/wp-content/uploads/2026/01/TRN-Project.png",
     fullDescription:
-      "As a software engineer at Trane Technologies, I work with a team of desginers and fellow developers to code stateful and stateless components using TypeScript and Next.js. We use TailwindCSS in a headless CMS environment powered by WordPress. In this role I also leverage tools such as GIT, JIRA, Figma, and Asana in several team-based, enterprise scale applications.",
+      "As a software engineer at Trane Technologies, I work with a team of designers and developers coding stateful and stateless components using TypeScript and Next.js. We use TailwindCSS in a headless CMS environment powered by WordPress. We also leverage tools such as GIT, JIRA, and Figma, among many others.",
     details: {
       liveUrl: "https://trane.com/residential",
       github: "Private Repository",
@@ -43,7 +45,14 @@ const projectsData: Project[] = [
       "https://dacarch.com/wp-content/uploads/2026/01/project-rendering.png",
       // Add more images as needed
     ],
-    technologies: ["WordPress", "HTML", "CSS"],
+    technologies: [
+      "WordPress",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "React.js",
+      "GraphQL",
+    ],
   },
   {
     id: "AMS",
@@ -52,13 +61,20 @@ const projectsData: Project[] = [
     imageUrl:
       "http://www.alfredorafael.com/wp-content/uploads/2026/01/AMS-Project2.png",
     fullDescription:
-      "As a software engineer at Trane Technologies, I work with a team of desginers and fellow developers to code stateful and stateless components using TypeScript and Next.js. We use TailwindCSS in a headless CMS environment powered by WordPress. In this role I also leverage tools such as GIT, JIRA, Figma, and Asana in several team-based, enterprise scale applications.",
+      "As a software engineer at Trane Technologies, I work with a team of designers and developers coding stateful and stateless components using TypeScript and Next.js. We use TailwindCSS in a headless CMS environment powered by WordPress. We also leverage tools such as GIT, JIRA, and Figma, among many others.",
     details: {
       liveUrl: "https://www.americanstandardair.com/",
       github: "1,200 sq ft",
       type: "Commercial",
     },
-    technologies: ["React", "TypeScript", "Tailwind CSS"],
+    technologies: [
+      "WordPress",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "React.js",
+      "GraphQL",
+    ],
   },
   {
     id: "MIT",
@@ -67,13 +83,13 @@ const projectsData: Project[] = [
     imageUrl:
       "http://www.alfredorafael.com/wp-content/uploads/2026/01/MIT-Project.png",
     fullDescription:
-      "At MIT's department of Chemical Engineering I code, redesign, and update webpages within the M.I.T's Chemical Engineering department. Wordpress is a powerful tool to develop enterprise level applications, allowing clients edit their website's content thru a wysiwyg editor. I use custom HTML, vanilla CSS, use Sketch to create/modify logos, and additional Worpdress pluggings to enhance user experience.",
+      "At MIT's department of Chemical Engineering I code, redesign, and update 30+ webpages within MIT's Department of Chemical Engineering. Wordpress allows staff and faculty to edit their website's  thru a wysiwyg editor. In addition to HTML/CSS, I create/modify logos with Sketch, and use Wordpress plugins to enhance user experience.",
     details: {
       liveUrl: "https://cheme.mit.edu/",
       github: "Private Repository",
       type: "Part-time Work",
     },
-    technologies: ["React", "TypeScript", "Tailwind CSS"],
+    technologies: ["WordPress", "HTML/CSS", "PHP", "Sketch"],
   },
   {
     id: "REL",
@@ -88,7 +104,7 @@ const projectsData: Project[] = [
       github: "",
       type: "Residential",
     },
-    technologies: ["React", "TypeScript", "Tailwind CSS"],
+    technologies: ["React.js", "React-Bootstrap", "EmailJS"],
   },
   {
     id: "ML",
@@ -103,7 +119,7 @@ const projectsData: Project[] = [
       github: "",
       type: "Contract Work",
     },
-    technologies: ["React", "TypeScript", "Tailwind CSS"],
+    technologies: ["HTML5", "CSS", "jQuery", "JavaScript"],
   },
   {
     id: "DAC",
@@ -118,7 +134,14 @@ const projectsData: Project[] = [
       github: "",
       type: "Residential",
     },
-    technologies: ["React", "TypeScript", "Tailwind CSS"],
+    technologies: [
+      "WordPress",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "React.js",
+      "GraphQL",
+    ],
   },
 ];
 
@@ -203,14 +226,17 @@ function ProjectModalContent({ project }: { project: Project }) {
               </div>
             ))}
         </div>
-        <a
-          className="font-medium text-blue-700"
-          href={project.details.liveUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Live Url
-        </a>
+        <div className="flex flex-col md:flex-row md:items-center gap-2 shrink-0 -md:mt-7">
+          <a
+            className="font-medium text-blue-700 flex items-center"
+            href={project.details.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="mt-1">Live Url</span> &nbsp;
+            <ExternalLink />
+          </a>
+        </div>
       </div>
 
       {/* Project Details Grid */}
@@ -283,35 +309,13 @@ function ProjectModalContent({ project }: { project: Project }) {
 
       {/* Full Description */}
       <div>
-        <h4 className="text-sm font-semibold text-slate-900 mb-2">
+        <h2 className="font-semibold text-slate-900 mb-2">
           About This Project
-        </h4>
+        </h2>
         <p className="text-slate-700 leading-relaxed">
           {project.fullDescription}
         </p>
       </div>
-
-      {/* Additional Gallery (if available) */}
-      {project.gallery && project.gallery.length > 1 && (
-        <div>
-          <h4 className="text-sm font-semibold text-slate-900 mb-3">Gallery</h4>
-          <div className="grid grid-cols-2 gap-3">
-            {project.gallery.slice(1).map((img, idx) => (
-              <div
-                key={idx}
-                className="relative aspect-video rounded-md overflow-hidden"
-              >
-                <Image
-                  src={img}
-                  alt={`${project.title} - Image ${idx + 2}`}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   );
 }
