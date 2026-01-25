@@ -26,9 +26,8 @@ export default function Home() {
         <Services />
       </div>
       <About />
-      <div className="max-w-[75%] mx-auto">
-        <Projects />
-      </div>
+      <hr className="max-w-[70%] mx-auto" />
+      <Projects />
 
       <Ribbon
         ribbonImage="http://www.alfredorafael.com/wp-content/uploads/2020/05/computer-background.png"
@@ -44,14 +43,13 @@ export default function Home() {
             <ContactInfo />
           </div>
         </div>
+        {/* 
+        TO DO
         <ul>
-          <li className="text-sm text-muted-foreground">
-            Projects (project-card + modal + layout)
-          </li>
-          <li className="text-sm text-muted-foreground"></li>{" "}
-          <li className="text-sm text-muted-foreground"></li>{" "}
-          <li className="text-sm text-muted-foreground"></li>
-        </ul>
+          <li className="text-sm text-muted-foreground">Schema</li>{" "}
+          <li className="text-sm text-muted-foreground">Toastify</li>{" "}
+          <li className="text-sm text-muted-foreground">Analytics</li>
+        </ul> */}
       </Container>
     </>
   );

@@ -28,7 +28,7 @@ function Service({
 export default function Services() {
   return (
     // <Section className="bg-accent/50">
-    <Section className="bg-linear-to-b from-transparent via-accent/50 to-accent/50 mb-3">
+    <Section className="services-gradient mb-3">
       <div className="xl:flex px-6 lg:px-36">
         <div className="flex-1">
           <Service

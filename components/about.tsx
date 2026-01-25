@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function About() {
   return (
     <Container className="mt-0 mb-4">
-      <Prose className="pb-8">
+      <Prose className="pb-8 text-center">
         <h2>About Me</h2>
       </Prose>
 
@@ -23,12 +23,15 @@ export default function About() {
             architecture and scalable systems. I design and implement robust UI
             layers using React, Next.js, and TypeScript within headless and
             API-driven ecosystems, emphasizing accessibility, performance, and
-            long-term maintainability. My experience spans enterprise
-            organizations such as Trane Technologies, MIT, and Merrill Lynch,
-            where I collaborate cross-functionally to translate complex
-            requirements into reliable digital products. Looking forward to new
-            challenges, I am eager to contribute to innovative projects that
-            prioritize user-centric design and cutting-edge web technologies.
+            long-term maintainability.{" "}
+          </p>
+          <p>
+            My experience spans enterprise organizations such as Trane
+            Technologies, MIT, and Merrill Lynch, where I collaborate
+            cross-functionally to translate complex requirements into reliable
+            digital products. Looking forward to new challenges, I am eager to
+            contribute to innovative projects that prioritize user-centric
+            design and cutting-edge web technologies.
           </p>
         </section>
       </Prose>

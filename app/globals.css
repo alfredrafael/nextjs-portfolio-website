@@ -179,7 +179,7 @@
 /* Custom Styles */
 
 /*//Hero /////////////*/
-.hero-gradient {
+/* .hero-gradient {
   position: absolute;
   inset: 0;
 
@@ -193,6 +193,31 @@
   );
 
   pointer-events: none;
+} */
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+    rgb(0 0 0 / 35%) 0%,
+    rgb(0 0 0 / 32%) 10%,
+    rgb(0 0 0 / 28%) 20%,
+    rgb(0 0 0 / 22%) 30%,
+    rgb(0 0 0 / 16%) 40%,
+    rgb(0 0 0 / 10%) 50%,
+    rgb(0 0 0 / 5%) 60%,
+    rgb(0 0 0 / 0%) 70%,
+
+    /* The invisible pivot point */ /* Bottom: White Fading In */
+    rgb(255 255 255 / 4%) 76%,
+    rgb(255 255 255 / 12%) 82%,
+    rgb(255 255 255 / 28%) 88%,
+    rgb(255 255 255 / 55%) 93%,
+    rgb(255 255 255 / 85%) 97%,
+    #fafafa 100%
+  );
+  pointer-events: none;
 }
 
 .dark .hero-gradient {
@@ -204,6 +229,16 @@
     rgb(10 10 10 / 30%) 50%,
     rgb(10 10 10) 100%
   );
+}
+
+/*// Services Gradient //////// */
+.services-gradient {
+  background: linear-gradient(to bottom, #fafafa);
+  pointer-events: none;
+}
+
+.dark .services-gradient {
+  background: linear-gradient(to bottom, #0a0a0a 0%, #181818 100%);
 }
 
 /*//About /////////////*/

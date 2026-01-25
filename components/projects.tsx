@@ -10,79 +10,115 @@ type Project = {
   id: string;
   title: string;
   description: string;
-  location: string;
   imageUrl: string;
   imageAlt?: string;
+  innerImageUrl?: string;
   // Extended data for modal
   fullDescription: string;
   details: {
-    year?: string;
-    size?: string;
+    liveUrl?: string;
+    github?: string;
     type?: string;
-    status?: string;
   };
   gallery?: string[]; // Additional images
+  technologies?: string[];
 };
 
 // Your project data
 const projectsData: Project[] = [
   {
-    id: "barndominium",
-    title: "N. Ave. Barndominium",
-    description: "Ligonier, Pennsylvania",
-    location: "Ligonier, Pennsylvania",
+    id: "TRN",
+    title: "Trane Residential",
+    description: "",
     imageUrl:
-      "https://www.alfredorafael.com/wp-content/uploads/2024/02/CodeSample1.png",
+      "http://www.alfredorafael.com/wp-content/uploads/2026/01/TRN-Project.png",
     fullDescription:
-      "A modern barndominium combining rustic charm with contemporary design. This project features open-concept living spaces, high ceilings, and sustainable building practices.",
+      "As a software engineer at Trane Technologies, I work with a team of desginers and fellow developers to code stateful and stateless components using TypeScript and Next.js. We use TailwindCSS in a headless CMS environment powered by WordPress. In this role I also leverage tools such as GIT, JIRA, Figma, and Asana in several team-based, enterprise scale applications.",
     details: {
-      year: "2025",
-      size: "3,500 sq ft",
-      type: "Residential",
-      status: "Completed",
+      liveUrl: "https://trane.com/residential",
+      github: "Private Repository",
+      type: "Full Time Job",
     },
     gallery: [
       "https://dacarch.com/wp-content/uploads/2026/01/project-rendering.png",
       // Add more images as needed
     ],
+    technologies: ["WordPress", "HTML", "CSS"],
   },
   {
-    id: "crispy-cones",
-    title: "Crispy Cones",
-    description: "Clearwater, Florida",
-    location: "Clearwater, Florida",
+    id: "AMS",
+    title: "American Standard Air",
+    description: "",
     imageUrl:
-      "https://dacarch.com/wp-content/uploads/2026/01/Crispy-Cone-Project-1-scaled.jpg",
+      "http://www.alfredorafael.com/wp-content/uploads/2026/01/AMS-Project2.png",
     fullDescription:
-      "A vibrant commercial space designed for a specialty dessert shop. The design emphasizes customer flow, brand identity, and an inviting atmosphere.",
+      "As a software engineer at Trane Technologies, I work with a team of desginers and fellow developers to code stateful and stateless components using TypeScript and Next.js. We use TailwindCSS in a headless CMS environment powered by WordPress. In this role I also leverage tools such as GIT, JIRA, Figma, and Asana in several team-based, enterprise scale applications.",
     details: {
-      year: "2024",
-      size: "1,200 sq ft",
+      liveUrl: "https://www.americanstandardair.com/",
+      github: "1,200 sq ft",
       type: "Commercial",
-      status: "Completed",
     },
-    gallery: [
-      "https://dacarch.com/wp-content/uploads/2026/01/Crispy-Cone-Project-1-scaled.jpg",
-    ],
+    technologies: ["React", "TypeScript", "Tailwind CSS"],
   },
   {
-    id: "wright-residence",
-    title: "Wright Residence",
+    id: "MIT",
+    title: "MIT ChemE",
     description: "Dunedin, Florida",
-    location: "Dunedin, Florida",
     imageUrl:
-      "https://dacarch.com/wp-content/uploads/2026/01/Front-render-.jpeg",
+      "http://www.alfredorafael.com/wp-content/uploads/2026/01/MIT-Project.png",
     fullDescription:
-      "A coastal residence featuring clean lines, natural light, and indoor-outdoor living spaces perfect for the Florida climate.",
+      "At MIT's department of Chemical Engineering I code, redesign, and update webpages within the M.I.T's Chemical Engineering department. Wordpress is a powerful tool to develop enterprise level applications, allowing clients edit their website's content thru a wysiwyg editor. I use custom HTML, vanilla CSS, use Sketch to create/modify logos, and additional Worpdress pluggings to enhance user experience.",
     details: {
-      year: "2025",
-      size: "2,800 sq ft",
-      type: "Residential",
-      status: "In Progress",
+      liveUrl: "https://cheme.mit.edu/",
+      github: "Private Repository",
+      type: "Part-time Work",
     },
-    gallery: [
-      "https://dacarch.com/wp-content/uploads/2026/01/Front-render-.jpeg",
-    ],
+    technologies: ["React", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    id: "REL",
+    title: "Relata US",
+    description: "Dunedin, Florida",
+    imageUrl:
+      "http://www.alfredorafael.com/wp-content/uploads/2026/01/REL-Project.png",
+    fullDescription:
+      "I developed this web-application with React.js, React-Bootsrap and Email-js for its contact funcionality. Relata is a digital media and marketing agency aimed at building peace and understanding, promoting dialogue, and interconnectedness for nonprofits, NGOs, labor organizations, as well as houses of worship, small businesses and entrepreneurs.",
+    details: {
+      liveUrl: "https://relata.us/",
+      github: "",
+      type: "Residential",
+    },
+    technologies: ["React", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    id: "ML",
+    title: "Merrill Lynch - BofA",
+    description: "",
+    imageUrl:
+      "http://www.alfredorafael.com/wp-content/uploads/2026/01/ML-Project2.png",
+    fullDescription:
+      "At Merrill Lynch of Bank of America I developed webpages using HTML5, vanilla CSS, vanilla-JS and jQuery. When I am was coding + assisting the creation of new landing pages, I was updating time-sensitive content with the company's CMS, and keeping track of multiple updates using Jira's Kanban board accross several business owners, coworkers and other stakeholders.",
+    details: {
+      liveUrl: "https://www.merrilledge.com/education-savings/529",
+      github: "",
+      type: "Contract Work",
+    },
+    technologies: ["React", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    id: "DAC",
+    title: "DAC Architects",
+    description: "Dunedin, Florida",
+    imageUrl:
+      "http://www.alfredorafael.com/wp-content/uploads/2026/01/DAC-Project.png",
+    fullDescription:
+      "A modern Next.js application built for an architecture firm, showcasing their portfolio and services with a sleek, user-friendly design.",
+    details: {
+      liveUrl: "https://dacarch.com/",
+      github: "",
+      type: "Residential",
+    },
+    technologies: ["React", "TypeScript", "Tailwind CSS"],
   },
 ];
 
@@ -92,12 +128,14 @@ function ProjectCard({
   imageUrl,
   imageAlt = title,
   onClick,
+  technologies,
 }: {
   title: string;
   description: string;
   imageUrl: string;
   imageAlt?: string;
   onClick?: () => void;
+  technologies?: string[];
 }) {
   return (
     <div
@@ -113,7 +151,7 @@ function ProjectCard({
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
         {/* Dark overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/60 via-black/40 to-black/5" />
       </div>
 
       {/* Overlay text */}
@@ -121,9 +159,21 @@ function ProjectCard({
         <h3 className="mb-2 text-xl font-bold leading-tight text-white">
           {title}
         </h3>
-        <p className="text-sm leading-relaxed text-white text-pretty">
+        {/* <p className="text-sm leading-relaxed text-white text-pretty">
           {description}
-        </p>
+        </p> */}
+        {/* {technologies && technologies.join(", ")} */}
+        {/* <div className="flex flex-wrap gap-2 mt-3">
+          {technologies &&
+            technologies.map((tech) => (
+              <div
+                key={tech}
+                className="rounded-full bg-accent/30 px-3 py-1 font-semibold text-xs text-white"
+              >
+                {tech}
+              </div>
+            ))}
+        </div> */}
       </div>
     </div>
   );
@@ -133,7 +183,7 @@ function ProjectModalContent({ project }: { project: Project }) {
   return (
     <div className="space-y-6">
       {/* Main Image */}
-      <div className="relative w-full aspect-video rounded-lg overflow-hidden">
+      <div className="relative w-full aspect-video rounded-lg overflow-hidden border">
         <Image
           src={project.imageUrl}
           alt={project.imageAlt || project.title}
@@ -141,23 +191,84 @@ function ProjectModalContent({ project }: { project: Project }) {
           className="object-cover"
         />
       </div>
+      <div className="flex -mt-[1.5rem] justify-between pr-2">
+        <div className="flex flex-wrap gap-2 mt-3">
+          {project.technologies &&
+            project.technologies.map((tech) => (
+              <div
+                key={tech}
+                className="rounded-full bg-accent px-3 py-1 font-semibold text-xs "
+              >
+                {tech}
+              </div>
+            ))}
+        </div>
+        <a
+          className="font-medium text-blue-700"
+          href={project.details.liveUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Live Url
+        </a>
+      </div>
 
       {/* Project Details Grid */}
-      <div className="grid grid-cols-2 gap-4 py-4 border-y border-slate-200">
-        {project.details.year && (
+      {/* <div className="grid grid-cols-2 gap-4 py-4 border-y border-slate-200">
+        {project.details.liveUrl && (
           <div>
             <div className="text-xs text-slate-500 uppercase tracking-wider">
-              Year
+              Live URL
             </div>
-            <div className="font-medium">{project.details.year}</div>
+            <a
+              href={project.details.liveUrl}
+              className="font-medium text-blue-700"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {project.details.liveUrl}
+            </a>
           </div>
         )}
-        {project.details.size && (
+        {project.details.github !== "Private Repository" ? (
           <div>
             <div className="text-xs text-slate-500 uppercase tracking-wider">
-              Size
+              Github Repo
             </div>
-            <div className="font-medium">{project.details.size}</div>
+            <a
+              href={project.details.github}
+              className="font-medium text-blue-700"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {project.details.github}
+            </a>
+          </div>
+        ) : (
+          <div>
+            <div className="text-xs text-slate-500 uppercase tracking-wider">
+              Github Repo
+            </div>
+            <div className="font-slim">Private Repository</div>
+          </div>
+        )}
+
+        {project.technologies && (
+          <div>
+            <div className="text-xs text-slate-500 uppercase tracking-wider">
+              Technologies
+            </div>
+            <div className="flex flex-wrap gap-2 mt-2">
+              {project.technologies &&
+                project.technologies.map((tech) => (
+                  <div
+                    key={tech}
+                    className="rounded-full bg-accent px-3 py-1 font-semibold text-xs flex"
+                  >
+                    {tech}
+                  </div>
+                ))}
+            </div>
           </div>
         )}
         {project.details.type && (
@@ -165,24 +276,10 @@ function ProjectModalContent({ project }: { project: Project }) {
             <div className="text-xs text-slate-500 uppercase tracking-wider">
               Type
             </div>
-            <div className="font-medium">{project.details.type}</div>
+            <div className="font-slim">{project.details.type}</div>
           </div>
         )}
-        {project.details.status && (
-          <div>
-            <div className="text-xs text-slate-500 uppercase tracking-wider">
-              Status
-            </div>
-            <div className="font-medium">{project.details.status}</div>
-          </div>
-        )}
-      </div>
-
-      {/* Location */}
-      <div>
-        <h4 className="text-sm font-semibold text-slate-900 mb-1">Location</h4>
-        <p className="text-slate-700">{project.location}</p>
-      </div>
+      </div> */}
 
       {/* Full Description */}
       <div>
@@ -234,8 +331,8 @@ export default function Projects() {
   };
 
   return (
-    <Section className="px-6 lg:px-28 2xl:px-48 xl:px-36 mb-18" id="projects">
-      <Prose className="pb-8">
+    <Section className="px-6 max-w-6xl mx-auto mb-18" id="projects">
+      <Prose className="pb-8 text-center">
         <h2>Previous Work</h2>
       </Prose>
       <div className="grid md:grid-cols-3 gap-4 mt-6">
@@ -247,6 +344,7 @@ export default function Projects() {
             imageUrl={project.imageUrl}
             imageAlt={project.imageAlt}
             onClick={() => handleProjectClick(project)}
+            technologies={project.technologies}
           />
         ))}
       </div>

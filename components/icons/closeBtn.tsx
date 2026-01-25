@@ -1,5 +1,3 @@
-import React from "react";
-
 const CloseBtn = ({ className }: { className?: string }) => {
   return (
     <svg

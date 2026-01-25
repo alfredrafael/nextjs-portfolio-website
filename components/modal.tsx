@@ -27,6 +27,24 @@ export default function Modal({
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [open, onClose]);
 
+  // Lock page scroll while modal is open
+  useEffect(() => {
+    if (!open) return;
+
+    const { overflow, paddingRight } = document.body.style;
+    const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+    document.body.style.overflow = "hidden";
+    if (scrollBarWidth > 0) {
+      document.body.style.paddingRight = `${scrollBarWidth}px`;
+    }
+
+    return () => {
+      document.body.style.overflow = overflow;
+      document.body.style.paddingRight = paddingRight;
+    };
+  }, [open]);
+
   return (
     // backdrop
     <div
@@ -63,7 +81,7 @@ export default function Modal({
             <CloseBtn className="cursor-pointer min-h-5 min-w-5" />
           </button>
         </div>
-        <hr className="border-slate-200 mb-3" />
+        {/* <hr className="border-slate-200 mb-3" /> */}
         <div className="text-slate-700 leading-8 border-b pb-4 text-base flex-1 overflow-auto">
           {children}
         </div>
