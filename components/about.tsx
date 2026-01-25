@@ -25,7 +25,7 @@ export default function About() {
             API-driven ecosystems, emphasizing accessibility, performance, and
             long-term maintainability.{" "}
           </p>
-          <p>
+          <p className="hidden md:block">
             My experience spans enterprise organizations such as Trane
             Technologies, MIT, and Merrill Lynch, where I collaborate
             cross-functionally to translate complex requirements into reliable

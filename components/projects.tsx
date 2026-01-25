@@ -104,7 +104,13 @@ const projectsData: Project[] = [
       github: "",
       type: "Residential",
     },
-    technologies: ["React.js", "React-Bootstrap", "EmailJS"],
+    technologies: [
+      "React.js",
+      "React-Bootstrap",
+      "EmailJS",
+      "jQuery",
+      "Reactstrap",
+    ],
   },
   {
     id: "ML",
@@ -119,7 +125,14 @@ const projectsData: Project[] = [
       github: "",
       type: "Contract Work",
     },
-    technologies: ["HTML5", "CSS", "jQuery", "JavaScript"],
+    technologies: [
+      "HTML5",
+      "CSS",
+      "jQuery",
+      "JavaScript",
+      "Jira",
+      "Documentum CMS",
+    ],
   },
   {
     id: "DAC",
@@ -220,15 +233,15 @@ function ProjectModalContent({ project }: { project: Project }) {
             project.technologies.map((tech) => (
               <div
                 key={tech}
-                className="rounded-full bg-accent px-3 py-1 font-semibold text-xs "
+                className="rounded-full bg-primary/10 text-primary px-3 py-1 text-xs font-semibold hover:bg-primary/20"
               >
                 {tech}
               </div>
             ))}
         </div>
-        <div className="flex flex-col md:flex-row md:items-center gap-2 shrink-0 -md:mt-7">
+        <div className="flex flex-col md:flex-row md:items-center gap-2 shrink-0 md:-mt-7">
           <a
-            className="font-medium text-blue-700 flex items-center"
+            className="font-medium textBlue flex items-center"
             href={project.details.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -309,10 +322,10 @@ function ProjectModalContent({ project }: { project: Project }) {
 
       {/* Full Description */}
       <div>
-        <h2 className="font-semibold text-slate-900 mb-2">
+        <h2 className="font-semibold text-accent-foreground mb-2">
           About This Project
         </h2>
-        <p className="text-slate-700 leading-relaxed">
+        <p className="text-accent-foreground leading-relaxed">
           {project.fullDescription}
         </p>
       </div>

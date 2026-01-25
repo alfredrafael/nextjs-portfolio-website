@@ -2,6 +2,7 @@
 
 import React, { useEffect } from "react";
 import CloseBtn from "./icons/closeBtn";
+import { Button } from "./ui/button";
 
 export default function Modal({
   open,
@@ -32,7 +33,8 @@ export default function Modal({
     if (!open) return;
 
     const { overflow, paddingRight } = document.body.style;
-    const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+    const scrollBarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
 
     document.body.style.overflow = "hidden";
     if (scrollBarWidth > 0) {
@@ -58,8 +60,8 @@ export default function Modal({
       <div
         onClick={(e) => e.stopPropagation()}
         className={`
-          relative bg-white rounded-xl shadow-2xl border border-slate-200
-          p-6 md:p-8 transition-all w-full mx-3 md:mx-0 md:max-w-2xl
+          relative bg-linear-to-b from-accent to-background rounded-xl shadow-2xl border border-accent-foreground
+          p-6 md:p-8 transition-all w-full mx-3 md:mx-0 md:max-w-xl
           ${open ? "scale-100 opacity-100" : "scale-110 opacity-0"}
           flex flex-col
           max-h-[85vh] overflow-hidden
@@ -70,7 +72,7 @@ export default function Modal({
         }}
       >
         <div className="flex justify-between mb-3 md:mt-2 mt-0.5">
-          <div className="font-serif text-lg md:text-xl text-slate-900 -mt-3 md:-mt-6">
+          <div className="font-serif text-lg md:text-xl text-accent-foreground -mt-3 md:-mt-6">
             {title}
           </div>
           <button
@@ -82,16 +84,13 @@ export default function Modal({
           </button>
         </div>
         {/* <hr className="border-slate-200 mb-3" /> */}
-        <div className="text-slate-700 leading-8 border-b pb-4 text-base flex-1 overflow-auto">
+        <div className="text-accent-foreground leading-8 border-b pb-4 text-base flex-1 overflow-auto">
           {children}
         </div>
         <div className="mt-4 flex justify-end -mb-2 -mr-2 md:-mr-4 md:-mb-4">
-          <button
-            className="text-xs border  px-2 py-1 rounded-xl text-white bg-[#5d636e] hover:bg-[#434a54] transition"
-            onClick={onClose}
-          >
+          <Button variant="outline" size="sm" onClick={onClose}>
             Close
-          </button>
+          </Button>
         </div>
       </div>
     </div>

@@ -19,6 +19,12 @@ export default function Ribbon({
     let ticking = false;
 
     const handleScroll = () => {
+      // Only apply parallax on screens >= 768px (md breakpoint)
+      if (window.innerWidth < 768) {
+        setOffsetY(0);
+        return;
+      }
+
       if (!ticking) {
         window.requestAnimationFrame(() => {
           if (sectionRef.current) {
@@ -38,8 +44,20 @@ export default function Ribbon({
       }
     };
 
+    const handleResize = () => {
+      // Reset offset when resizing to/from mobile
+      if (window.innerWidth < 768) {
+        setOffsetY(0);
+      }
+    };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
