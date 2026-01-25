@@ -46,7 +46,10 @@ export default function Home() {
         {/* 
         TO DO
         <ul>
-          <li className="text-sm text-muted-foreground">Schema</li>{" "}
+        <li className="text-sm text-muted-foreground">Projects Text & Tech</li>{" "}
+        <li className="text-sm text-muted-foreground">Modal-Mobile View</li>
+               <li className="text-sm text-muted-foreground">Mobile-no-parallax</li>
+        <li className="text-sm text-muted-foreground">Schema</li>{" "}
           <li className="text-sm text-muted-foreground">Toastify</li>{" "}
           <li className="text-sm text-muted-foreground">Analytics</li>
         </ul> */}

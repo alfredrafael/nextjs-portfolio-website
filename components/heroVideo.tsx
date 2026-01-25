@@ -3,27 +3,44 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Typewriter from "@/components/typewriter";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
+  const [isMobile, setIsMobile] = useState(true);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint is 768px
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-background">
       {/* Background */}
       <div className="absolute inset-0 z-0">
-        {/* Video for desktop */}
-        <video
-          src="https://www.alfredorafael.com/wp-content/uploads/2023/12/hero-clip.mp4"
-          poster="http://www.alfredorafael.com/wp-content/uploads/2020/08/P1000149-scaled.jpg"
-          className="hidden h-full w-full object-cover will-change-transform md:block"
-          autoPlay
-          loop
-          muted
-        />
-        {/* Image for mobile */}
-        <img
-          src="http://www.alfredorafael.com/wp-content/uploads/2026/01/pexels-life-of-pix-7974-scaled-e1769021899692.jpg"
-          alt="Hero background"
-          className="block h-full w-full object-cover md:hidden"
-        />
+        {/* Video for desktop - only render on md screens and above */}
+        {!isMobile && (
+          <video
+            src="https://www.alfredorafael.com/wp-content/uploads/2023/12/hero-clip.mp4"
+            poster="http://www.alfredorafael.com/wp-content/uploads/2020/08/P1000149-scaled.jpg"
+            className="h-full w-full object-cover will-change-transform"
+            autoPlay
+            loop
+            muted
+          />
+        )}
+        {/* Image for mobile - only render on mobile */}
+        {isMobile && (
+          <img
+            src="http://www.alfredorafael.com/wp-content/uploads/2026/01/pexels-life-of-pix-7974-scaled-e1769021899692.jpg"
+            alt="Hero background"
+            className="h-full w-full object-cover"
+          />
+        )}
       </div>
       {/* <div className="absolute inset-0 bg-linear-to-b from-transparent via-background/10 to-background" /> */}
 
