@@ -6,13 +6,13 @@ export function Experience() {
   return (
     <section
       id="experience"
-      className="mb-8 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+      className="mb-8 scroll-mt-16 md:mb-24 lg:mb-12 lg:scroll-mt-24"
     >
-      <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-background/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-        <h2 className="text-sm font-bold uppercase tracking-widest text-foreground lg:sr-only">
-          Experience
-        </h2>
-      </div>
+      <h2 className="text-sm font-bold uppercase tracking-widest text-foreground">
+        Experience
+      </h2>
+      <hr />
+      <br />
       <div>
         <ol className="group/list">
           {experienceData.map((exp, index) => (
@@ -54,17 +54,6 @@ export function Experience() {
             </li>
           ))}
         </ol>
-        <div className="mt-12">
-          <a
-            href="https://www.alfredorafael.com/wp-content/uploads/2025/12/Alfredo-R-Pabon-Resume-2026-.pdf"
-            className="group inline-flex items-center font-semibold leading-tight text-foreground hover:text-primary"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            View Full Résumé
-            <ExternalLink className="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 motion-reduce:transition-none" />
-          </a>
-        </div>
       </div>
     </section>
   );

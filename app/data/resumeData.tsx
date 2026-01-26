@@ -158,13 +158,6 @@ export const educationData = [
       "Education & Globalization Program. Thesis on History Education and Digital Learning Tools.",
   },
 ];
-export const resumeNavItems = [
-  { id: "about", label: "ABOUT" },
-  { id: "experience", label: "EXPERIENCE" },
-  //   { id: "projects", label: "PROJECTS" },
-  { id: "skills", label: "SKILLS" },
-  { id: "education", label: "EDUCATION" },
-];
 export const certificationsData = [
   "AWS Certified Solutions Architect",
   "Google Cloud Professional Developer",

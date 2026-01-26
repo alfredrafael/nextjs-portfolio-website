@@ -197,18 +197,6 @@ function ProjectCard({
         {/* <p className="text-sm leading-relaxed text-white text-pretty">
           {description}
         </p> */}
-        {/* {technologies && technologies.join(", ")} */}
-        {/* <div className="flex flex-wrap gap-2 mt-3">
-          {technologies &&
-            technologies.map((tech) => (
-              <div
-                key={tech}
-                className="rounded-full bg-accent/30 px-3 py-1 font-semibold text-xs text-white"
-              >
-                {tech}
-              </div>
-            ))}
-        </div> */}
       </div>
     </div>
   );
@@ -309,76 +297,4 @@ export default function Projects() {
       </Modal>
     </Section>
   );
-}
-
-{
-  /* Project Details Grid */
-}
-{
-  /* <div className="grid grid-cols-2 gap-4 py-4 border-y border-slate-200">
-        {project.details.liveUrl && (
-          <div>
-            <div className="text-xs text-slate-500 uppercase tracking-wider">
-              Live URL
-            </div>
-            <a
-              href={project.details.liveUrl}
-              className="font-medium text-blue-700"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {project.details.liveUrl}
-            </a>
-          </div>
-        )}
-        {project.details.github !== "Private Repository" ? (
-          <div>
-            <div className="text-xs text-slate-500 uppercase tracking-wider">
-              Github Repo
-            </div>
-            <a
-              href={project.details.github}
-              className="font-medium text-blue-700"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {project.details.github}
-            </a>
-          </div>
-        ) : (
-          <div>
-            <div className="text-xs text-slate-500 uppercase tracking-wider">
-              Github Repo
-            </div>
-            <div className="font-slim">Private Repository</div>
-          </div>
-        )}
-
-        {project.technologies && (
-          <div>
-            <div className="text-xs text-slate-500 uppercase tracking-wider">
-              Technologies
-            </div>
-            <div className="flex flex-wrap gap-2 mt-2">
-              {project.technologies &&
-                project.technologies.map((tech) => (
-                  <div
-                    key={tech}
-                    className="rounded-full bg-accent px-3 py-1 font-semibold text-xs flex"
-                  >
-                    {tech}
-                  </div>
-                ))}
-            </div>
-          </div>
-        )}
-        {project.details.type && (
-          <div>
-            <div className="text-xs text-slate-500 uppercase tracking-wider">
-              Type
-            </div>
-            <div className="font-slim">{project.details.type}</div>
-          </div>
-        )}
-      </div> */
 }
