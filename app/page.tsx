@@ -45,15 +45,15 @@ export default function Home() {
             <ContactInfo />
           </div>
         </div>
-        {/* 
-        TO DO
+        {/* TO DO
         <ul>
-        <li className="text-sm text-muted-foreground">Projects Text & Tech</li>{" "}
-        <li className="text-sm text-muted-foreground">Modal-Mobile View</li>
-               <li className="text-sm text-muted-foreground">Mobile-no-parallax</li>
-        <li className="text-sm text-muted-foreground">Schema</li>{" "}
-          <li className="text-sm text-muted-foreground">Toastify</li>{" "}
-          <li className="text-sm text-muted-foreground">Analytics</li>
+          <li className="text-sm text-muted-foreground">
+            Projects Text & Tech w/Order
+          </li>
+          <li className="text-sm text-muted-foreground">Google Analytics</li>
+          <li className="text-sm text-muted-foreground">
+            Add Resume's Header to "/data".
+          </li>
         </ul> */}
       </Container>
     </>

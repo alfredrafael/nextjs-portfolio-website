@@ -1,4 +1,3 @@
-import { Mail, Phone, MapPin, Clock, ExternalLink, Badge } from "lucide-react";
 export const experienceData = [
   {
     period: "2022 — Present",
@@ -162,35 +161,6 @@ export const certificationsData = [
   "AWS Certified Solutions Architect",
   "Google Cloud Professional Developer",
   "Meta Frontend Developer Certificate",
-];
-export const projectsData = [
-  {
-    title: "DevFlow",
-    description:
-      "A developer productivity platform that helps teams track code quality metrics, manage technical debt, and streamline code reviews with AI-powered insights.",
-    image: "/dashboard-app-interface-dark-theme.jpg",
-    url: "#",
-    github: "#",
-    technologies: ["Next.js", "TypeScript", "Prisma", "OpenAI"],
-  },
-  {
-    title: "CloudSync",
-    description:
-      "Real-time file synchronization tool with end-to-end encryption, supporting seamless collaboration across distributed teams.",
-    image: "/cloud-sync-app-interface-dark-theme.jpg",
-    url: "#",
-    github: "#",
-    technologies: ["React", "Node.js", "WebSocket", "AWS S3"],
-  },
-  {
-    title: "CodeCanvas",
-    description:
-      "An interactive coding playground that allows developers to experiment with various frameworks and share their creations instantly.",
-    image: "/code-editor-interface-dark-theme.jpg",
-    url: "#",
-    github: "#",
-    technologies: ["Vue.js", "Monaco Editor", "Docker", "Redis"],
-  },
 ];
 export const skillsData = [
   {

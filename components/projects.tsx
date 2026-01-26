@@ -236,7 +236,7 @@ function ProjectModalContent({ project }: { project: Project }) {
             rel="noopener noreferrer"
           >
             <span className="mt-1">Live Url</span> &nbsp;
-            <ExternalLink />
+            <ExternalLink className="-mr-1.5" />
           </a>
         </div>
       </div>
