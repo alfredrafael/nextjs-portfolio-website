@@ -23,7 +23,7 @@ export default function ResumePage() {
           </header>
 
           {/* Right Column - Scrollable */}
-          <main className="pt-24 lg:w-1/2 lg:py-24">
+          <main className="pt-6 lg:w-1/2 lg:py-24">
             <About />
             <Experience />
             {/* <Projects /> */}

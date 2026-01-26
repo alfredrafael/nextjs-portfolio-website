@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 import { Section, Prose } from "@/components/craft";
 import { ExternalLink } from "lucide-react";
@@ -89,7 +88,7 @@ const projectsData: Project[] = [
       github: "Private Repository",
       type: "Part-time Work",
     },
-    technologies: ["WordPress", "HTML/CSS", "PHP", "Sketch"],
+    technologies: ["WordPress", "HTML", "CSS", "PHP"],
   },
   {
     id: "REL",
@@ -227,17 +226,19 @@ function ProjectModalContent({ project }: { project: Project }) {
           className="object-cover"
         />
       </div>
-      <div className="flex -mt-[1.5rem] justify-between pr-2">
-        <div className="flex flex-wrap gap-2 mt-3">
-          {project.technologies &&
-            project.technologies.map((tech) => (
-              <div
-                key={tech}
-                className="rounded-full bg-primary/10 text-primary px-3 py-1 text-xs font-semibold hover:bg-primary/20"
-              >
-                {tech}
-              </div>
-            ))}
+      <div className="flex -mt-6 justify-between pr-2 mb-4">
+        <div className="min-h-16">
+          <div className="flex flex-wrap gap-2 mt-3">
+            {project.technologies &&
+              project.technologies.map((tech) => (
+                <div
+                  key={tech}
+                  className="rounded-full bg-primary/10 text-primary px-3 py-1 text-xs font-semibold hover:bg-primary/20"
+                >
+                  {tech}
+                </div>
+              ))}
+          </div>
         </div>
         <div className="flex flex-col md:flex-row md:items-center gap-2 shrink-0 md:-mt-7">
           <a
@@ -252,8 +253,69 @@ function ProjectModalContent({ project }: { project: Project }) {
         </div>
       </div>
 
-      {/* Project Details Grid */}
-      {/* <div className="grid grid-cols-2 gap-4 py-4 border-y border-slate-200">
+      {/* Full Description */}
+      <div>
+        <h2 className="font-semibold text-accent-foreground mb-2">
+          About This Project
+        </h2>
+        <p className="text-accent-foreground leading-relaxed">
+          {project.fullDescription}
+        </p>
+      </div>
+    </div>
+  );
+}
+export default function Projects() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const handleProjectClick = (project: Project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    // Optional: delay clearing selectedProject for smoother animation
+    setTimeout(() => setSelectedProject(null), 200);
+  };
+
+  return (
+    <Section className="px-6 max-w-6xl mx-auto" id="projects">
+      <Prose className="pb-8 text-center">
+        <h2>Previous Work</h2>
+      </Prose>
+      <div className="grid md:grid-cols-3 gap-4 mt-6 mb-18">
+        {projectsData.map((project) => (
+          <ProjectCard
+            key={project.id}
+            title={project.title}
+            description={project.description}
+            imageUrl={project.imageUrl}
+            imageAlt={project.imageAlt}
+            onClick={() => handleProjectClick(project)}
+            technologies={project.technologies}
+          />
+        ))}
+      </div>
+
+      {/* Modal */}
+      <Modal
+        open={isModalOpen}
+        onClose={handleCloseModal}
+        title={selectedProject?.title || ""}
+      >
+        {selectedProject && <ProjectModalContent project={selectedProject} />}
+      </Modal>
+    </Section>
+  );
+}
+
+{
+  /* Project Details Grid */
+}
+{
+  /* <div className="grid grid-cols-2 gap-4 py-4 border-y border-slate-200">
         {project.details.liveUrl && (
           <div>
             <div className="text-xs text-slate-500 uppercase tracking-wider">
@@ -318,62 +380,5 @@ function ProjectModalContent({ project }: { project: Project }) {
             <div className="font-slim">{project.details.type}</div>
           </div>
         )}
-      </div> */}
-
-      {/* Full Description */}
-      <div>
-        <h2 className="font-semibold text-accent-foreground mb-2">
-          About This Project
-        </h2>
-        <p className="text-accent-foreground leading-relaxed">
-          {project.fullDescription}
-        </p>
-      </div>
-    </div>
-  );
-}
-export default function Projects() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-
-  const handleProjectClick = (project: Project) => {
-    setSelectedProject(project);
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    // Optional: delay clearing selectedProject for smoother animation
-    setTimeout(() => setSelectedProject(null), 200);
-  };
-
-  return (
-    <Section className="px-6 max-w-6xl mx-auto mb-18" id="projects">
-      <Prose className="pb-8 text-center">
-        <h2>Previous Work</h2>
-      </Prose>
-      <div className="grid md:grid-cols-3 gap-4 mt-6">
-        {projectsData.map((project) => (
-          <ProjectCard
-            key={project.id}
-            title={project.title}
-            description={project.description}
-            imageUrl={project.imageUrl}
-            imageAlt={project.imageAlt}
-            onClick={() => handleProjectClick(project)}
-            technologies={project.technologies}
-          />
-        ))}
-      </div>
-
-      {/* Modal */}
-      <Modal
-        open={isModalOpen}
-        onClose={handleCloseModal}
-        title={selectedProject?.title || ""}
-      >
-        {selectedProject && <ProjectModalContent project={selectedProject} />}
-      </Modal>
-    </Section>
-  );
+      </div> */
 }

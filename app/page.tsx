@@ -27,8 +27,10 @@ export default function Home() {
       </div>
       <About />
       <hr className="max-w-[70%] mx-auto" />
-      <Projects />
 
+      <div className="bg-linear-to-t from-background bg-background/75 pb-16">
+        <Projects />
+      </div>
       <Ribbon
         ribbonImage="http://www.alfredorafael.com/wp-content/uploads/2020/05/computer-background.png"
         ribbonText="Let's build something great together"

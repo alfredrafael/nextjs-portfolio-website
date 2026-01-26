@@ -275,3 +275,15 @@
 .resume-duties-list li:last-child {
   margin-bottom: 0;
 }
+
+@media (max-width: 640px) {
+  .resume-duties-list li {
+    /* fix bullet points on mobile resume*/
+    margin-left: 1rem;
+    padding-left: 0;
+  }
+
+  .technologiesUsedResume {
+    display: none;
+  }
+}
