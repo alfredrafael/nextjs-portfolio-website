@@ -271,7 +271,7 @@ export default function Projects() {
   return (
     <Section className="px-6 max-w-6xl mx-auto" id="projects">
       <Prose className="pb-8 text-center">
-        <h2>Previous Work</h2>
+        <h2>Porfolio</h2>
       </Prose>
       <div className="grid md:grid-cols-3 gap-4 mt-6 mb-18">
         {projectsData.map((project) => (

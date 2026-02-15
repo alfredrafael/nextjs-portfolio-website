@@ -34,7 +34,7 @@ export default function Home() {
       <Ribbon
         ribbonImage="http://www.alfredorafael.com/wp-content/uploads/2020/05/computer-background.png"
         ribbonText="Let's build something great together"
-        ribbonSubtext="I'm available for freelance projects and other opportunities. Reach out to discuss how we can collaborate!"
+        ribbonSubtext="Reach out to discuss how we can collaborate."
       />
       <Container>
         <div className="flex flex-col md:flex-row md:gap-8 lg:gap-10 py-4">

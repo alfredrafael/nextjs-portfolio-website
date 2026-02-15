@@ -29,9 +29,9 @@ export default function About() {
             My experience spans enterprise organizations such as Trane
             Technologies, MIT, and Merrill Lynch, where I collaborate
             cross-functionally to translate complex requirements into reliable
-            digital products. Looking forward to new challenges, I am eager to
-            contribute to innovative projects that prioritize user-centric
-            design and cutting-edge web technologies.
+            digital products. I am eager to contribute to innovative projects
+            that prioritize user-centric design and cutting-edge web
+            technologies.
           </p>
         </section>
       </Prose>
