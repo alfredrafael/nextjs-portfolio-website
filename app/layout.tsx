@@ -1,6 +1,5 @@
 import "./globals.css";
 
-import { Inter as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Nav } from "@/components/layout/nav";
 import { Footer } from "@/components/layout/footer";
@@ -10,11 +9,6 @@ import { siteConfig } from "@/site.config";
 import { cn } from "@/lib/utils";
 
 import type { Metadata } from "next";
-
-const font = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
 
 export const metadata: Metadata = {
   title: "Alfredo Rafael - Software Engineer",
@@ -40,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={cn("min-h-screen font-sans antialiased", font.variable)}
+        className={cn("min-h-screen font-sans antialiased")}
         suppressHydrationWarning
       >
         <ThemeProvider
