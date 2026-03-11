@@ -139,7 +139,7 @@ export function ContactForm() {
           />
         </div>
 
-        {/* <input type="hidden" name="interest" value={interest} /> */}
+        {/* <input type="hidden" name="interest" value={interest} />
 
         <div className="space-y-2">
           <Label htmlFor="interest">{"I'm interested in"}</Label>
@@ -159,7 +159,7 @@ export function ContactForm() {
               <SelectItem value="other">{"Other"}</SelectItem>
             </SelectContent>
           </Select>
-        </div>
+        </div> */}
 
         <div className="space-y-2">
           <Label htmlFor="message">{"Message"}</Label>

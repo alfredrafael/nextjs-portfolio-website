@@ -60,7 +60,7 @@ export default function Modal({
       <div
         onClick={(e) => e.stopPropagation()}
         className={`
-          relative bg-linear-to-b from-accent to-background rounded-xl shadow-2xl border border-accent-foreground
+          relative bg-linear-to-b from-accent to-background rounded-xl shadow-2xl border border-accent-foreground/25
           p-6 md:p-8 transition-all w-full mx-3 md:mx-0 md:max-w-xl
           ${open ? "scale-100 opacity-100" : "scale-110 opacity-0"}
           flex flex-col
