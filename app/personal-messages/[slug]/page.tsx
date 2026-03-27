@@ -94,13 +94,12 @@ export default async function PersonalMessagePage({
   }
 
   return (
-    <Section>
-      <Container>
-        <Prose>
-          <h2 dangerouslySetInnerHTML={{ __html: message.title.rendered }} />
-          <div dangerouslySetInnerHTML={{ __html: message.content.rendered }} />
-        </Prose>
-      </Container>
-    </Section>
+    <Container className="min-h-screen">
+      <Prose>
+        <h2 dangerouslySetInnerHTML={{ __html: message.title.rendered }} />
+        <hr className="my-4" />
+        <div dangerouslySetInnerHTML={{ __html: message.content.rendered }} />
+      </Prose>
+    </Container>
   );
 }

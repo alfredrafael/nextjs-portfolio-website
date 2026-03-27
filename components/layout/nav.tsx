@@ -38,7 +38,7 @@ export function Nav({ className, children, id }: NavProps) {
     >
       <div
         id="nav-container"
-        className="mx-auto flex max-w-6xl items-center justify-between py-2 px-6 sm:px-8"
+        className="mx-auto flex max-w-6xl items-center justify-between py-2 px-6 sm:pl-12 sm:pr-0"
       >
         <Link
           className="flex items-center gap-4 transition-all hover:opacity-75"
