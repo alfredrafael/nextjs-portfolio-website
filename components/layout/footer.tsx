@@ -58,6 +58,12 @@ export function Footer() {
           {/* <span className="text-muted-foreground text-sm">
             All rights reserved.
           </span> */}
+          <Link
+            href="/personal-messages"
+            className="text-muted-foreground text-sm flex items-center gap-2"
+          >
+            🇺🇸
+          </Link>
         </Container>
       </Section>
     </footer>

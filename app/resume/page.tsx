@@ -7,8 +7,8 @@ import { Education } from "./education";
 
 export default function ResumePage() {
   return (
-    <div className="min-h-screen bg-background">
-      <div className="mx-auto max-w-6xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
+    <div className="min-h-screen bg-[#f8f9fa] dark:bg-[#212529]">
+      <div className="mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
         <div className="lg:flex lg:justify-between lg:gap-4">
           {/* Left Column - Fixed */}
           <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">

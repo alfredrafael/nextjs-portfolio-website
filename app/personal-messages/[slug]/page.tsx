@@ -94,12 +94,17 @@ export default async function PersonalMessagePage({
   }
 
   return (
-    <Container className="min-h-screen">
-      <Prose>
-        <h2 dangerouslySetInnerHTML={{ __html: message.title.rendered }} />
-        <hr className="my-4" />
-        <div dangerouslySetInnerHTML={{ __html: message.content.rendered }} />
-      </Prose>
-    </Container>
+    <main className="bg-[#f8f9fa] dark:bg-[#212529]">
+      <Container className="min-h-screen py-16">
+        <Prose className="text-[#212529] dark:text-white prose-lg max-w-2xl">
+          <h1 dangerouslySetInnerHTML={{ __html: message.title.rendered }} />
+          <hr className="my-6 border-t-[#848687]! dark:border-t-[#495057]!" />
+          <div
+            className="prose prose-lg dark:prose-invert"
+            dangerouslySetInnerHTML={{ __html: message.content.rendered }}
+          />
+        </Prose>
+      </Container>
+    </main>
   );
 }
