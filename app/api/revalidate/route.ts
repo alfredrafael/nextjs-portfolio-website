@@ -22,7 +22,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { contentType, contentId } = requestBody;
+    const normalized = normalizePayload(requestBody);
+    const { contentType, contentId } = normalized;
 
     if (!contentType) {
       return NextResponse.json(
@@ -101,4 +102,38 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
+}
+
+function normalizePayload(body: Record<string, unknown>): {
+  contentType: string | null;
+  contentId: number | null;
+} {
+  // Supports both formats:
+  // 1) { contentType, contentId } (explicit API contract)
+  // 2) { type, data: { id, taxonomy } } (WordPress plugin payload)
+  const contentTypeRaw =
+    (body.contentType as string | undefined) ?? (body.type as string | undefined);
+
+  const data = (body.data as Record<string, unknown> | undefined) ?? {};
+  const contentIdRaw =
+    (body.contentId as number | string | undefined) ??
+    (data.id as number | string | undefined);
+
+  let contentType = contentTypeRaw ?? null;
+  if (contentType === "term") {
+    const taxonomy = data.taxonomy as string | undefined;
+    if (taxonomy === "category") contentType = "category";
+    else if (taxonomy === "post_tag") contentType = "tag";
+  }
+
+  const parsedId =
+    typeof contentIdRaw === "string"
+      ? Number.parseInt(contentIdRaw, 10)
+      : typeof contentIdRaw === "number"
+        ? contentIdRaw
+        : null;
+
+  const contentId = Number.isFinite(parsedId as number) ? (parsedId as number) : null;
+
+  return { contentType, contentId };
 }
