@@ -64,7 +64,7 @@ export default async function Page({
 
   return (
     <main className="bg-[#f8f9fa] dark:bg-[#212529]">
-      <Container className="min-h-screen py-16">
+      <Container className="min-h-screen pb-16">
         <Prose>
           <h1>
             <span
@@ -95,7 +95,7 @@ export default async function Page({
         </Prose>
         <Article dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
         <br />
-        {category !== null && (
+        {category.slug !== "uncategorized" && (
           <>
             <hr className="my-6 border-t-[#848687]! dark:border-t-[#495057]!" />
 

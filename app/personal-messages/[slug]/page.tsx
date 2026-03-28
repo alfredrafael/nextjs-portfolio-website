@@ -56,7 +56,7 @@ export default async function PersonalMessagePage({
 
   if (!hasAccess) {
     return (
-      <Section>
+      <>
         <Container className="max-w-xl py-10">
           <div className="rounded-xl border bg-card p-6 sm:p-8">
             <Prose>
@@ -89,13 +89,13 @@ export default async function PersonalMessagePage({
             </form>
           </div>
         </Container>
-      </Section>
+      </>
     );
   }
 
   return (
     <main className="bg-[#f8f9fa] dark:bg-[#212529]">
-      <Container className="min-h-screen py-16">
+      <Container className="min-h-screen pb-16">
         <Prose className="text-[#212529] dark:text-white prose-lg max-w-2xl">
           <h1 dangerouslySetInnerHTML={{ __html: message.title.rendered }} />
           <hr className="my-6 border-t-[#848687]! dark:border-t-[#495057]!" />
