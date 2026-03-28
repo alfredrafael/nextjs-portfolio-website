@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import type { Author, Tag, Category } from "@/lib/wordpress.d";
 
 interface FilterPostsProps {
-  authors: Author[];
+  authors?: Author[];
   tags: Tag[];
   categories: Category[];
   selectedAuthor?: string;
@@ -21,7 +21,7 @@ interface FilterPostsProps {
 }
 
 export function FilterPosts({
-  authors,
+  authors = [],
   tags,
   categories,
   selectedAuthor,
@@ -53,9 +53,11 @@ export function FilterPosts({
         value={selectedTag || "all"}
         onValueChange={(value) => handleFilterChange("tag", value)}
       >
-        <SelectTrigger disabled={!hasTags}>
-          {hasTags ? <SelectValue placeholder="All Tags" /> : "No tags found"}
-        </SelectTrigger>
+        {hasTags && (
+          <SelectTrigger>
+            <SelectValue placeholder="All Tags" />
+          </SelectTrigger>
+        )}
         <SelectContent>
           <SelectItem value="all">All Tags</SelectItem>
           {tags.map((tag) => (
@@ -91,13 +93,13 @@ export function FilterPosts({
         value={selectedAuthor || "all"}
         onValueChange={(value) => handleFilterChange("author", value)}
       >
-        <SelectTrigger disabled={!hasAuthors} className="text-center">
+        {/* <SelectTrigger disabled={!hasAuthors} className="text-center">
           {hasAuthors ? (
             <SelectValue placeholder="All Authors" />
           ) : (
             "No authors found"
           )}
-        </SelectTrigger>
+        </SelectTrigger> */}
         <SelectContent>
           <SelectItem value="all">All Authors</SelectItem>
           {authors.map((author) => (

@@ -63,33 +63,24 @@ export default async function Page({
   const category = await getCategoryById(post.categories[0]);
 
   return (
-    <Section>
-      <Container>
+    <main className="bg-[#f8f9fa] dark:bg-[#212529]">
+      <Container className="min-h-screen py-16">
         <Prose>
           <h1>
             <span
-                dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-              ></span>
+              dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+            ></span>
           </h1>
-          <div className="flex justify-between items-center gap-4 text-sm mb-4">
-            <h5>
+          <hr className="my-6 border-t-[#848687]! dark:border-t-[#495057]!" />
+          <div className="flex justify-between items-center gap-4 text-sm">
+            {/* <h5>
               Published {date} by{" "}
               {author.name && (
                 <span>
                   <a href={`/posts/?author=${author.id}`}>{author.name}</a>{" "}
                 </span>
               )}
-            </h5>
-
-            <Link
-              href={`/posts/?category=${category.id}`}
-              className={cn(
-                badgeVariants({ variant: "outline" }),
-                "no-underline!"
-              )}
-            >
-              {category.name}
-            </Link>
+            </h5> */}
           </div>
           {featuredMedia?.source_url && (
             <div className="h-96 my-12 md:h-[500px] overflow-hidden flex items-center justify-center border rounded-lg bg-accent/25">
@@ -102,9 +93,25 @@ export default async function Page({
             </div>
           )}
         </Prose>
-
         <Article dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+        <br />
+        {category !== null && (
+          <>
+            <hr className="my-6 border-t-[#848687]! dark:border-t-[#495057]!" />
+
+            <div className="text-sm ml-2 mb-4">Categories:</div>
+            <Link
+              href={`/posts/?category=${category.id}`}
+              className={cn(
+                badgeVariants({ variant: "outline" }),
+                "no-underline!",
+              )}
+            >
+              {category.name}
+            </Link>
+          </>
+        )}
       </Container>
-    </Section>
+    </main>
   );
 }

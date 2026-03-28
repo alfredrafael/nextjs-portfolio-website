@@ -241,7 +241,7 @@ export interface SearchResult {
 
 // Component Props Types
 export interface FilterBarProps {
-  authors: Author[];
+  authors?: Author[];
   tags: Tag[];
   categories: Category[];
   selectedAuthor?: Author["id"];

@@ -8,8 +8,8 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer>
-      <Section>
+    <footer className="p-2">
+      <>
         {/* <Container className="grid md:grid-cols-[1.5fr_0.5fr_0.5fr] gap-12">
           <div className="flex flex-col gap-6 not-prose">
             <Link href="/">
@@ -65,7 +65,7 @@ export function Footer() {
             🇺🇸
           </Link>
         </Container>
-      </Section>
+      </>
     </footer>
   );
 }

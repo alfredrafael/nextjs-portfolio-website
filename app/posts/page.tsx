@@ -73,7 +73,7 @@ export default async function Page({
   };
 
   return (
-    <Section>
+    <main className="bg-[#f9f9f9] dark:bg-[#111111] min-h-screen">
       <Container>
         <div className="space-y-8">
           <Prose>
@@ -88,10 +88,10 @@ export default async function Page({
             <SearchInput defaultValue={search} />
 
             <FilterPosts
-              authors={authors}
+              // authors={authors}
+              // selectedAuthor={author}
               tags={tags}
               categories={categories}
-              selectedAuthor={author}
               selectedTag={tag}
               selectedCategory={category}
             />
@@ -159,6 +159,6 @@ export default async function Page({
           )}
         </div>
       </Container>
-    </Section>
+    </main>
   );
 }
