@@ -73,7 +73,7 @@ export default async function Page({
   };
 
   return (
-    <main className="bg-[#f9f9f9] dark:bg-[#111111] min-h-screen">
+    <main className="bg-alternative min-h-screen">
       <Container>
         <div className="space-y-8">
           <Prose>

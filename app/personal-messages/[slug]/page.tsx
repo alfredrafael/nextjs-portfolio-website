@@ -94,7 +94,7 @@ export default async function PersonalMessagePage({
   }
 
   return (
-    <main className="bg-[#f8f9fa] dark:bg-[#212529]">
+    <main className="bg-alternative">
       <Container className="min-h-screen pb-16">
         <Prose className="text-[#212529] dark:text-white prose-lg max-w-2xl">
           <h1 dangerouslySetInnerHTML={{ __html: message.title.rendered }} />

@@ -17,8 +17,7 @@
 @theme {
   --font-sans:
     ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    "Noto Color Emoji";
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
@@ -180,21 +179,6 @@
 /* Custom Styles */
 
 /*//Hero /////////////*/
-/* .hero-gradient {
-  position: absolute;
-  inset: 0;
-
-  background: linear-gradient(
-    to bottom,
-    rgb(0 0 0 / 35%) 0%,
-    rgb(0 0 0 / 22%) 20%,
-    rgb(0 0 0 / 16%) 25%,
-    rgb(255 255 255 / 20%) 50%,
-    rgb(255 255 255) 100%
-  );
-
-  pointer-events: none;
-} */
 .hero-gradient {
   position: absolute;
   inset: 0;
@@ -253,7 +237,7 @@
   }
 }
 
-/*//Customized Light/Dark /////////////*/
+/*//Customized Light/Dark icons /////////////*/
 .iconBlue,
 .textBlue {
   color: #040182;
@@ -287,4 +271,12 @@
   .technologiesUsedResume {
     display: none;
   }
+}
+
+/* Alternative bg colors */
+.bg-alternative {
+  background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+}
+.dark .bg-alternative {
+  background: linear-gradient(to bottom, black, #212529);
 }
