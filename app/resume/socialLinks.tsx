@@ -3,7 +3,7 @@ function SocialLinks() {
     <ul className="mt-8 flex items-center gap-5" aria-label="Social media">
       <li>
         <a
-          href="http://www.alfredorafael.com/wp-content/uploads/2026/02/Alfredo_R_Pabon_Resume.pdf"
+          href="https://www.alfredorafael.com/wp-content/uploads/2026/02/Alfredo_R_Pabon_Resume.pdf"
           target="_blank"
           rel="noreferrer noopener"
           aria-label="GitHub"

@@ -26,7 +26,7 @@ export default function Hero() {
         {!isMobile && (
           <video
             src="https://www.alfredorafael.com/wp-content/uploads/2023/12/hero-clip.mp4"
-            poster="http://www.alfredorafael.com/wp-content/uploads/2020/08/P1000149-scaled.jpg"
+            poster="https://www.alfredorafael.com/wp-content/uploads/2020/08/P1000149-scaled.jpg"
             className="h-full w-full object-cover will-change-transform"
             autoPlay
             loop
@@ -35,8 +35,8 @@ export default function Hero() {
         )}
         {isMobile && (
           <video
-            src="http://www.alfredorafael.com/wp-content/uploads/2026/03/Hero-Clip-Mobile.mov"
-            poster="http://www.alfredorafael.com/wp-content/uploads/2020/08/P1000149-scaled.jpg"
+            src="https://www.alfredorafael.com/wp-content/uploads/2026/03/Hero-Clip-Mobile.mov"
+            poster="https://www.alfredorafael.com/wp-content/uploads/2020/08/P1000149-scaled.jpg"
             className="h-full w-full object-cover will-change-transform"
             autoPlay
             loop
@@ -46,7 +46,7 @@ export default function Hero() {
         {/* Image for mobile - only render on mobile */}
         {/* {isMobile && (
           <img
-            src="http://www.alfredorafael.com/wp-content/uploads/2026/01/pexels-life-of-pix-7974-scaled-e1769021899692.jpg"
+            src="https://www.alfredorafael.com/wp-content/uploads/2026/01/pexels-life-of-pix-7974-scaled-e1769021899692.jpg"
             alt="Hero background"
             className="h-full w-full object-cover"
           />

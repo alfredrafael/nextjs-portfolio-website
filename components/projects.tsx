@@ -32,7 +32,7 @@ const projectsData: Project[] = [
     title: "Trane Residential",
     description: "",
     imageUrl:
-      "http://www.alfredorafael.com/wp-content/uploads/2026/01/TRN-Project.png",
+      "https://www.alfredorafael.com/wp-content/uploads/2026/01/TRN-Project.png",
     fullDescription:
       "As a software engineer at Trane Technologies, I work with a team of designers and developers coding stateful and stateless components using TypeScript and Next.js. We use TailwindCSS in a headless CMS environment powered by WordPress. We also leverage tools such as GIT, JIRA, and Figma, among many others.",
     details: {
@@ -58,7 +58,7 @@ const projectsData: Project[] = [
     title: "American Standard Air",
     description: "",
     imageUrl:
-      "http://www.alfredorafael.com/wp-content/uploads/2026/01/AMS-Project2.png",
+      "https://www.alfredorafael.com/wp-content/uploads/2026/01/AMS-Project2.png",
     fullDescription:
       "As a software engineer at Trane Technologies, I work with a team of designers and developers coding stateful and stateless components using TypeScript and Next.js. We use TailwindCSS in a headless CMS environment powered by WordPress. We also leverage tools such as GIT, JIRA, and Figma, among many others.",
     details: {
@@ -80,7 +80,7 @@ const projectsData: Project[] = [
     title: "MIT ChemE",
     description: "Dunedin, Florida",
     imageUrl:
-      "http://www.alfredorafael.com/wp-content/uploads/2026/01/MIT-Project.png",
+      "https://www.alfredorafael.com/wp-content/uploads/2026/01/MIT-Project.png",
     fullDescription:
       "At MIT's department of Chemical Engineering I code, redesign, and update 30+ webpages within MIT's Department of Chemical Engineering. Wordpress allows staff and faculty to edit their website's  thru a wysiwyg editor. In addition to HTML/CSS, I create/modify logos with Sketch, and use Wordpress plugins to enhance user experience.",
     details: {
@@ -95,7 +95,7 @@ const projectsData: Project[] = [
     title: "Relata US",
     description: "Dunedin, Florida",
     imageUrl:
-      "http://www.alfredorafael.com/wp-content/uploads/2026/01/REL-Project.png",
+      "https://www.alfredorafael.com/wp-content/uploads/2026/01/REL-Project.png",
     fullDescription:
       "I developed this web-application with React.js, React-Bootsrap and Email-js for its contact funcionality. Relata is a digital media and marketing agency aimed at building peace and understanding, promoting dialogue, and interconnectedness for nonprofits, NGOs, labor organizations, as well as houses of worship, small businesses and entrepreneurs.",
     details: {
@@ -116,7 +116,7 @@ const projectsData: Project[] = [
     title: "Merrill Lynch - BofA",
     description: "",
     imageUrl:
-      "http://www.alfredorafael.com/wp-content/uploads/2026/01/ML-Project2.png",
+      "https://www.alfredorafael.com/wp-content/uploads/2026/01/ML-Project2.png",
     fullDescription:
       "At Merrill Lynch of Bank of America I developed webpages using HTML5, vanilla CSS, vanilla-JS and jQuery. When I am was coding + assisting the creation of new landing pages, I was updating time-sensitive content with the company's CMS, and keeping track of multiple updates using Jira's Kanban board accross several business owners, coworkers and other stakeholders.",
     details: {
@@ -138,7 +138,7 @@ const projectsData: Project[] = [
     title: "DAC Architects",
     description: "Dunedin, Florida",
     imageUrl:
-      "http://www.alfredorafael.com/wp-content/uploads/2026/01/DAC-Project.png",
+      "https://www.alfredorafael.com/wp-content/uploads/2026/01/DAC-Project.png",
     fullDescription:
       "A modern Next.js application built for an architecture firm, showcasing their portfolio and services with a sleek, user-friendly design.",
     details: {

@@ -10,7 +10,7 @@ export default function Contact() {
       <PageHeader
         title="Get in Touch"
         subtitle="I'm available for freelance projects and other opportunities. Reach out to discuss how we can collaborate!"
-        imgSrc="http://www.alfredorafael.com/wp-content/uploads/2026/01/pexels-nimlo-4509131-scaled.jpg"
+        imgSrc="https://www.alfredorafael.com/wp-content/uploads/2026/01/pexels-nimlo-4509131-scaled.jpg"
       />
 
       <Container>

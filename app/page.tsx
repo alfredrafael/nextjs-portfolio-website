@@ -32,7 +32,7 @@ export default function Home() {
         <Projects />
       </div>
       <Ribbon
-        ribbonImage="http://www.alfredorafael.com/wp-content/uploads/2020/05/computer-background.png"
+        ribbonImage="https://www.alfredorafael.com/wp-content/uploads/2020/05/computer-background.png"
         ribbonText="Let's build something great together"
         ribbonSubtext="Reach out to discuss how we can collaborate."
       />
