@@ -63,7 +63,7 @@ export default async function Page({
   const category = await getCategoryById(post.categories[0]);
 
   return (
-    <main className="bg-[#f8f9fa] dark:bg-[#212529]">
+    <main className="bg-alternative">
       <Container className="min-h-screen pb-16">
         <Prose>
           <h1>
@@ -98,7 +98,6 @@ export default async function Page({
         {category.slug !== "uncategorized" && (
           <>
             <hr className="my-6 border-t-[#848687]! dark:border-t-[#495057]!" />
-
             <div className="text-sm ml-2 mb-4">Categories:</div>
             <Link
               href={`/posts/?category=${category.id}`}
