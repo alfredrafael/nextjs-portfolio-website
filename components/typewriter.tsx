@@ -51,7 +51,7 @@ const Typewriter = ({
     <span>
       {currentText}
       <span
-        className={`${cursorClassName} md:-ml-[0.4rem] lg:-ml-[0.7rem]`}
+        className={`${cursorClassName} -ml-2 md:-ml-[0.4rem] lg:-ml-[0.7rem]`}
         style={{
           opacity: cursorOn ? 1 : 0,
           transition: "opacity 120ms linear",
