@@ -20,12 +20,12 @@ export function PostCard({ post }: { post: Post }) {
       href={`/posts/${post.slug}`}
       className={cn(
         "border p-4 bg-accent/30 rounded-lg group flex justify-between flex-col not-prose gap-8",
-        "hover:bg-accent/75 transition-all"
+        "hover:bg-accent/75 transition-all",
       )}
     >
       <div className="flex flex-col gap-4">
-        <div className="h-48 w-full overflow-hidden relative rounded-md border flex items-center justify-center bg-muted">
-          {media?.source_url ? (
+        {media?.source_url && (
+          <div className="h-48 w-full overflow-hidden relative rounded-md border flex items-center justify-center bg-muted">
             <Image
               className="h-full w-full object-cover"
               src={media.source_url}
@@ -33,12 +33,9 @@ export function PostCard({ post }: { post: Post }) {
               width={400}
               height={200}
             />
-          ) : (
-            <div className="flex items-center justify-center w-full h-full text-muted-foreground">
-              No image available
-            </div>
-          )}
-        </div>
+          </div>
+        )}
+
         <div
           dangerouslySetInnerHTML={{
             __html: post.title?.rendered || "Untitled Post",

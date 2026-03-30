@@ -142,7 +142,7 @@ export default async function PersonalPage({
                     dangerouslySetInnerHTML={{ __html: msg.title.rendered }}
                   />
                 </h3>
-                <p className="mb-4 text-muted-foreground">
+                <p className="mb-4 text-muted-foreground wrap-break-word">
                   {stripHtml(msg.content.rendered).slice(0, 180)}
                   {stripHtml(msg.content.rendered).length > 180 ? "..." : ""}
                 </p>

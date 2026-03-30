@@ -1,5 +1,5 @@
 // Craft Imports
-import { Section, Container, Prose } from "@/components/craft";
+import { Container, Prose } from "@/components/craft";
 
 // Next.js Imports
 import Link from "next/link";
@@ -45,16 +45,6 @@ export default function Home() {
             <ContactInfo />
           </div>
         </div>
-        {/* TO DO
-        <ul>
-          <li className="text-sm text-muted-foreground">
-            Projects Text & Tech w/Order
-          </li>
-          <li className="text-sm text-muted-foreground">Google Analytics</li>
-          <li className="text-sm text-muted-foreground">
-            Add Resume's Header to "/data".
-          </li>
-        </ul> */}
       </Container>
     </>
   );
