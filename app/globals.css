@@ -275,8 +275,15 @@
 
 /* Alternative background color scheme */
 .bg-alternative {
-  background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+  background: linear-gradient(to bottom, #f8f8f8, #f8f9fa, #ffffff, #ffffff);
 }
 .dark .bg-alternative {
   background: linear-gradient(to bottom, black, #212529);
+}
+
+/* Personal Message */
+
+#personalMessageContentPage a {
+  color: #3b82f6 !important;
+  text-decoration: none;
 }

@@ -94,7 +94,7 @@ export default async function PersonalMessagePage({
   }
 
   return (
-    <main className="bg-alternative">
+    <main id="personalMessageContentPage" className="bg-alternative">
       <Container className="min-h-screen pb-16">
         <div className="text-[#212529] dark:text-white max-w-2xl">
           <h1
