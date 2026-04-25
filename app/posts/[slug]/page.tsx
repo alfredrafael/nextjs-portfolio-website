@@ -63,15 +63,14 @@ export default async function Page({
   const category = await getCategoryById(post.categories[0]);
 
   return (
-    <main className="bg-alternative">
+    <main id="personalMessageContentPage" className="bg-alternative">
       <Container className="min-h-screen pb-16">
-        <Prose>
-          <h1>
-            <span
-              dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-            ></span>
-          </h1>
-          <hr className="my-6 border-t-[#848687]! dark:border-t-[#495057]!" />
+        <div className="text-[#212529] dark:text-white max-w-2xl">
+          <h1
+            className="-mt-2 text-2xl md:text-3xl my-0"
+            dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+          ></h1>
+          <hr className="my-5 border-t-[#848687]! dark:border-t-[#495057]!" />
           <div className="flex justify-between items-center gap-4 text-sm">
             {/* <h5>
               Published {date} by{" "}
@@ -92,8 +91,11 @@ export default async function Page({
               />
             </div>
           )}
-        </Prose>
-        <Article dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+        </div>
+        <Article
+          className="prose prose-lg dark:prose-invert"
+          dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+        />
         <br />
         {category.slug !== "uncategorized" && (
           <>
