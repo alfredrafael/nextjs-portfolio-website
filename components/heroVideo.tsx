@@ -41,6 +41,7 @@ export default function Hero() {
             autoPlay
             loop
             muted
+            playsInline
           />
         )}
         {/* Image for mobile - only render on mobile */}
