@@ -290,7 +290,7 @@
 
 @media (min-width: 640px) {
   #personalMessageContentPage #cbc-video {
-    width: 100%;
-    height: auto;
+    width: 100% !important;
+    height: auto !important;
   }
 }
