@@ -287,3 +287,10 @@
   color: #3b82f6 !important;
   text-decoration: none;
 }
+
+@media (min-width: 640px) {
+  #cbc-video {
+    width: 100%;
+    height: auto;
+  }
+}
