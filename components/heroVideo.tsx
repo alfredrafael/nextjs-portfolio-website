@@ -42,6 +42,7 @@ export default function Hero() {
             loop
             muted
             playsInline
+            webkit-playsinline="true"
           />
         )}
         {/* Image for mobile - only render on mobile */}
