@@ -2,9 +2,52 @@ import { cookies } from "next/headers";
 import { redirect, notFound } from "next/navigation";
 
 import { getPersonalMessageBySlug } from "@/lib/wordpress";
-import { Section, Container, Prose } from "@/components/craft";
+import { stripHtml } from "@/lib/metadata";
+import { Container, Prose } from "@/components/craft";
+import type { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const message = await getPersonalMessageBySlug(slug);
+
+  if (!message) {
+    return {};
+  }
+
+  const title = stripHtml(message.title.rendered);
+  const isProtected = !!message.message_password;
+  const contentText = stripHtml(message.content.rendered);
+  const description = isProtected
+    ? "Private message from Alfredo Rafael."
+    : contentText.length > 200
+      ? `${contentText.slice(0, 200)}...`
+      : contentText;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `/personal-messages/${message.slug}`,
+    },
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      url: `/personal-messages/${message.slug}`,
+    },
+    twitter: {
+      card: "summary",
+      title,
+      description,
+    },
+  };
+}
 
 export default async function PersonalMessagePage({
   params,
