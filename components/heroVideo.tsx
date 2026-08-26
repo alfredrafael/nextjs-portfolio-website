@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import Typewriter from "@/components/typewriter";
 import { useEffect, useState } from "react";
 
@@ -33,6 +31,7 @@ export default function Hero() {
             muted
           />
         )}
+        {/* Video for mobile - only render on mobile */}
         {isMobile && (
           <video
             src="https://www.alfredorafael.com/wp-content/uploads/2026/03/Hero-Clip-Mobile.mov"
@@ -45,16 +44,7 @@ export default function Hero() {
             webkit-playsinline="true"
           />
         )}
-        {/* Image for mobile - only render on mobile */}
-        {/* {isMobile && (
-          <img
-            src="https://www.alfredorafael.com/wp-content/uploads/2026/01/pexels-life-of-pix-7974-scaled-e1769021899692.jpg"
-            alt="Hero background"
-            className="h-full w-full object-cover"
-          />
-        )} */}
       </div>
-      {/* <div className="absolute inset-0 bg-linear-to-b from-transparent via-background/10 to-background" /> */}
 
       <div className="hero-gradient" />
 
