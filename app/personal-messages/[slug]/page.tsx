@@ -2,11 +2,13 @@
 
 import { cookies } from "next/headers";
 import { redirect, notFound } from "next/navigation";
+import PageHeader from "@/components/pageHeader";
 
 import {
   getPersonalMessageBySlug,
   validatePersonalMessagePassword,
   getProtectedPersonalMessageContent,
+  getFeaturedMediaById,
 } from "@/lib/wordpress";
 
 import { stripHtml } from "@/lib/metadata";
@@ -222,19 +224,37 @@ export default async function PersonalMessagePage({
     ? (protectedContent ?? "")
     : message.content.rendered;
 
+  const featuredMedia = message.featured_media
+    ? await getFeaturedMediaById(message.featured_media)
+    : null;
+
   return (
-    <main id="personalMessageContentPage" className="bg-alternative">
+    <div
+      id="personalMessageContentPage"
+      className="bg-accent-foreground/5 dark:bg-accent-foreground/10"
+    >
+      {featuredMedia?.source_url ? (
+        <PageHeader
+          title={message.title.rendered}
+          imgSrc={featuredMedia.source_url}
+          alt={message.title.rendered}
+          textAlign="center"
+        />
+      ) : (
+        <Container className="pb-4">
+          <div className="max-w-2xl">
+            <h1
+              className="my-0 text-2xl md:text-3xl"
+              dangerouslySetInnerHTML={{
+                __html: message.title.rendered,
+              }}
+            />
+            <hr className="my-7 border-t-[#848687]! dark:border-t-[#495057]!" />
+          </div>
+        </Container>
+      )}
       <Container className="min-h-screen pb-16">
-        <div className="max-w-2xl text-[#212529] dark:text-white">
-          <h1
-            className="-mt-2 my-0 text-2xl md:text-3xl"
-            dangerouslySetInnerHTML={{
-              __html: message.title.rendered,
-            }}
-          />
-
-          <hr className="my-5 border-t-[#848687]! dark:border-t-[#495057]!" />
-
+        <div className="max-w-2xl">
           <div
             className="prose prose-lg dark:prose-invert"
             dangerouslySetInnerHTML={{
@@ -243,6 +263,6 @@ export default async function PersonalMessagePage({
           />
         </div>
       </Container>
-    </main>
+    </div>
   );
 }

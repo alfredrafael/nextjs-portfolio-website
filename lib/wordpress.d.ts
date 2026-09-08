@@ -262,4 +262,5 @@ export interface PersonalMessage {
     protected?: boolean;
   };
   password_protected: boolean;
+  featured_media?: number;
 }

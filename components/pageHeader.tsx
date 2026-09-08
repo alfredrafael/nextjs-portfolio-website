@@ -2,25 +2,26 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { Section, Container, Prose } from "@/components/craft";
+import { stripHtml } from "@/lib/metadata";
 
 export default function PageHeader({
   title = "",
   subtitle = "",
   imgSrc = "",
   alt = "Header Image",
+  textAlign = "center",
 }: {
   title?: string;
   subtitle?: string;
   imgSrc?: string;
+  textAlign?: "left" | "center" | "right";
   alt?: string;
 }) {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
+    const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -31,37 +32,44 @@ export default function PageHeader({
       <div
         className="absolute inset-x-0 -top-1/2 bottom-0 z-0"
         style={{
-          // transform: `translateY(${scrollY * 0.5}px)`,
           transform: `translate3d(0, ${scrollY * 0.5}px, 0)`,
         }}
       >
         {imgSrc && (
           <Image
-            src={imgSrc || "/placeholder.svg"}
+            src={imgSrc}
             className="h-full w-full object-cover"
             fill
             priority
             alt={alt}
           />
         )}
-        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-4">
-        <div className="mx-auto max-w-3xl text-center">
+      <Container className="relative z-10 px-4">
+        <div
+          className={`max-w-3xl ${
+            textAlign === "left"
+              ? "mr-auto text-left"
+              : textAlign === "right"
+                ? "ml-auto text-right"
+                : "mx-auto text-center"
+          }`}
+        >
           <h1
-            className="text-balance font-serif text-5xl font-light tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl max-w-3xl"
+            className={`text-balance font-serif text-5xl font-light tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl max-w-3xl`}
             style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}
           >
             {title}
           </h1>
           {subtitle && (
             <p className="mt-6 text-pretty text-lg leading-relaxed text-white/90 lg:text-xl">
-              {subtitle}
+              {stripHtml(subtitle)}
             </p>
           )}
         </div>
-      </div>
+      </Container>
     </header>
   );
 }

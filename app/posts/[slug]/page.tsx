@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import PageHeader from "@/components/pageHeader";
 
 export async function generateStaticParams() {
   return await getAllPostSlugs();
@@ -63,14 +64,33 @@ export default async function Page({
   const category = await getCategoryById(post.categories[0]);
 
   return (
-    <main id="personalMessageContentPage" className="bg-alternative">
+    <Section
+      id="postContentPage"
+      className="bg-accent-foreground/5 dark:bg-accent-foreground/10"
+    >
+      {featuredMedia?.source_url ? (
+        <PageHeader
+          title={post.title.rendered}
+          imgSrc={featuredMedia.source_url}
+          alt={post.title.rendered}
+          textAlign="center"
+        />
+      ) : (
+        <Container className="pb-0! mb-0!">
+          <div className="-mt-6 md:mt-0 max-w-2xl">
+            <h1
+              className="md:my-0 text-2xl!  md:text-3xl font-semibold"
+              dangerouslySetInnerHTML={{
+                __html: post.title.rendered,
+              }}
+            />
+
+            <hr className="my-4 md:my-7 border-t-[#848687]! dark:border-t-[#495057]!" />
+          </div>
+        </Container>
+      )}
       <Container className="min-h-screen pb-16">
         <div className="text-[#212529] dark:text-white max-w-2xl">
-          <h1
-            className="-mt-2 text-2xl md:text-3xl my-0"
-            dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-          ></h1>
-          <hr className="my-5 border-t-[#848687]! dark:border-t-[#495057]!" />
           <div className="flex justify-between items-center gap-4 text-sm">
             {/* <h5>
               Published {date} by{" "}
@@ -81,16 +101,6 @@ export default async function Page({
               )}
             </h5> */}
           </div>
-          {featuredMedia?.source_url && (
-            <div className="h-96 mt-4 mb-6 md:h-[500px] overflow-hidden flex items-center justify-center border rounded-lg bg-accent/25">
-              {/* eslint-disable-next-line */}
-              <img
-                className="w-full h-full object-cover"
-                src={featuredMedia.source_url}
-                alt={post.title.rendered}
-              />
-            </div>
-          )}
         </div>
         <Article
           className="prose prose-lg dark:prose-invert"
@@ -113,6 +123,6 @@ export default async function Page({
           </>
         )}
       </Container>
-    </main>
+    </Section>
   );
 }

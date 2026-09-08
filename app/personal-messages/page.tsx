@@ -73,7 +73,7 @@ export default async function PersonalPage({
           : null;
 
     return (
-      <Section>
+      <Section className="bg-accent/10">
         <Container className="max-w-xl py-10">
           <div className="rounded-xl border bg-card p-6 sm:p-8">
             <Prose>
@@ -111,58 +111,64 @@ export default async function PersonalPage({
   const messages = await getPersonalMessages();
 
   return (
-    <Section>
-      <Container className="space-y-6">
-        <div className="flex items-center justify-between gap-4">
-          <Prose>
-            <h2>Personal Messages</h2>
-            <p className="text-muted-foreground">
-              {messages.length} {messages.length === 1 ? "message" : "messages"}
-            </p>
-          </Prose>
+    <main>
+      <Section>
+        <Container className="space-y-6">
+          <div className="flex items-center justify-between gap-4">
+            <Prose>
+              <h2>Personal Messages</h2>
+              <p className="text-muted-foreground">
+                {messages.length}{" "}
+                {messages.length === 1 ? "message" : "total messages"}
+              </p>
+            </Prose>
 
-          <form action={lockPersonalMessages}>
-            <button
-              type="submit"
-              className="inline-flex h-10 items-center rounded-md border px-4 text-sm font-medium"
-            >
-              Lock
-            </button>
-          </form>
-        </div>
+            <form action={lockPersonalMessages}>
+              <button
+                type="submit"
+                className="inline-flex h-10 items-center rounded-md border px-4 text-sm font-medium"
+              >
+                Lock
+              </button>
+            </form>
+          </div>
 
-        {messages.length > 0 ? (
-          <div className="space-y-4">
-            {messages.map((msg) => (
-              <article key={msg.id} className="rounded-lg border p-4 sm:p-6">
-                <h3 className="mb-3 text-xl font-semibold">
-                  <Link
-                    href={`/personal-messages/${msg.slug}`}
-                    className="hover:underline"
-                    dangerouslySetInnerHTML={{ __html: msg.title.rendered }}
-                  />
-                </h3>
-                <p className="mb-4 text-muted-foreground wrap-break-word">
-                  {stripHtml(msg.content.rendered).slice(0, 180)}
-                  {stripHtml(msg.content.rendered).length > 180 ? "..." : ""}
-                </p>
+          {messages.length > 0 ? (
+            <div className="grid gap-4 md:grid-cols-2">
+              {messages.map((msg) => (
                 <Link
                   href={`/personal-messages/${msg.slug}`}
-                  className="text-sm font-medium text-primary hover:underline"
+                  key={msg.id}
+                  className="transition-shadow duration-100 rounded-lg hover:shadow-lg dark:hover:shadow-white/10"
                 >
-                  Read message
+                  <article
+                    key={msg.id}
+                    className="flex flex-col rounded-lg border p-4 shadow-sm sm:p-6 bg-accent"
+                  >
+                    <h3 className="mb-3 text-xl font-semibold">
+                      <span
+                        dangerouslySetInnerHTML={{ __html: msg.title.rendered }}
+                      />
+                    </h3>
+                    <p className="mb-4 flex-1 text-muted-foreground wrap-break-word">
+                      {stripHtml(msg.content.rendered).slice(0, 180)}
+                      {stripHtml(msg.content.rendered).length > 180
+                        ? "..."
+                        : "This message is 'password protected' so you'll need to click and enter the password to see the message. Feel free to click and enter password."}
+                    </p>
+                  </article>
                 </Link>
-              </article>
-            ))}
-          </div>
-        ) : (
-          <div className="rounded-lg border bg-accent/25 p-8 text-center">
-            <p className="text-muted-foreground">
-              No personal messages available yet.
-            </p>
-          </div>
-        )}
-      </Container>
-    </Section>
+              ))}
+            </div>
+          ) : (
+            <div className="rounded-lg border bg-accent/25 p-8 text-center">
+              <p className="text-muted-foreground">
+                No personal messages available yet.
+              </p>
+            </div>
+          )}
+        </Container>
+      </Section>
+    </main>
   );
 }
