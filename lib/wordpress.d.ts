@@ -259,7 +259,7 @@ export interface PersonalMessage {
   };
   content: {
     rendered: string;
-    protected: boolean;
+    protected?: boolean;
   };
-  message_password?: string;
+  password_protected: boolean;
 }

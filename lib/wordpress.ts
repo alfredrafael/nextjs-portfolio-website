@@ -2,6 +2,8 @@
 // Used to fetch data from a WordPress site using the WordPress REST API
 // Types are imported from `wp.d.ts`
 
+// wordpress.ts
+
 import querystring from "query-string";
 import type {
   Post,
@@ -523,19 +525,131 @@ export async function getPersonalMessages(): Promise<PersonalMessage[]> {
 export async function getPersonalMessageBySlug(
   slug: string,
 ): Promise<PersonalMessage | undefined> {
-  // The collection endpoint (?slug=xxx) returns message_password as null due to
-  // a WordPress REST API quirk where custom fields only populate on single-item requests.
-  // Fix: resolve slug → ID first, then fetch the single-item endpoint.
-  const list = await wordpressFetchNoStore<Array<{ id: number }>>(
+  const messages = await wordpressFetchNoStore<PersonalMessage[]>(
     "/wp-json/wp/v2/personal_message",
-    { slug, _fields: "id" },
+    { slug },
   ).catch(() => []);
 
-  if (!list[0]?.id) return undefined;
+  return messages[0];
+}
 
-  return wordpressFetchNoStore<PersonalMessage>(
-    `/wp-json/wp/v2/personal_message/${list[0].id}`,
-  ).catch(() => undefined);
+export type PersonalMessagePasswordValidationResponse =
+  | {
+      success: true;
+      password_required: false;
+    }
+  | {
+      success: true;
+      password_required: true;
+      access_token: string;
+      expires_in: number;
+    }
+  | {
+      success: false;
+      password_required?: boolean;
+      message: string;
+    };
+
+export async function validatePersonalMessagePassword(
+  postId: number,
+  password: string,
+): Promise<{
+  ok: boolean;
+  status: number;
+  data: PersonalMessagePasswordValidationResponse;
+}> {
+  if (!baseUrl) {
+    throw new Error("WordPress URL not configured");
+  }
+
+  const url = `${baseUrl}/wp-json/personal-messages/v1/validate-password`;
+
+  const response = await fetch(url, {
+    method: "POST",
+
+    headers: {
+      "Content-Type": "application/json",
+      "User-Agent": USER_AGENT,
+      "Cache-Control": "no-cache",
+    },
+
+    body: JSON.stringify({
+      post_id: postId,
+      password,
+    }),
+
+    cache: "no-store",
+  });
+
+  const data =
+    (await response.json()) as PersonalMessagePasswordValidationResponse;
+
+  return {
+    ok: response.ok,
+    status: response.status,
+    data,
+  };
+}
+
+export type ProtectedPersonalMessageResponse =
+  | {
+      success: true;
+      message: {
+        id: number;
+        slug: string;
+
+        title: {
+          rendered: string;
+        };
+
+        content: {
+          rendered: string;
+        };
+      };
+    }
+  | {
+      success: false;
+      message: string;
+    };
+
+export async function getProtectedPersonalMessageContent(
+  postId: number,
+  accessToken: string,
+): Promise<{
+  ok: boolean;
+  status: number;
+  data: ProtectedPersonalMessageResponse;
+}> {
+  if (!baseUrl) {
+    throw new Error("WordPress URL not configured");
+  }
+
+  const url = `${baseUrl}/wp-json/personal-messages/v1/content`;
+
+  const response = await fetch(url, {
+    method: "POST",
+
+    headers: {
+      "Content-Type": "application/json",
+      "User-Agent": USER_AGENT,
+      "Cache-Control": "no-cache",
+    },
+
+    body: JSON.stringify({
+      post_id: postId,
+      access_token: accessToken,
+    }),
+
+    cache: "no-store",
+  });
+
+  const data = (await response.json()) as ProtectedPersonalMessageResponse;
+
+  return {
+    ok: response.ok,
+    status: response.status,
+    data,
+  };
 }
 
 export { WordPressAPIError };
