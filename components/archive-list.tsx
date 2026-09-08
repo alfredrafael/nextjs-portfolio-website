@@ -23,13 +23,21 @@ export function ArchiveList<T extends { id: number | string }>({
         <Prose className="mb-8">
           <h2>{title}</h2>
           {items.length > 0 ? (
-            <ul className="grid">
+            <div className="grid gap-4 not-prose md:grid-cols-2">
               {items.map((item) => (
-                <li key={item.id}>
-                  <Link href={getItemHref(item)}>{getItemLabel(item)}</Link>
-                </li>
+                <Link
+                  href={getItemHref(item)}
+                  key={item.id}
+                  className="no-underline! transition-shadow duration-500 hover:shadow-lg hover:shadow-black/10 dark:hover:shadow-white/10"
+                >
+                  <article className="rounded-lg border bg-accent p-4 shadow-sm sm:p-6">
+                    <h4 className="text-lg font-semibold">
+                      {getItemLabel(item)}
+                    </h4>
+                  </article>
+                </Link>
               ))}
-            </ul>
+            </div>
           ) : (
             <p className="text-muted-foreground">{emptyMessage}</p>
           )}

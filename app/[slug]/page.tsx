@@ -1,12 +1,15 @@
+// pages/[slug]/page.tsx
+
 import { getPageBySlug, getAllPages } from "@/lib/wordpress";
 import { generateContentMetadata, stripHtml } from "@/lib/metadata";
 import { Section, Container, Prose } from "@/components/craft";
 import { notFound } from "next/navigation";
+// Custom Components
+import PageHeader from "@/components/pageHeader";
 
 import type { Metadata } from "next";
 
-// Revalidate pages every hour
-export const revalidate = 3600;
+export const revalidate = 60;
 
 export async function generateStaticParams() {
   const pages = await getAllPages();
@@ -52,14 +55,28 @@ export default async function Page({
     notFound();
   }
 
+  // console.log("Rendering page:", page);
+
+  const featuredImage = (page as any)?._embedded?.["wp:featuredmedia"]?.[0];
+  const imgSrc = featuredImage?.source_url;
+  const imgAlt = featuredImage?.alt_text || page?.title?.rendered || "";
+
   return (
-    <Section>
+    <>
+      {featuredImage && (
+        <PageHeader
+          title={page.title.rendered}
+          imgSrc={imgSrc}
+          alt={imgAlt}
+          textAlign="left"
+        />
+      )}
       <Container>
         <Prose>
-          <h2>{page.title.rendered}</h2>
+          {/* <h2>{page.title.rendered}</h2> */}
           <div dangerouslySetInnerHTML={{ __html: page.content.rendered }} />
         </Prose>
       </Container>
-    </Section>
+    </>
   );
 }

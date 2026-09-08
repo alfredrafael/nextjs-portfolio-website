@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { Section, Container, Prose } from "@/components/craft";
+import { useEffect, useRef } from "react";
+import { Container } from "@/components/craft";
 import { stripHtml } from "@/lib/metadata";
 
 export default function PageHeader({
@@ -18,10 +18,25 @@ export default function PageHeader({
   textAlign?: "left" | "center" | "right";
   alt?: string;
 }) {
-  const [scrollY, setScrollY] = useState(0);
+  const parallaxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
+    let ticking = false;
+
+    const applyTransform = () => {
+      if (parallaxRef.current) {
+        parallaxRef.current.style.transform = `translate3d(0, ${window.scrollY * 0.5}px, 0)`;
+      }
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(applyTransform);
+      }
+    };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -30,10 +45,8 @@ export default function PageHeader({
     <header className="relative bg-primary py-24 lg:py-32 overflow-hidden">
       {/* Background Image */}
       <div
+        ref={parallaxRef}
         className="absolute inset-x-0 -top-1/2 bottom-0 z-0"
-        style={{
-          transform: `translate3d(0, ${scrollY * 0.5}px, 0)`,
-        }}
       >
         {imgSrc && (
           <Image

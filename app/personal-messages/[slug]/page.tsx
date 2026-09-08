@@ -238,7 +238,7 @@ export default async function PersonalMessagePage({
           title={message.title.rendered}
           imgSrc={featuredMedia.source_url}
           alt={message.title.rendered}
-          textAlign="center"
+          textAlign="left"
         />
       ) : (
         <Container className="pb-4">

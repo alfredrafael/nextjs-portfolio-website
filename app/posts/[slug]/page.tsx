@@ -65,6 +65,10 @@ export default async function Page({
   });
   const category = await getCategoryById(post.categories[0]);
 
+  console.log("featured_media ID:", post.featured_media);
+  console.log("featuredMedia:", featuredMedia);
+  console.log("featured image URL:", featuredMedia?.source_url);
+
   return (
     <Section
       id="postContentPage"
@@ -75,7 +79,7 @@ export default async function Page({
           title={post.title.rendered}
           imgSrc={featuredMedia.source_url}
           alt={post.title.rendered}
-          textAlign="center"
+          textAlign="left"
         />
       ) : (
         <Container className="pb-0! mb-0!">
