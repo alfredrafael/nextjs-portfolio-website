@@ -16,6 +16,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import PageHeader from "@/components/pageHeader";
 
+export const dynamic = "force-dynamic";
+
 export async function generateStaticParams() {
   return await getAllPostSlugs();
 }
