@@ -47,7 +47,7 @@ export async function generateMetadata({
     ? await getFeaturedMediaById(message.featured_media)
     : null;
 
-  return generateContentMetadata({
+  const metadata = generateContentMetadata({
     title,
     description,
     slug: message.slug,
@@ -61,6 +61,14 @@ export async function generateMetadata({
         }
       : undefined,
   });
+
+  return {
+    ...metadata,
+    robots: {
+      index: false,
+      follow: false,
+    },
+  };
 }
 
 export default async function PersonalMessagePage({
