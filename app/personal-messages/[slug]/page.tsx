@@ -231,7 +231,7 @@ export default async function PersonalMessagePage({
   return (
     <div
       id="personalMessageContentPage"
-      className="bg-accent-foreground/5 dark:bg-accent-foreground/10"
+      className="bg-gradient-to-b from-accent-foreground/5 to-background dark:from-accent-foreground/10"
     >
       {featuredMedia?.source_url ? (
         <PageHeader

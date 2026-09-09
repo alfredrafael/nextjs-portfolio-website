@@ -8,7 +8,12 @@ import { Analytics } from "@vercel/analytics/react";
 import { siteConfig } from "@/site.config";
 import { cn } from "@/lib/utils";
 
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   title: "Alfredo Rafael - Software Engineer",
