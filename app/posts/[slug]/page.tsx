@@ -65,14 +65,10 @@ export default async function Page({
   });
   const category = await getCategoryById(post.categories[0]);
 
-  console.log("featured_media ID:", post.featured_media);
-  console.log("featuredMedia:", featuredMedia);
-  console.log("featured image URL:", featuredMedia?.source_url);
-
   return (
     <Section
       id="postContentPage"
-      className="bg-accent-foreground/5 dark:bg-accent-foreground/10"
+      className="bg-linear-to-b from-accent-foreground/5 to-background dark:from-accent-foreground/10 pt-0!"
     >
       {featuredMedia?.source_url ? (
         <PageHeader

@@ -1,6 +1,11 @@
 // pages/[slug]/page.tsx
 
-import { getPageBySlug, getAllPages } from "@/lib/wordpress";
+import {
+  getPageBySlug,
+  getAllPages,
+  getAuthorById,
+  getFeaturedMediaById,
+} from "@/lib/wordpress";
 import { generateContentMetadata, stripHtml } from "@/lib/metadata";
 import { Section, Container, Prose } from "@/components/craft";
 import { notFound } from "next/navigation";
@@ -61,22 +66,51 @@ export default async function Page({
   const imgSrc = featuredImage?.source_url;
   const imgAlt = featuredImage?.alt_text || page?.title?.rendered || "";
 
+  const featuredMedia = page.featured_media
+    ? await getFeaturedMediaById(page.featured_media)
+    : null;
+  const author = await getAuthorById(page.author);
+  const date = new Date(page.date).toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+
   return (
-    <>
-      {featuredImage && (
+    <Section
+      id="pageContentTemplate"
+      className="bg-linear-to-b from-accent-foreground/5 to-background dark:from-accent-foreground/10 pt-0!"
+    >
+      {featuredMedia?.source_url ? (
         <PageHeader
           title={page.title.rendered}
-          imgSrc={imgSrc}
-          alt={imgAlt}
+          imgSrc={featuredMedia.source_url}
+          alt={page.title.rendered}
           textAlign="left"
         />
+      ) : (
+        <Container className="pb-0!">
+          <div className="max-w-2xl">
+            <h1
+              className="my-4 text-2xl md:text-3xl font-semibold"
+              dangerouslySetInnerHTML={{
+                __html: page.title.rendered,
+              }}
+            />
+            <hr className="my-7 border-t-[#848687]! dark:border-t-[#495057]!" />
+          </div>
+        </Container>
       )}
-      <Container>
-        <Prose>
-          {/* <h2>{page.title.rendered}</h2> */}
-          <div dangerouslySetInnerHTML={{ __html: page.content.rendered }} />
-        </Prose>
+      <Container className="min-h-screen pb-16 pt-0!">
+        <div className="max-w-2xl">
+          <div
+            className="prose prose-lg dark:prose-invert"
+            dangerouslySetInnerHTML={{
+              __html: page.content.rendered,
+            }}
+          />
+        </div>
       </Container>
-    </>
+    </Section>
   );
 }
