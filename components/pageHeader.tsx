@@ -25,7 +25,10 @@ export default function PageHeader({
 
     const applyTransform = () => {
       if (parallaxRef.current) {
-        parallaxRef.current.style.transform = `translate3d(0, ${window.scrollY * 0.5}px, 0)`;
+        // Clamp to 0 so iOS rubber-band overscroll (negative scrollY)
+        // doesn't drag the image past its buffer and reveal the background.
+        const scrollY = Math.max(0, window.scrollY);
+        parallaxRef.current.style.transform = `translate3d(0, ${scrollY * 0.5}px, 0)`;
       }
       ticking = false;
     };

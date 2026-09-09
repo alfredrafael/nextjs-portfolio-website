@@ -182,7 +182,11 @@ export default async function PersonalMessagePage({
             <p>Enter the password to read this message.</p>
           </Prose>
 
-          <form action={unlockMessage} className="mt-6 space-y-4">
+          <form
+            action={unlockMessage}
+            className="mt-6 space-y-4"
+            suppressHydrationWarning
+          >
             <label htmlFor="password" className="block text-sm font-medium">
               Password
             </label>
@@ -194,6 +198,7 @@ export default async function PersonalMessagePage({
               required
               autoComplete="current-password"
               className="h-10 w-full rounded-md border bg-background px-3 text-sm"
+              suppressHydrationWarning
             />
 
             {error === "invalid" && (
@@ -231,7 +236,7 @@ export default async function PersonalMessagePage({
   return (
     <div
       id="personalMessageContentPage"
-      className="bg-gradient-to-b from-accent-foreground/5 to-background dark:from-accent-foreground/10"
+      className="bg-linear-to-b from-accent-foreground/5 to-background dark:from-accent-foreground/10"
     >
       {featuredMedia?.source_url ? (
         <PageHeader

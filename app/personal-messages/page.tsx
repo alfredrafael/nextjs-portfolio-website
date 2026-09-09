@@ -81,7 +81,11 @@ export default async function PersonalPage({
               <p>Enter the password to access personal messages.</p>
             </Prose>
 
-            <form action={unlockPersonalMessages} className="mt-6 space-y-4">
+            <form
+              action={unlockPersonalMessages}
+              className="mt-6 space-y-4"
+              suppressHydrationWarning
+            >
               <label htmlFor="password" className="block text-sm font-medium">
                 Password
               </label>
@@ -91,6 +95,7 @@ export default async function PersonalPage({
                 type="password"
                 required
                 className="h-10 w-full rounded-md border bg-background px-3 text-sm"
+                suppressHydrationWarning
               />
               {errorMessage ? (
                 <p className="text-sm text-destructive">{errorMessage}</p>
