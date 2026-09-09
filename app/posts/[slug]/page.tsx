@@ -68,7 +68,7 @@ export default async function Page({
   return (
     <Section
       id="postContentPage"
-      className="bg-linear-to-b from-accent-foreground/5 to-background dark:from-accent-foreground/10 pt-0!"
+      className="bg-linear-to-b from-accent-foreground/5 to-background dark:from-accent-foreground/10 pt-4!"
     >
       {featuredMedia?.source_url ? (
         <PageHeader
@@ -78,36 +78,26 @@ export default async function Page({
           textAlign="left"
         />
       ) : (
-        <Container className="pb-0! mb-0!">
-          <div className="-mt-6 md:mt-0 max-w-2xl">
+        <Container className="pb-0! pt-1! md:pt-6! -mb-6">
+          <div className="max-w-2xl">
             <h1
-              className="md:my-0 text-2xl!  md:text-3xl font-semibold"
+              className="my-4 text-2xl md:text-3xl font-semibold"
               dangerouslySetInnerHTML={{
                 __html: post.title.rendered,
               }}
             />
-
-            <hr className="my-4 md:my-7 border-t-[#848687]! dark:border-t-[#495057]!" />
+            <hr className="my-7 border-t-[#848687]! dark:border-t-[#495057]!" />
           </div>
         </Container>
       )}
       <Container className="min-h-screen pb-16">
-        <div className="text-[#212529] dark:text-white max-w-2xl">
-          <div className="flex justify-between items-center gap-4 text-sm">
-            {/* <h5>
-              Published {date} by{" "}
-              {author.name && (
-                <span>
-                  <a href={`/posts/?author=${author.id}`}>{author.name}</a>{" "}
-                </span>
-              )}
-            </h5> */}
-          </div>
-        </div>
-        <Article
-          className="prose prose-lg dark:prose-invert"
-          dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+        <div
+          className="prose prose-lg dark:prose-invert max-w-2xl"
+          dangerouslySetInnerHTML={{
+            __html: post.content.rendered,
+          }}
         />
+
         <br />
         {category.slug !== "uncategorized" && (
           <>

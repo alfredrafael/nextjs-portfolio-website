@@ -12,7 +12,7 @@ import {
 } from "@/lib/wordpress";
 
 import { stripHtml } from "@/lib/metadata";
-import { Container, Prose } from "@/components/craft";
+import { Container, Prose, Section } from "@/components/craft";
 
 import type { Metadata } from "next";
 
@@ -234,7 +234,7 @@ export default async function PersonalMessagePage({
     : null;
 
   return (
-    <div
+    <Section
       id="personalMessageContentPage"
       className="bg-linear-to-b from-accent-foreground/5 to-background dark:from-accent-foreground/10"
     >
@@ -270,6 +270,6 @@ export default async function PersonalMessagePage({
           />
         </div>
       </Container>
-    </div>
+    </Section>
   );
 }
