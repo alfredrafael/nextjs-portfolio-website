@@ -239,17 +239,19 @@ export default async function PersonalMessagePage({
       className="bg-linear-to-b from-accent-foreground/5 to-background dark:from-accent-foreground/10"
     >
       {featuredMedia?.source_url ? (
-        <PageHeader
-          title={message.title.rendered}
-          imgSrc={featuredMedia.source_url}
-          alt={message.title.rendered}
-          textAlign="left"
-        />
+        <div className="mb-6">
+          <PageHeader
+            title={message.title.rendered}
+            imgSrc={featuredMedia.source_url}
+            alt={message.title.rendered}
+            textAlign="left"
+          />
+        </div>
       ) : (
-        <Container className="pb-4">
+        <Container className="pb-0!">
           <div className="max-w-2xl">
             <h1
-              className="my-0 text-2xl md:text-3xl"
+              className="my-4 text-2xl md:text-3xl font-semibold"
               dangerouslySetInnerHTML={{
                 __html: message.title.rendered,
               }}
@@ -258,7 +260,7 @@ export default async function PersonalMessagePage({
           </div>
         </Container>
       )}
-      <Container className="min-h-screen pb-16">
+      <Container className="min-h-screen pb-16 pt-0!">
         <div className="max-w-2xl">
           <div
             className="prose prose-lg dark:prose-invert"
