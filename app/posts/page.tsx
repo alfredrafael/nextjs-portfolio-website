@@ -73,7 +73,7 @@ export default async function Page({
   };
 
   return (
-    <main>
+    <main className="bg-linear-to-b from-accent-foreground/5 to-background dark:from-accent-foreground/10">
       <Section>
         <Container>
           <div className="space-y-8">

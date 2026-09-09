@@ -19,7 +19,7 @@ export function PostCard({ post }: { post: Post }) {
     <Link
       href={`/posts/${post.slug}`}
       className={cn(
-        "border p-4 bg-accent rounded-lg group flex justify-between flex-col not-prose gap-8 hover:shadow-lg transition-shadow duration-100",
+        "border p-4 bg-background rounded-lg group flex justify-between flex-col not-prose gap-8 hover:shadow-lg transition-shadow duration-100",
       )}
     >
       <div className="flex flex-col gap-4">
