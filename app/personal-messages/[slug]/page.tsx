@@ -236,7 +236,7 @@ export default async function PersonalMessagePage({
   return (
     <Section
       id="personalMessageContentPage"
-      className="bg-linear-to-b from-accent-foreground/5 to-background dark:from-accent-foreground/10"
+      className="bg-linear-to-b from-accent-foreground/5 to-background dark:from-accent-foreground/10 pt-0!"
     >
       {featuredMedia?.source_url ? (
         <div className="mb-6">
