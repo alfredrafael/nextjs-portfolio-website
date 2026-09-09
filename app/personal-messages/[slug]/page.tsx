@@ -260,10 +260,11 @@ export default async function PersonalMessagePage({
           </div>
         </Container>
       )}
-      <Container className="min-h-screen pb-16 pt-0!">
+      <Container className="min-h-screen pb-16 pt-0! overflow-x-hidden">
         <div className="max-w-2xl">
+          {/* Guard against wide tables/code blocks in WP content forcing horizontal overflow on mobile */}
           <div
-            className="prose prose-lg dark:prose-invert"
+            className="prose prose-lg dark:prose-invert wrap-break-word [&_pre]:overflow-x-auto [&_table]:block [&_table]:overflow-x-auto [&_table]:max-w-full"
             dangerouslySetInnerHTML={{
               __html: renderedContent,
             }}
