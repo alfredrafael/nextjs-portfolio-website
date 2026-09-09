@@ -68,7 +68,7 @@ export default async function Page({
   return (
     <Section
       id="postContentPage"
-      className="bg-linear-to-b from-accent-foreground/5 to-background dark:from-accent-foreground/10 pt-4!"
+      className="bg-linear-to-b from-accent-foreground/5 to-background dark:from-accent-foreground/10 pt-0!"
     >
       {featuredMedia?.source_url ? (
         <PageHeader
