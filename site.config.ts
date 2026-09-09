@@ -8,5 +8,5 @@ export const siteConfig: SiteConfig = {
   site_name: "Alfredo Rafael | Software Engineer",
   site_description:
     "Front-End Software Engineer specializing in React, Next.js, and TypeScript.",
-  site_domain: "https://alfredorafael.com",
+  site_domain: "https://www.alfredodeveloper.com",
 };

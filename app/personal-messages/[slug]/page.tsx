@@ -11,7 +11,7 @@ import {
   getFeaturedMediaById,
 } from "@/lib/wordpress";
 
-import { stripHtml } from "@/lib/metadata";
+import { stripHtml, generateContentMetadata } from "@/lib/metadata";
 import { Container, Prose, Section } from "@/components/craft";
 
 import type { Metadata } from "next";
@@ -43,28 +43,24 @@ export async function generateMetadata({
       ? `${contentText.slice(0, 200)}...`
       : contentText;
 
-  return {
+  const featuredMedia = message.featured_media
+    ? await getFeaturedMediaById(message.featured_media)
+    : null;
+
+  return generateContentMetadata({
     title,
-
     description,
-
-    alternates: {
-      canonical: `/personal-messages/${message.slug}`,
-    },
-
-    openGraph: {
-      title,
-      description,
-      type: "article",
-      url: `/personal-messages/${message.slug}`,
-    },
-
-    twitter: {
-      card: "summary",
-      title,
-      description,
-    },
-  };
+    slug: message.slug,
+    basePath: "personal-messages",
+    image: featuredMedia?.source_url
+      ? {
+          url: featuredMedia.source_url,
+          width: featuredMedia.media_details?.width,
+          height: featuredMedia.media_details?.height,
+          alt: featuredMedia.alt_text,
+        }
+      : undefined,
+  });
 }
 
 export default async function PersonalMessagePage({

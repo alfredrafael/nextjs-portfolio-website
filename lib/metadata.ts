@@ -5,9 +5,11 @@ interface ContentMetadataOptions {
   title: string;
   description: string;
   slug?: string;
-  basePath?: "posts" | "pages";
+  basePath?: "posts" | "pages" | "personal-messages";
   /** Full canonical/OG URL override, for pages without a single content slug (e.g. archives). */
   url?: string;
+  /** WordPress featured image to use as the OG/Twitter thumbnail instead of the generated title card. */
+  image?: { url: string; width?: number; height?: number; alt?: string };
 }
 
 export function generateContentMetadata({
@@ -16,10 +18,26 @@ export function generateContentMetadata({
   slug,
   basePath,
   url,
+  image,
 }: ContentMetadataOptions): Metadata {
-  const ogUrl = new URL(`${siteConfig.site_domain}/api/og`);
-  ogUrl.searchParams.append("title", title);
-  ogUrl.searchParams.append("description", description);
+  const generatedOgUrl = new URL(`${siteConfig.site_domain}/api/og`);
+  generatedOgUrl.searchParams.append("title", title);
+  generatedOgUrl.searchParams.append("description", description);
+
+  // Prefer the featured image when available; fall back to a generated title card.
+  const ogImage = image
+    ? {
+        url: image.url,
+        width: image.width ?? 1200,
+        height: image.height ?? 630,
+        alt: image.alt || title,
+      }
+    : {
+        url: generatedOgUrl.toString(),
+        width: 1200,
+        height: 630,
+        alt: title,
+      };
 
   const contentUrl =
     url ??
@@ -38,20 +56,13 @@ export function generateContentMetadata({
       description,
       type: "article",
       url: contentUrl,
-      images: [
-        {
-          url: ogUrl.toString(),
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
+      images: [ogImage],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [ogUrl.toString()],
+      images: [ogImage.url],
     },
   };
 }

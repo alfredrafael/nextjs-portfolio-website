@@ -40,11 +40,23 @@ export async function generateMetadata({
     ? stripHtml(page.excerpt.rendered)
     : stripHtml(page.content.rendered).slice(0, 200) + "...";
 
+  const featuredMedia = page.featured_media
+    ? await getFeaturedMediaById(page.featured_media)
+    : null;
+
   return generateContentMetadata({
     title: page.title.rendered,
     description,
     slug: page.slug,
     basePath: "pages",
+    image: featuredMedia?.source_url
+      ? {
+          url: featuredMedia.source_url,
+          width: featuredMedia.media_details?.width,
+          height: featuredMedia.media_details?.height,
+          alt: featuredMedia.alt_text,
+        }
+      : undefined,
   });
 }
 
