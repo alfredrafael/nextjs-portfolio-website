@@ -90,9 +90,10 @@ export default async function Page({
           </div>
         </Container>
       )}
-      <Container className="min-h-screen pb-16">
+      <Container className="min-h-screen pb-16 overflow-x-hidden">
+        {/* Guard against wide tables/code blocks in WP content forcing horizontal overflow on mobile */}
         <div
-          className="prose prose-lg dark:prose-invert max-w-2xl"
+          className="prose prose-lg dark:prose-invert max-w-2xl wrap-break-word [&_pre]:overflow-x-auto [&_table]:block [&_table]:overflow-x-auto [&_table]:max-w-full"
           dangerouslySetInnerHTML={{
             __html: post.content.rendered,
           }}
