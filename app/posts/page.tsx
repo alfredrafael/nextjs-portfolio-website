@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 };
 
 export const dynamic = "auto";
-export const revalidate = 60;
+export const revalidate = 900;
 
 export default async function Page({
   searchParams,

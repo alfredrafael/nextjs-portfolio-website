@@ -14,7 +14,7 @@ import PageHeader from "@/components/pageHeader";
 
 import type { Metadata } from "next";
 
-export const revalidate = 60;
+export const revalidate = 900;
 
 export async function generateStaticParams() {
   const pages = await getAllPages();

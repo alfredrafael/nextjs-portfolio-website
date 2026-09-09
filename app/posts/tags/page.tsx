@@ -3,7 +3,7 @@ import { ArchiveList } from "@/components/archive-list";
 import type { Tag } from "@/lib/wordpress.d";
 import type { Metadata } from "next";
 
-export const revalidate = 60;
+export const revalidate = 900;
 
 export const metadata: Metadata = {
   title: "All Tags",
