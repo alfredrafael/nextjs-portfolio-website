@@ -1,6 +1,6 @@
 # Alfredo Rafael - Portfolio Website
 
-A modern portfolio website built with Next.js 15, React 19, and TypeScript, featuring a headless WordPress CMS integration.
+A modern portfolio website built with Next.js 16, React 19, and TypeScript, featuring a headless WordPress CMS integration.
 
 ## Table of Contents
 
@@ -10,6 +10,8 @@ A modern portfolio website built with Next.js 15, React 19, and TypeScript, feat
 - [Environment Variables](#environment-variables)
 - [Scripts](#scripts)
 - [Tech Stack](#tech-stack)
+- [WordPress Revalidation Plugin](#wordpress-revalidation-plugin)
+- [Deployment](#deployment)
 - [License](#license)
 
 ## Quick Start
@@ -56,6 +58,7 @@ nextjs-portfolio-website/
 │   │   └── revalidate/      # Cache revalidation webhook
 │   ├── data/                # Static data (navigation, projects, resume)
 │   ├── pages/[slug]/        # Dynamic WordPress pages
+│   ├── personal-messages/   # Personal messages section ([slug] detail pages)
 │   ├── posts/               # Blog section with WordPress integration
 │   │   ├── [slug]/          # Individual blog posts
 │   │   ├── authors/         # Author archives
@@ -82,8 +85,13 @@ nextjs-portfolio-website/
 │   ├── wordpress.d.ts       # TypeScript definitions
 │   ├── metadata.ts          # Metadata utilities
 │   └── utils.ts             # Utility functions
+├── plugin/                  # WordPress revalidation plugin (installable zip + source)
+├── wordpress/               # Dockerized WordPress setup (theme, Dockerfile, entrypoint)
 ├── public/                  # Static assets
 ├── site.config.ts           # Site configuration
+├── Dockerfile               # Next.js production image
+├── railway.json              # Railway deployment config
+├── railway.toml              # Railway deployment config
 └── next.config.ts           # Next.js configuration
 ```
 
@@ -108,7 +116,7 @@ pnpm lint      # Run ESLint
 
 ## Tech Stack
 
-- **Framework:** [Next.js 15](https://nextjs.org/) with App Router
+- **Framework:** [Next.js 16](https://nextjs.org/) with App Router
 - **Language:** [TypeScript](https://www.typescriptlang.org/)
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/)
 - **UI Components:** [shadcn/ui](https://ui.shadcn.com/)
@@ -117,6 +125,24 @@ pnpm lint      # Run ESLint
 - **Icons:** [Lucide React](https://lucide.dev/)
 - **Analytics:** [Vercel Analytics](https://vercel.com/analytics)
 - **Package Manager:** [pnpm](https://pnpm.io/)
+
+## WordPress Revalidation Plugin
+
+The [plugin/](plugin/) directory contains a WordPress plugin (`next-revalidate.zip`) that triggers on-demand cache revalidation on this site whenever content changes in WordPress:
+
+1. Install the plugin in WordPress (upload the zip or extract to `/wp-content/plugins/`) and activate it
+2. Configure your Next.js site URL and a webhook secret under Settings > Next.js Revalidation
+3. Set the same secret as `WORDPRESS_WEBHOOK_SECRET` in this project's environment variables
+
+See [plugin/README.md](plugin/README.md) for full setup details.
+
+## Deployment
+
+The app is containerized for deployment on platforms like Railway:
+
+- `Dockerfile` builds a standalone Next.js production image (multi-stage, pnpm-based)
+- `railway.json` / `railway.toml` configure the Railway build (Dockerfile-based) and deploy/restart policy
+- The `wordpress/` directory contains a separate Dockerized WordPress setup (custom theme, entrypoint, and the revalidation plugin) for self-hosting the CMS alongside the site
 
 ## License
 
