@@ -64,14 +64,10 @@ export async function generateMetadata({
 
   return {
     ...metadata,
-    // Only block indexing for password-protected messages; noindex also
-    // suppresses link-preview thumbnails (e.g. iMessage) for public ones.
-    robots: isProtected
-      ? {
-          index: false,
-          follow: false,
-        }
-      : undefined,
+    robots: {
+      index: false,
+      follow: false,
+    },
   };
 }
 
