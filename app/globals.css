@@ -323,3 +323,14 @@
   font-size: 1.2rem;
   text-align: center;
 }
+
+#prompter .readable {
+  border: 1px solid red;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin: 1rem 0;
+}
+
+#prompter h4 {
+  margin: 1rem 0;
+}
