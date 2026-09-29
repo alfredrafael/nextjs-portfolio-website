@@ -4,6 +4,46 @@ import { Experience } from "./experience";
 import SocialLinks from "./socialLinks";
 import { Skills } from "./skills";
 import { Education } from "./education";
+import type { Metadata } from "next";
+import { siteConfig } from "@/site.config";
+
+const title = "Resume | Alfredo R. Pabon — Front-End Software Engineer";
+const description =
+  "Explore Alfredo R. Pabon's experience, skills, and education as a Front-End Software Engineer specializing in React, Next.js, TypeScript, and accessible web applications.";
+
+const thumbnailUrl = new URL("/api/og", siteConfig.site_domain);
+thumbnailUrl.searchParams.set("title", "Alfredo R. Pabon | Resume");
+thumbnailUrl.searchParams.set(
+  "description",
+  "Front-End Software Engineer • React, Next.js, TypeScript & Accessibility",
+);
+
+const thumbnail = {
+  url: thumbnailUrl.toString(),
+  width: 1200,
+  height: 630,
+  alt: "Alfredo R. Pabon — Resume — Front-End Software Engineer specializing in React, Next.js, TypeScript, and accessibility",
+};
+
+export const metadata: Metadata = {
+  title,
+  description,
+  alternates: { canonical: "/resume" },
+  openGraph: {
+    type: "website",
+    url: "/resume",
+    siteName: siteConfig.site_name,
+    title,
+    description,
+    images: [thumbnail],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [thumbnail],
+  },
+};
 
 export default function ResumePage() {
   return (

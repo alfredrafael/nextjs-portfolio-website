@@ -3,6 +3,37 @@ import { Container } from "@/components/craft";
 import { ContactForm } from "@/components/contactForm";
 import ContactInfo from "@/components/contactInfo";
 import PageHeader from "@/components/pageHeader";
+import type { Metadata } from "next";
+import { siteConfig } from "@/site.config";
+
+const thumbnail = {
+  url: "https://www.alfredorafael.com/wp-content/uploads/2026/01/pexels-nimlo-4509131-scaled.jpg",
+  alt: "Get in touch with Alfredo Rafael",
+};
+
+const title = "Get in Touch | Alfredo Rafael";
+const description =
+  "I'm available for freelance projects and other opportunities. Reach out to discuss how we can collaborate!";
+
+export const metadata: Metadata = {
+  title,
+  description,
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    type: "website",
+    url: "/contact",
+    siteName: siteConfig.site_name,
+    title,
+    description,
+    images: [thumbnail],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [thumbnail],
+  },
+};
 
 export default function Contact() {
   return (
