@@ -4,6 +4,7 @@ import { Experience } from "./experience";
 import SocialLinks from "./socialLinks";
 import { Skills } from "./skills";
 import { Education } from "./education";
+// metadata code //
 import type { Metadata } from "next";
 import { siteConfig } from "@/site.config";
 
@@ -44,6 +45,7 @@ export const metadata: Metadata = {
     images: [thumbnail],
   },
 };
+// ends metadata code //
 
 export default function ResumePage() {
   return (
