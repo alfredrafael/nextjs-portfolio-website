@@ -324,6 +324,13 @@
   text-align: center;
 }
 
+@media (max-width: 640px) {
+  #prompter {
+    padding: 0 1.25rem;
+    font-size: 1rem;
+  }
+}
+
 #prompter .readable {
   border: 1px solid red;
   border-radius: 5px;
