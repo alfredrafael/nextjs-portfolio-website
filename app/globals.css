@@ -310,7 +310,7 @@
 }
 
 /* Prompter */
-#personalMessageContentPage:has(#prompter) {
+/* #personalMessageContentPage:has(#prompter) {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -347,4 +347,4 @@
   border-radius: 5px;
   padding: 0.5rem;
   margin: 1rem 0;
-}
+} */

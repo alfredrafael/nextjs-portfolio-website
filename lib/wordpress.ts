@@ -652,4 +652,81 @@ export async function getProtectedPersonalMessageContent(
   };
 }
 
+// Scripts
+
+export interface Script {
+  id: number;
+  slug: string;
+  date: string;
+  title: {
+    rendered: string;
+  };
+  content: {
+    rendered: string;
+  };
+  excerpt: {
+    rendered: string;
+  };
+}
+
+export async function getScripts(): Promise<Script[]> {
+  if (!baseUrl) {
+    throw new Error("WordPress URL not configured");
+  }
+
+  const scripts: Script[] = [];
+  let page = 1;
+
+  while (true) {
+    const url = new URL("/wp-json/wp/v2/scripts", baseUrl);
+
+    url.searchParams.set("per_page", "100");
+    url.searchParams.set("page", String(page));
+    url.searchParams.set("status", "publish");
+
+    const response = await fetch(url.toString(), {
+      cache: "no-store",
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to retrieve scripts: ${response.status}`);
+    }
+
+    const batch: Script[] = await response.json();
+
+    scripts.push(...batch);
+
+    const totalPages = Number(response.headers.get("X-WP-TotalPages") || 1);
+
+    if (page >= totalPages) break;
+
+    page++;
+  }
+
+  return scripts;
+}
+
+export async function getScriptBySlug(slug: string): Promise<Script | null> {
+  if (!baseUrl) {
+    throw new Error("WordPress URL not configured");
+  }
+
+  const url = new URL("/wp-json/wp/v2/scripts", baseUrl);
+
+  url.searchParams.set("slug", slug);
+  url.searchParams.set("status", "publish");
+
+  const response = await fetch(url.toString(), {
+    cache: "no-store",
+  });
+
+  if (!response.ok) {
+    throw new Error(`Failed to retrieve script: ${response.status}`);
+  }
+
+  const scripts: Script[] = await response.json();
+
+  return scripts[0] ?? null;
+}
+
 export { WordPressAPIError };
