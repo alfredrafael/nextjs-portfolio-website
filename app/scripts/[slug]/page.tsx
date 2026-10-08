@@ -58,10 +58,10 @@ export default async function ScriptPage({ params }: ScriptPageProps) {
       id="prompter"
       className="bg-linear-to-b from-accent-foreground/5 to-background dark:from-accent-foreground/10 pt-0!"
     >
-      <Container className="pb-0! border">
+      <Container className="pb-0!">
         <div className="max-w-2xl">
           <h1
-            className="text-2xl md:text-3xl font-semibold mb-4"
+            className="text-2xl md:text-3xl font-semibold mb-8"
             dangerouslySetInnerHTML={{
               __html: script.title.rendered,
             }}
@@ -71,7 +71,7 @@ export default async function ScriptPage({ params }: ScriptPageProps) {
       </Container>
 
       <Container className="min-h-screen pb-16 overflow-x-hidden">
-        <div className="max-w-2xl">
+        <div className="max-w-md px-5">
           <div
             className="prose prose-lg dark:prose-invert wrap-break-word [&_pre]:overflow-x-auto [&_table]:block [&_table]:overflow-x-auto [&_table]:max-w-full"
             dangerouslySetInnerHTML={{

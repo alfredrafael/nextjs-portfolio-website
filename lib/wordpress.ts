@@ -678,31 +678,22 @@ export async function getScripts(): Promise<Script[]> {
   let page = 1;
 
   while (true) {
-    const url = new URL("/wp-json/wp/v2/scripts", baseUrl);
-
-    url.searchParams.set("per_page", "100");
-    url.searchParams.set("page", String(page));
-    url.searchParams.set("status", "publish");
-
-    const response = await fetch(url.toString(), {
-      cache: "no-store",
-    });
-
-    if (!response.ok) {
-      throw new Error(`Failed to retrieve scripts: ${response.status}`);
-    }
-
-    const batch: Script[] = await response.json();
+    const batch = await wordpressFetchNoStore<Script[]>(
+      "/wp-json/wp/v2/scripts",
+      {
+        per_page: 100,
+        page,
+        status: "publish",
+      },
+    );
 
     scripts.push(...batch);
 
-    const totalPages = Number(response.headers.get("X-WP-TotalPages") || 1);
-
-    if (page >= totalPages) break;
-
+    if (batch.length < 100) {
+      break;
+    }
     page++;
   }
-
   return scripts;
 }
 
@@ -711,20 +702,13 @@ export async function getScriptBySlug(slug: string): Promise<Script | null> {
     throw new Error("WordPress URL not configured");
   }
 
-  const url = new URL("/wp-json/wp/v2/scripts", baseUrl);
-
-  url.searchParams.set("slug", slug);
-  url.searchParams.set("status", "publish");
-
-  const response = await fetch(url.toString(), {
-    cache: "no-store",
-  });
-
-  if (!response.ok) {
-    throw new Error(`Failed to retrieve script: ${response.status}`);
-  }
-
-  const scripts: Script[] = await response.json();
+  const scripts = await wordpressFetchNoStore<Script[]>(
+    "/wp-json/wp/v2/scripts",
+    {
+      slug,
+      status: "publish",
+    },
+  );
 
   return scripts[0] ?? null;
 }
