@@ -1,6 +1,40 @@
 export const experienceData = [
   {
-    period: "2022 — Present",
+    period: "2020 — Present",
+    title: "WordPress Developer",
+    company: "Massachusetts Institute of Technology (MIT)",
+    companyUrl: "#",
+    description: (
+      <>
+        <ul className="leading-relaxed resume-duties-list">
+          <li>
+            Develop and modernize interfaces across a portfolio of more than 30
+            WordPress websites using HTML5, CSS3 and JavaScript.
+          </li>
+          <li>
+            Maintain responsive, cross-browser experiences while supporting WCAG
+            2.1 and Section 508 accessibility requirements.
+          </li>
+          <li>
+            Diagnose WordPress, frontend and content management issues across
+            independently managed websites and implement sustainable solutions
+            for administrators.
+          </li>
+          <li>
+            Translate nontechnical requirements into practical technical
+            solutions, documentation and individualized administrator training.
+          </li>
+          <li>
+            Support content administrators with WordPress workflows,
+            troubleshooting and site-specific functionality.
+          </li>
+        </ul>
+      </>
+    ),
+    technologies: ["WordPress", "PHP", "ACF", "Sketch"],
+  },
+  {
+    period: "2022 — 2026",
     title: "Front-End Software Engineer",
     company: "Trane Technologies",
     companyUrl: "https://trane.com/residential",
@@ -8,59 +42,40 @@ export const experienceData = [
       <>
         <ul className="leading-relaxed resume-duties-list">
           <li>
-            Develop and implement reusable components with React, Next.js, and
-            TypeScript in a headless CMS environment
+            Built reusable customer-facing components using React, Next.js and
+            TypeScript within a headless CMS architecture.
           </li>
           <li>
-            Collaborate with cross-functional teams using GIT for version
-            control, JIRA for agile project management, and Figma for user
-            interface (UI) design.
+            Contributed to a multi-step warranty application, implementing
+            interface logic, shared state, form validation and API-backed
+            customer workflows.
           </li>
           <li>
-            Leverage TailwindCSS to craft responsive and visually appealing user
-            interfaces while adhering to best practices and modern design
-            principles.
+            Improved WordPress and headless CMS publishing workflows using
+            Advanced Custom Fields and customized administrative interfaces for
+            content and SEO stakeholders.
           </li>
           <li>
-            Improve data management using Advanced Custom Fields (ACF),
-            streamline admin panel UI/UX for better usability, and develop
-            JavaScript integrations with GraphQL and RESTful APIs.
+            Implemented custom WordPress functionality to support specialized
+            content, publishing and business requirements.
+          </li>
+          <li>
+            Integrated frontend applications with REST and GraphQL services and
+            supported JavaScript-based customer workflows.
+          </li>
+          <li>
+            Developed accessible, responsive interfaces using Tailwind CSS while
+            supporting cross-browser compatibility and modern frontend
+            practices.
+          </li>
+          <li>
+            Collaborated with product managers, designers, publishers, SEO
+            specialists and backend engineers using Jira, Git and Figma.
           </li>
         </ul>
       </>
     ),
     technologies: ["React", "TypeScript", "Next.js", "GraphQL", "Tailwind CSS"],
-  },
-  {
-    period: "2020 — Present",
-    title: "Assistant Web Developer",
-    company: "Massachusetts Institute of Technology (MIT)",
-    companyUrl: "#",
-    description: (
-      <>
-        <ul className="leading-relaxed resume-duties-list">
-          <li>
-            Develop and enhance user interfaces using HTML5 and CSS, modernizing
-            legacy codebases while ensuring responsiveness and cross-browser
-            compatibility.
-          </li>
-          <li>
-            Manage and optimize 30+ websites ensuring compliance with Section
-            508 accessibility standards and WCAG 2.1.
-          </li>
-          <li>
-            Create instructional content and train web administrators
-            one-on-one, translating non-technical requirements into solid
-            technical solutions.
-          </li>
-          <li>
-            Edit and create logos, banners, and other graphic elements using
-            Sketch, ensuring brand consistency and visual appeal.
-          </li>
-        </ul>
-      </>
-    ),
-    technologies: ["WordPress", "PHP", "ACF", "Sketch"],
   },
   {
     period: "2020 — 2021",
@@ -71,12 +86,17 @@ export const experienceData = [
       <>
         <ul className="leading-relaxed resume-duties-list">
           <li>
-            Transformed UX designs into pixel-perfect, responsive landing pages
-            using vanilla JavaScript, jQuery, CSS, and HTML5.
+            Maintained content for internal and client-facing financial
+            applications using Documentum CMS in a regulated enterprise
+            environment.
           </li>
           <li>
-            Managed content for both private and client-facing applications in a
-            fast-paced environment using Documentum CMS.
+            Translated UX designs into responsive, pixel-accurate interfaces
+            using JavaScript, jQuery, HTML5 and CSS3.
+          </li>
+          <li>
+            Collaborated with design, development and business stakeholders to
+            deliver production-ready landing pages and application content.
           </li>
         </ul>
       </>
@@ -92,17 +112,18 @@ export const experienceData = [
       <>
         <ul className="leading-relaxed resume-duties-list">
           <li>
-            Led the design and development of modern, user-friendly websites
-            tailored to meet the marketing department's specific wants and needs
+            Designed and developed responsive marketing websites based on
+            business and user experience requirements.
           </li>
           <li>
-            Enhanced legacy pages for responsiveness, user experience, and
-            cross-browser compatibility, and used jQuery for DOM manipulation.
+            Modernized legacy pages for responsive behavior, cross-browser
+            compatibility and improved usability using JavaScript, jQuery, HTML
+            and CSS.
           </li>
           <li>
-            Improved marketing department's performance by designing,
-            developing, and integrating iterable JSON databases for all company
-            products.
+            Built and integrated structured JSON data covering the company's
+            product catalog, improving the maintainability of product
+            information.
           </li>
         </ul>
       </>
@@ -118,13 +139,12 @@ export const experienceData = [
       <>
         <ul className="leading-relaxed resume-duties-list">
           <li>
-            Developed reusable components for internal applications using
-            React.js, ReactBootstrap, and styled-components.
+            Developed reusable React components for internal financial
+            applications using React Bootstrap and styled-components.
           </li>
           <li>
-            Managed and optimized content workflows using ServiceNow and
-            OpenText CMS, while collaborating using GIT for robust version
-            control.
+            Supported enterprise content workflows using ServiceNow and OpenText
+            CMS.
           </li>
         </ul>
       </>
@@ -165,7 +185,7 @@ export const certificationsData = [
 export const skillsData = [
   {
     title: "Languages",
-    skills: ["TypeScript", "JavaScript", "PHP"],
+    skills: ["TypeScript", "JavaScript"],
   },
   {
     title: "Frameworks",
@@ -177,7 +197,7 @@ export const skillsData = [
   },
   {
     title: "Tools & Platforms",
-    skills: ["Git", "Docker", "Vercel", "Figma", "JIRA", "WordPress"],
+    skills: ["Git", "Vercel", "Figma", "JIRA", "WordPress"],
   },
 ];
 export const testimonialsData = [
