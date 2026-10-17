@@ -97,19 +97,13 @@ const projectsData: Project[] = [
     imageUrl:
       "https://www.alfredorafael.com/wp-content/uploads/2026/01/REL-Project.png",
     fullDescription:
-      "I developed this web-application with React.js, React-Bootsrap and Email-js for its contact funcionality. Relata is a digital media and marketing agency aimed at building peace and understanding, promoting dialogue, and interconnectedness for nonprofits, NGOs, labor organizations, as well as houses of worship, small businesses and entrepreneurs.",
+      "I developed this web-application with Next.js and Email-js for its contact funcionality. Relata is a digital media and marketing agency aimed at building peace and understanding, promoting dialogue, and interconnectedness for nonprofits, NGOs, labor organizations, as well as houses of worship, small businesses and entrepreneurs.",
     details: {
-      liveUrl: "https://relata.us/",
+      liveUrl: "https://relata-us.netlify.app/",
       github: "",
       type: "Residential",
     },
-    technologies: [
-      "React.js",
-      "React-Bootstrap",
-      "EmailJS",
-      "jQuery",
-      "Reactstrap",
-    ],
+    technologies: ["Next.js", "EmailJS"],
   },
   {
     id: "ML",
