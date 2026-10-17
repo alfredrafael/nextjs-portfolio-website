@@ -9,7 +9,8 @@ export function Header() {
             Alfredo R. Pabon
           </h1>
           <h2 className="mt-3 text-lg font-medium tracking-tight textBlue sm:text-xl">
-            Front-End Software Engineer
+            FRONT-END & HEADLESS CMS DEVELOPER{" "}
+            <br className="hidden sm:inline" /> REACT, NEXT.JS & WORDPRESS
           </h2>
         </div>
       </div>

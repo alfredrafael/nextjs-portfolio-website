@@ -31,7 +31,7 @@ export const experienceData = [
         </ul>
       </>
     ),
-    technologies: ["WordPress", "PHP", "ACF", "Sketch"],
+    technologies: ["WordPress", "ACF", "Sketch"],
   },
   {
     period: "2022 — 2026",
@@ -155,7 +155,7 @@ export const experienceData = [
       "styled-components",
       "ServiceNow",
       "OpenText CMS",
-      "GIT",
+      "Git",
     ],
   },
 ];
@@ -197,7 +197,7 @@ export const skillsData = [
   },
   {
     title: "Tools & Platforms",
-    skills: ["Git", "Vercel", "Figma", "JIRA", "WordPress"],
+    skills: ["Git", "Vercel", "Figma", "Jira", "WordPress"],
   },
 ];
 export const testimonialsData = [
