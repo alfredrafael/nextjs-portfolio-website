@@ -225,9 +225,10 @@
   color: inherit;
   text-decoration: underline;
   text-underline-offset: 3px;
+  color: rgb(80, 80, 177);
 }
-.pairStart {
-  grid-column-start: 1;
+.urlField {
+  grid-column: 1 / -1;
 }
 .full {
   grid-column: 1/-1;
@@ -351,11 +352,8 @@
   .grid > div {
     grid-column: span 2;
   }
-  .grid > .paired {
-    grid-column: span 3;
-  }
-  .grid > .pairStart {
-    grid-column: 1 / span 3;
+  .grid > .urlField {
+    grid-column: 1 / -1;
   }
   .grid > .full {
     grid-column: 1 / -1;

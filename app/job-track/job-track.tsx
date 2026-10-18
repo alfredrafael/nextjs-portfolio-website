@@ -49,14 +49,14 @@ const leadingFields: Array<keyof JobTrackFields> = [
   "resume_version",
   "employment_type",
   "contact_method",
-  "contact_role",
+  "follow_up",
   "contact_name",
 ];
 
-const pairedFields: Array<keyof JobTrackFields> = ["job_url"];
+const urlFields: Array<keyof JobTrackFields> = ["contact_link", "job_url"];
 
 const trailingFields: Array<keyof JobTrackFields> = [
-  ...pairedFields,
+  ...urlFields,
   "notes",
   "activity_log",
 ];
@@ -74,14 +74,13 @@ const detailFields = [
         key !== "priority" &&
         key !== "contact_email" &&
         key !== "work_type" &&
-        key !== "contact_link",
+        key !== "contact_role" &&
+        key !== "source",
     )
     .map(([key, label]): [keyof JobTrackFields, string] =>
       key === "salary"
         ? ["contact_email", "Contact email"]
-        : key === "source"
-          ? ["contact_link", "Contact LinkedIn/profile URL"]
-          : [key, label],
+        : [key, label],
     ),
   ...trailingFields.map(
     (key) => jobTrackFields.find(([field]) => field === key)!,
@@ -233,8 +232,8 @@ export default async function JobTrackPage() {
                         ? `${styles.full} ${styles.notes}`
                         : key === "activity_log"
                           ? styles.full
-                          : pairedFields.includes(key)
-                            ? `${styles.paired} ${key === "job_url" ? styles.pairStart : ""}`
+                          : urlFields.includes(key)
+                            ? styles.urlField
                             : ""
                     }
                   >
