@@ -8,6 +8,7 @@
   margin: 0 auto;
   padding: 64px 24px 88px;
   color: var(--ink);
+  min-height: 90vh;
 }
 .header {
   max-width: 680px;

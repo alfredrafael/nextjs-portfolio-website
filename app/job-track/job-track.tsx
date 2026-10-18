@@ -115,7 +115,8 @@ export default async function JobTrackPage() {
     <main className={styles.main}>
       <header className={styles.header}>
         <div className={styles.eyebrow}>
-          <BriefcaseBusiness size={16} aria-hidden="true" /> MY CAREER WORKSPACE
+          <BriefcaseBusiness size={16} aria-hidden="true" /> MY WORKSEARCH
+          PLUGIN
         </div>
         {/* <h1>Your next chapter.</h1>
         <p className={styles.subtitle}>
@@ -181,12 +182,12 @@ export default async function JobTrackPage() {
                     <dd>{displayValue(key, app.fields[key])}</dd>
                   </div>
                 ))}
-                <div>
+                {/* <div>
                   <dt>Record updated</dt>
                   <dd>{app.updated || "—"}</dd>
-                </div>
+                </div> */}
               </dl>
-              <h3 className={styles.historyTitle}>Status history</h3>
+              {/* <h3 className={styles.historyTitle}>Status history</h3>
               {app.status_history.length > 0 ? (
                 <ul className={styles.history}>
                   {[...app.status_history].reverse().map((entry, index) => (
@@ -198,7 +199,7 @@ export default async function JobTrackPage() {
                 </ul>
               ) : (
                 <p>No status changes recorded.</p>
-              )}
+              )} */}
             </div>
           </details>
         ))}
