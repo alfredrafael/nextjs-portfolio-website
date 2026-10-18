@@ -78,9 +78,7 @@ const detailFields = [
         key !== "source",
     )
     .map(([key, label]): [keyof JobTrackFields, string] =>
-      key === "salary"
-        ? ["contact_email", "Contact email"]
-        : [key, label],
+      key === "salary" ? ["contact_email", "Contact email"] : [key, label],
     ),
   ...trailingFields.map(
     (key) => jobTrackFields.find(([field]) => field === key)!,
@@ -172,8 +170,8 @@ export default async function JobTrackPage() {
     <main className={styles.main}>
       <header className={styles.header}>
         <div className={styles.eyebrow}>
-          <BriefcaseBusiness size={16} aria-hidden="true" /> MY WORKSEARCH
-          JOURNEY IN A WORDPRESS PLUGIN
+          <BriefcaseBusiness size={16} aria-hidden="true" /> WORKSEARCH TRACKING
+          TOOL
         </div>
         {/* <h1>Your next chapter.</h1>
         <p className={styles.subtitle}>
