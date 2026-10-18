@@ -13,6 +13,7 @@ import {
 } from "@/lib/wordpress";
 import type { JobTrackFields } from "@/lib/wordpress.d";
 import { stripHtml } from "@/lib/metadata";
+import { getFollowUpStatus } from "@/lib/follow-up";
 import styles from "./job-track.module.css";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -39,6 +40,63 @@ const choices: Partial<Record<keyof JobTrackFields, Record<string, string>>> = {
   },
   priority: { normal: "Normal", high: "High", low: "Low" },
 };
+
+const leadingFields: Array<keyof JobTrackFields> = [
+  "company",
+  "location",
+  "status",
+  "date_applied",
+  "resume_version",
+  "employment_type",
+  "contact_method",
+  "contact_role",
+  "contact_name",
+];
+
+const pairedFields: Array<keyof JobTrackFields> = ["job_url"];
+
+const trailingFields: Array<keyof JobTrackFields> = [
+  ...pairedFields,
+  "notes",
+  "activity_log",
+];
+
+const detailFields = [
+  ...leadingFields.map(
+    (key) => jobTrackFields.find(([field]) => field === key)!,
+  ),
+  ...jobTrackFields
+    .filter(
+      ([key]) =>
+        !leadingFields.includes(key) &&
+        !trailingFields.includes(key) &&
+        key !== "last_activity" &&
+        key !== "priority" &&
+        key !== "contact_email" &&
+        key !== "work_type" &&
+        key !== "contact_link",
+    )
+    .map(([key, label]): [keyof JobTrackFields, string] =>
+      key === "salary"
+        ? ["contact_email", "Contact email"]
+        : key === "source"
+          ? ["contact_link", "Contact LinkedIn/profile URL"]
+          : [key, label],
+    ),
+  ...trailingFields.map(
+    (key) => jobTrackFields.find(([field]) => field === key)!,
+  ),
+];
+
+function FollowUpBadge({ value }: { value: string }) {
+  const followUp = getFollowUpStatus(value);
+  if (!followUp) return null;
+  return (
+    <span className={styles.status} data-status={followUp.status}>
+      {followUp.label}
+    </span>
+  );
+}
 
 function displayValue(key: keyof JobTrackFields, value: string) {
   if (!value) return <span className={styles.empty}>—</span>;
@@ -116,7 +174,7 @@ export default async function JobTrackPage() {
       <header className={styles.header}>
         <div className={styles.eyebrow}>
           <BriefcaseBusiness size={16} aria-hidden="true" /> MY WORKSEARCH
-          PLUGIN
+          JOURNEY IN A WORDPRESS PLUGIN
         </div>
         {/* <h1>Your next chapter.</h1>
         <p className={styles.subtitle}>
@@ -144,11 +202,6 @@ export default async function JobTrackPage() {
         {applications.map((app) => (
           <details key={app.id} className={styles.item}>
             <summary className={styles.summary}>
-              <span className={styles.companyIcon} aria-hidden="true">
-                {(app.fields.company || stripHtml(app.title) || "?")
-                  .charAt(0)
-                  .toUpperCase()}
-              </span>
               <span className={styles.opportunity}>
                 <span className={styles.title}>{stripHtml(app.title)}</span>
                 <span className={styles.company}>
@@ -156,10 +209,13 @@ export default async function JobTrackPage() {
                   {app.fields.location && <span> · {app.fields.location}</span>}
                 </span>
               </span>
-              <span className={styles.status} data-status={app.fields.status}>
-                {jobTrackStatuses[app.fields.status] ??
-                  app.fields.status ??
-                  "Not set"}
+              <span className={styles.summaryBadges}>
+                <FollowUpBadge value={app.fields.follow_up} />
+                <span className={styles.status} data-status={app.fields.status}>
+                  {jobTrackStatuses[app.fields.status] ??
+                    app.fields.status ??
+                    "Not set"}
+                </span>
               </span>
               <ChevronDown
                 className={styles.chevron}
@@ -169,13 +225,17 @@ export default async function JobTrackPage() {
             </summary>
             <div className={styles.body}>
               <dl className={styles.grid}>
-                {jobTrackFields.map(([key, label]) => (
+                {detailFields.map(([key, label]) => (
                   <div
                     key={key}
                     className={
-                      key === "notes" || key === "activity_log"
-                        ? styles.full
-                        : ""
+                      key === "notes"
+                        ? `${styles.full} ${styles.notes}`
+                        : key === "activity_log"
+                          ? styles.full
+                          : pairedFields.includes(key)
+                            ? `${styles.paired} ${key === "job_url" ? styles.pairStart : ""}`
+                            : ""
                     }
                   >
                     <dt>{label}</dt>
