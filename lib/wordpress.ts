@@ -13,6 +13,9 @@ import type {
   Author,
   FeaturedMedia,
   PersonalMessage,
+  JobTrackApplication,
+  JobTrackFields,
+  JobTrackStatus,
 } from "./wordpress.d";
 
 // Single source of truth for WordPress configuration
@@ -711,6 +714,103 @@ export async function getScriptBySlug(slug: string): Promise<Script | null> {
   );
 
   return scripts[0] ?? null;
+}
+
+// Job Track - Applications /////////////////////////////////////
+
+export const jobTrackStatuses: Record<JobTrackStatus, string> = {
+  wishlist: "Interested / Saved",
+  preparing: "Preparing application",
+  applied: "Applied",
+  recruiter: "Recruiter screen",
+  interview: "Interviewing",
+  assessment: "Assessment",
+  offer: "Offer received",
+  accepted: "Accepted",
+  rejected: "Rejected",
+  withdrawn: "Withdrawn",
+  no_response: "No response / Closed",
+};
+
+export const jobTrackFields: Array<[keyof JobTrackFields, string]> = [
+  ["company", "Company"],
+  ["job_url", "Job posting URL"],
+  ["location", "Location / remote"],
+  ["work_type", "Work arrangement"],
+  ["employment_type", "Employment type"],
+  ["salary", "Salary / compensation"],
+  ["source", "Where you found it"],
+  ["status", "Application status"],
+  ["date_applied", "Date applied"],
+  ["last_activity", "Last contact / activity"],
+  ["follow_up", "Next follow-up"],
+  ["contact_name", "Contact / recruiter name"],
+  ["contact_role", "Contact role / title"],
+  ["contact_email", "Contact email"],
+  ["contact_link", "Contact LinkedIn/profile URL"],
+  ["contact_method", "Outreach method"],
+  ["resume_version", "Resume / cover letter version"],
+  ["priority", "Priority"],
+  ["notes", "Notes"],
+  ["activity_log", "Outreach / interview activity log"],
+];
+
+export async function getJobApplications(): Promise<JobTrackApplication[]> {
+  if (!baseUrl) {
+    throw new Error("WordPress URL not configured");
+  }
+
+  const username = process.env.JOB_TRACK_WP_USER;
+  const applicationPassword = process.env.JOB_TRACK_WP_APP_PASSWORD;
+
+  if (!username || !applicationPassword) {
+    throw new Error("Job Track WordPress credentials are missing");
+  }
+
+  // WordPress Application Password authentication
+  const credentials = Buffer.from(
+    `${username}:${applicationPassword}`,
+  ).toString("base64");
+
+  const applications: JobTrackApplication[] = [];
+  let page = 1;
+
+  while (true) {
+    const url = new URL("/wp-json/job-track/v1/applications", baseUrl);
+
+    url.searchParams.set("per_page", "100");
+    url.searchParams.set("page", String(page));
+
+    const response = await fetch(url.toString(), {
+      method: "GET",
+      headers: {
+        Authorization: `Basic ${credentials}`,
+        "Content-Type": "application/json",
+        "Cache-Control": "no-cache",
+      },
+      cache: "no-store",
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        `Job Track API request failed: ${response.status} ${response.statusText}`,
+      );
+    }
+
+    const batch: JobTrackApplication[] = await response.json();
+
+    applications.push(...batch);
+
+    // Stop once the server reports no further pages.
+    const totalPages = Number(response.headers.get("X-WP-TotalPages") || "1");
+    if (page >= totalPages || batch.length === 0) {
+      break;
+    }
+
+    page++;
+  }
+
+  return applications;
 }
 
 export { WordPressAPIError };

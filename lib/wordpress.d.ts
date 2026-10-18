@@ -264,3 +264,93 @@ export interface PersonalMessage {
   password_protected: boolean;
   featured_media?: number;
 }
+
+/**
+ * Job Track - Application Status
+ */
+
+export type JobTrackStatus =
+  | "wishlist"
+  | "preparing"
+  | "applied"
+  | "recruiter"
+  | "interview"
+  | "assessment"
+  | "offer"
+  | "accepted"
+  | "rejected"
+  | "withdrawn"
+  | "no_response";
+
+export interface JobTrackStatusHistory {
+  status: JobTrackStatus;
+  date: string;
+}
+
+export type JobTrackFields = {
+  company: string;
+  job_url: string;
+  location: string;
+  work_type: string;
+  employment_type: string;
+  salary: string;
+  source: string;
+  status: JobTrackStatus;
+  date_applied: string;
+  last_activity: string;
+  follow_up: string;
+  contact_name: string;
+  contact_role: string;
+  contact_email: string;
+  contact_link: string;
+  contact_method: string;
+  resume_version: string;
+  priority: string;
+  notes: string;
+  activity_log: string;
+};
+
+export type JobTrackApplication = {
+  id: number;
+  title: string;
+  updated: string;
+  fields: JobTrackFields;
+  status_history: JobTrackStatusHistory[];
+};
+
+export const jobTrackStatuses: Record<string, string> = {
+  wishlist: "Interested / Saved",
+  preparing: "Preparing application",
+  applied: "Applied",
+  recruiter: "Recruiter screen",
+  interview: "Interviewing",
+  assessment: "Assessment",
+  offer: "Offer received",
+  accepted: "Accepted",
+  rejected: "Rejected",
+  withdrawn: "Withdrawn",
+  no_response: "No response / Closed",
+};
+
+export const jobTrackFields: Array<[keyof JobTrackFields, string]> = [
+  ["company", "Company"],
+  ["job_url", "Job posting URL"],
+  ["location", "Location / remote"],
+  ["work_type", "Work arrangement"],
+  ["employment_type", "Employment type"],
+  ["salary", "Salary / compensation"],
+  ["source", "Where you found it"],
+  ["status", "Application status"],
+  ["date_applied", "Date applied"],
+  ["last_activity", "Last contact / activity"],
+  ["follow_up", "Next follow-up"],
+  ["contact_name", "Contact / recruiter name"],
+  ["contact_role", "Contact role / title"],
+  ["contact_email", "Contact email"],
+  ["contact_link", "Contact LinkedIn/profile URL"],
+  ["contact_method", "Outreach method"],
+  ["resume_version", "Resume / cover letter version"],
+  ["priority", "Priority"],
+  ["notes", "Notes"],
+  ["activity_log", "Outreach / interview activity log"],
+];

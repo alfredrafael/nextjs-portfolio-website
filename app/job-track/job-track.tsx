@@ -1,0 +1,218 @@
+import {
+  BriefcaseBusiness,
+  ChevronDown,
+  Layers,
+  MessageSquare,
+  Sparkles,
+} from "lucide-react";
+import sanitizeHtml from "sanitize-html";
+import {
+  getJobApplications,
+  jobTrackFields,
+  jobTrackStatuses,
+} from "@/lib/wordpress";
+import type { JobTrackFields } from "@/lib/wordpress.d";
+import { stripHtml } from "@/lib/metadata";
+import styles from "./job-track.module.css";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+export const metadata = {
+  title: "Job Track",
+  robots: { index: false, follow: false },
+};
+
+const choices: Partial<Record<keyof JobTrackFields, Record<string, string>>> = {
+  status: jobTrackStatuses,
+  work_type: { remote: "Remote", hybrid: "Hybrid", onsite: "On-site" },
+  employment_type: {
+    full_time: "Full-time",
+    contract: "Contract",
+    part_time: "Part-time",
+    other: "Other",
+  },
+  contact_method: {
+    email: "Email",
+    linkedin: "LinkedIn",
+    referral: "Referral",
+    phone: "Phone",
+    other: "Other",
+  },
+  priority: { normal: "Normal", high: "High", low: "Low" },
+};
+
+function displayValue(key: keyof JobTrackFields, value: string) {
+  if (!value) return <span className={styles.empty}>—</span>;
+  if (key === "notes" || key === "activity_log") {
+    return (
+      <div
+        className={styles.richText}
+        dangerouslySetInnerHTML={{
+          __html: sanitizeHtml(value, {
+            allowedTags: [
+              "p",
+              "br",
+              "b",
+              "strong",
+              "em",
+              "i",
+              "u",
+              "s",
+              "ul",
+              "ol",
+              "li",
+              "blockquote",
+              "h2",
+              "h3",
+              "h4",
+              "a",
+              "code",
+            ],
+            allowedAttributes: { a: ["href", "title", "target", "rel"] },
+            allowedSchemes: ["https", "http", "mailto"],
+          }),
+        }}
+      />
+    );
+  }
+  if (key === "job_url" || key === "contact_link") {
+    try {
+      const url = new URL(value);
+      if (!["http:", "https:"].includes(url.protocol)) return value;
+      return (
+        <a href={url.href} target="_blank" rel="noopener noreferrer">
+          {value}
+        </a>
+      );
+    } catch {
+      return value;
+    }
+  }
+  if (key === "contact_email")
+    return <a href={`mailto:${encodeURIComponent(value)}`}>{value}</a>;
+  return choices[key]?.[value] ?? value;
+}
+
+export default async function JobTrackPage() {
+  const applications = await getJobApplications();
+  const stats = [
+    { label: "Saved applications", value: applications.length, icon: Layers },
+    {
+      label: "In conversation",
+      value: applications.filter(({ fields }) =>
+        ["recruiter", "interview", "assessment"].includes(fields.status),
+      ).length,
+      icon: MessageSquare,
+    },
+    {
+      label: "Offers & acceptances",
+      value: applications.filter(({ fields }) =>
+        ["offer", "accepted"].includes(fields.status),
+      ).length,
+      icon: Sparkles,
+    },
+  ];
+  return (
+    <main className={styles.main}>
+      <header className={styles.header}>
+        <div className={styles.eyebrow}>
+          <BriefcaseBusiness size={16} aria-hidden="true" /> MY CAREER WORKSPACE
+        </div>
+        {/* <h1>Your next chapter.</h1>
+        <p className={styles.subtitle}>
+          Every opportunity, every conversation, every step forward. Keep your
+          job search in view.
+        </p> */}
+      </header>
+      {/* <section className={styles.stats} aria-label="Application overview">
+        {stats.map(({ label, value, icon: Icon }) => (
+          <div key={label} className={styles.stat}>
+            <Icon size={20} aria-hidden="true" />
+            <span className={styles.statValue}>{value}</span>
+            <span>{label}</span>
+          </div>
+        ))}
+      </section> */}
+      <div className={styles.listHeader}>
+        <div>
+          <h2>Applications</h2>
+          {/* <p>Open an opportunity to explore the details.</p> */}
+        </div>
+        <span className={styles.count}>{applications.length} total</span>
+      </div>
+      <section className={styles.list} aria-label="Job applications">
+        {applications.map((app) => (
+          <details key={app.id} className={styles.item}>
+            <summary className={styles.summary}>
+              <span className={styles.companyIcon} aria-hidden="true">
+                {(app.fields.company || stripHtml(app.title) || "?")
+                  .charAt(0)
+                  .toUpperCase()}
+              </span>
+              <span className={styles.opportunity}>
+                <span className={styles.title}>{stripHtml(app.title)}</span>
+                <span className={styles.company}>
+                  {app.fields.company || "Company not provided"}
+                  {app.fields.location && <span> · {app.fields.location}</span>}
+                </span>
+              </span>
+              <span className={styles.status} data-status={app.fields.status}>
+                {jobTrackStatuses[app.fields.status] ??
+                  app.fields.status ??
+                  "Not set"}
+              </span>
+              <ChevronDown
+                className={styles.chevron}
+                size={18}
+                aria-hidden="true"
+              />
+            </summary>
+            <div className={styles.body}>
+              <dl className={styles.grid}>
+                {jobTrackFields.map(([key, label]) => (
+                  <div
+                    key={key}
+                    className={
+                      key === "notes" || key === "activity_log"
+                        ? styles.full
+                        : ""
+                    }
+                  >
+                    <dt>{label}</dt>
+                    <dd>{displayValue(key, app.fields[key])}</dd>
+                  </div>
+                ))}
+                <div>
+                  <dt>Record updated</dt>
+                  <dd>{app.updated || "—"}</dd>
+                </div>
+              </dl>
+              <h3 className={styles.historyTitle}>Status history</h3>
+              {app.status_history.length > 0 ? (
+                <ul className={styles.history}>
+                  {[...app.status_history].reverse().map((entry, index) => (
+                    <li key={`${entry.date}-${index}`}>
+                      {jobTrackStatuses[entry.status] ?? entry.status} —{" "}
+                      {entry.date}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p>No status changes recorded.</p>
+              )}
+            </div>
+          </details>
+        ))}
+        {applications.length === 0 && (
+          <div className={styles.emptyState}>
+            <BriefcaseBusiness size={32} aria-hidden="true" />
+            <h3>A fresh start for your next move</h3>
+            <p>
+              Applications saved in WordPress Job Track will appear here, ready
+              to follow from first contact to offer.
+            </p>
+          </div>
+        )}
+      </section>
+    </main>
+  );
+}
