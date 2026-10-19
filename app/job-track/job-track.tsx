@@ -154,16 +154,25 @@ export default async function JobTrackPage() {
   ];
   return (
     <main className={styles.main}>
-      <header className={styles.header}>
-        <div className={styles.eyebrow}>
-          <BriefcaseBusiness size={16} aria-hidden="true" /> WORKSEARCH TRACKING
-          TOOL
+      <header className="mb-10">
+        <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-muted/50 px-3 py-1 text-xs font-medium tracking-wide text-muted-foreground">
+          <BriefcaseBusiness aria-hidden="true" className="size-3.5" />
+          Worksearch tracking tool
+        </span>
+        <div className="flex items-center justify-between gap-4">
+          <div className="max-w-2xl">
+            <h1 className="font-serif text-4xl tracking-tight sm:text-5xl">
+              Applications
+            </h1>
+            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+              For the boards' page,{" "}
+              <a href="/job-boards" className="text-blue-600 underline">
+                click here.
+              </a>
+            </p>
+          </div>
+          <span className={styles.count}>{applications.length} total</span>
         </div>
-        {/* <h1>Your next chapter.</h1>
-        <p className={styles.subtitle}>
-          Every opportunity, every conversation, every step forward. Keep your
-          job search in view.
-        </p> */}
       </header>
       {/* <section className={styles.stats} aria-label="Application overview">
         {stats.map(({ label, value, icon: Icon }) => (
@@ -174,20 +183,6 @@ export default async function JobTrackPage() {
           </div>
         ))}
       </section> */}
-      <div className={styles.listHeader}>
-        <div>
-          <h1 className="font-serif text-4xl tracking-tight sm:text-5xl">
-            Applications
-          </h1>
-          <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-            For the boards' page,{" "}
-            <a href="/job-boards" className="text-blue-600 underline">
-              click here.
-            </a>
-          </p>
-        </div>
-        <span className={styles.count}>{applications.length} total</span>
-      </div>
       <section className={styles.list} aria-label="Job applications">
         {applications.map((app) => (
           <details key={app.id} className={styles.item}>
