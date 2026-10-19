@@ -10,6 +10,14 @@
   color: var(--ink);
   min-height: 90vh;
 }
+
+.bg-alternative {
+  background: linear-gradient(to bottom, #f8f8f8, #f8f9fa, #ffffff, #ffffff);
+}
+.dark .bg-alternative {
+  background: linear-gradient(to bottom, black, #212529);
+}
+
 .header {
   max-width: 680px;
   margin-bottom: 32px;
