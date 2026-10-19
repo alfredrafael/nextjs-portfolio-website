@@ -133,6 +133,13 @@
   gap: 8px;
   max-width: 340px;
 }
+.priorityLevel {
+  flex-basis: 100%;
+  color: var(--soft);
+  font-size: 0.7rem;
+  text-align: right;
+  margin-right: 0.5rem;
+}
 .summary:focus-visible {
   outline: 2px solid var(--ink);
   outline-offset: -4px;
@@ -394,6 +401,9 @@
     grid-column: 1;
     justify-content: flex-start;
     max-width: none;
+  }
+  .priorityLevel {
+    text-align: left;
   }
   .chevron {
     grid-column: 2;

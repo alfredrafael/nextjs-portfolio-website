@@ -305,9 +305,9 @@ export type JobTrackFields = {
   contact_link: string;
   contact_method: string;
   resume_version: string;
-  priority: string;
   notes: string;
   activity_log: string;
+  opportunity_level: "" | "normal" | "high" | "low" | "unknown";
 };
 
 export type JobTrackApplication = {
@@ -345,7 +345,6 @@ export const jobTrackFields: Array<[keyof JobTrackFields, string]> = [
   ["last_activity", "Last contact / activity"],
   ["follow_up", "Next follow-up"],
   ["contact_name", "Contact / recruiter name"],
-  ["contact_role", "Contact role / title"],
   ["contact_email", "Contact email"],
   ["contact_link", "Contact LinkedIn/profile URL"],
   ["contact_method", "Outreach method"],

@@ -745,14 +745,13 @@ export const jobTrackFields: Array<[keyof JobTrackFields, string]> = [
   ["last_activity", "Last contact / activity"],
   ["follow_up", "Next follow-up"],
   ["contact_name", "Contact / recruiter name"],
-  ["contact_role", "Contact role / title"],
   ["contact_email", "Contact email"],
   ["contact_link", "Contact LinkedIn/profile URL"],
   ["contact_method", "Outreach method"],
   ["resume_version", "Resume / cover letter version"],
-  ["priority", "Priority"],
   ["notes", "Notes"],
   ["activity_log", "Outreach / interview activity log"],
+  ["opportunity_level", "Opportunity Level"],
 ];
 
 export async function getJobApplications(): Promise<JobTrackApplication[]> {

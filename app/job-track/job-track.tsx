@@ -31,14 +31,12 @@ const choices: Partial<Record<keyof JobTrackFields, Record<string, string>>> = {
     part_time: "Part-time",
     other: "Other",
   },
-  contact_method: {
-    email: "Email",
-    linkedin: "LinkedIn",
-    referral: "Referral",
-    phone: "Phone",
-    other: "Other",
+  opportunity_level: {
+    normal: "Normal",
+    high: "High",
+    low: "Low",
+    unknown: "Unknown",
   },
-  priority: { normal: "Normal", high: "High", low: "Low" },
 };
 
 const leadingFields: Array<keyof JobTrackFields> = [
@@ -65,21 +63,9 @@ const detailFields = [
   ...leadingFields.map(
     (key) => jobTrackFields.find(([field]) => field === key)!,
   ),
-  ...jobTrackFields
-    .filter(
-      ([key]) =>
-        !leadingFields.includes(key) &&
-        !trailingFields.includes(key) &&
-        key !== "last_activity" &&
-        key !== "priority" &&
-        key !== "contact_email" &&
-        key !== "work_type" &&
-        key !== "contact_role" &&
-        key !== "source",
-    )
-    .map(([key, label]): [keyof JobTrackFields, string] =>
-      key === "salary" ? ["contact_email", "Contact email"] : [key, label],
-    ),
+  ...jobTrackFields.filter(
+    ([key]) => key === "contact_email" || key === "opportunity_level",
+  ),
   ...trailingFields.map(
     (key) => jobTrackFields.find(([field]) => field === key)!,
   ),
@@ -212,6 +198,15 @@ export default async function JobTrackPage() {
                   {jobTrackStatuses[app.fields.status] ??
                     app.fields.status ??
                     "Not set"}
+                </span>
+                <span className={styles.priorityLevel}>
+                  OP:{" "}
+                  <strong>
+                    {" "}
+                    {choices.opportunity_level?.[
+                      app.fields.opportunity_level
+                    ] || "Unknown"}
+                  </strong>
                 </span>
               </span>
               <ChevronDown
