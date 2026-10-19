@@ -41,7 +41,8 @@ export default function SearchTerms() {
         Search terms
       </h2>
       <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-        Click a search term to copy it, then paste it into your search engine.
+        The plan is searching these terms in a search engine, and look for jobs
+        there.
       </p>
 
       <ul className="mt-6 flex list-none flex-col gap-3 p-0">

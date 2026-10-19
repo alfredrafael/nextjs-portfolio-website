@@ -110,8 +110,12 @@ export default function JobBoards() {
             Job Boards
           </h1>
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-            When you see a job you like, search for it at the company’s own
-            careers page, and apply there. <ApplicationChecklist />
+            The plan is finding jobs in these boards, and then applying at the
+            company’s own careers page. To go back to the job tracker,{" "}
+            <a href="/job-track" style={{ color: "rgba(80, 80, 177, 1)" }}>
+              click here
+            </a>
+            .{/* <ApplicationChecklist /> */}
           </p>
         </header>
 
