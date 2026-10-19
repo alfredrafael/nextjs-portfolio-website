@@ -110,8 +110,8 @@ export default function JobBoards() {
             Job Boards
           </h1>
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-            When a board surfaces an opportunity, search for the company’s own
-            careers page and apply there! <ApplicationChecklist />
+            When you see a job you like, search for it at the company’s own
+            careers page, and apply there. <ApplicationChecklist />
           </p>
         </header>
 

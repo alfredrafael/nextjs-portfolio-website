@@ -176,8 +176,15 @@ export default async function JobTrackPage() {
       </section> */}
       <div className={styles.listHeader}>
         <div>
-          <h2>Applications</h2>
-          {/* <p>Open an opportunity to explore the details.</p> */}
+          <h1 className="font-serif text-4xl tracking-tight sm:text-5xl">
+            Applications
+          </h1>
+          <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+            For the boards' page,{" "}
+            <a href="/job-boards" className="text-blue-600 underline">
+              click here.
+            </a>
+          </p>
         </div>
         <span className={styles.count}>{applications.length} total</span>
       </div>

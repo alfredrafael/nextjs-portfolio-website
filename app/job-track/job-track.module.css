@@ -93,7 +93,7 @@
 }
 .listHeader p {
   color: var(--soft);
-  font-size: 0.85rem;
+  /* font-size: 0.85rem; */
 }
 .count {
   white-space: nowrap;
