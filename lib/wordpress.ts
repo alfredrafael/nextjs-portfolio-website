@@ -748,7 +748,7 @@ export const jobTrackFields: Array<[keyof JobTrackFields, string]> = [
   ["contact_email", "Contact email"],
   ["contact_link", "Contact LinkedIn/profile URL"],
   ["contact_method", "Outreach method"],
-  ["resume_version", "Resume / cover letter version"],
+  ["resume_version", "Resume version"],
   ["notes", "Notes"],
   ["activity_log", "Outreach / interview activity log"],
   ["opportunity_level", "Opportunity Level"],

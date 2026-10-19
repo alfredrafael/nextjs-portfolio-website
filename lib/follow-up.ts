@@ -1,4 +1,6 @@
-export function getFollowUpStatus(value: string, now = new Date()) {
+export function getFollowUpStatus(value: unknown, now = new Date()) {
+  if (typeof value !== "string") return null;
+
   // WordPress date fields may use YYYY-MM-DD or ACF's YYYYMMDD format.
   const match = /^(\d{4})-?(\d{2})-?(\d{2})$/.exec(value.trim());
   if (!match) return null;
