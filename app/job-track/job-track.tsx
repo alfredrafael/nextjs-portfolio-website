@@ -220,6 +220,7 @@ export default async function JobTrackPage() {
                 {detailFields.map(([key, label]) => (
                   <div
                     key={key}
+                    data-field={key}
                     className={
                       key === "notes"
                         ? `${styles.full} ${styles.notes}`
