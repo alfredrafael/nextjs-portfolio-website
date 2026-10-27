@@ -15,6 +15,7 @@ import type { JobTrackFields } from "@/lib/wordpress.d";
 import { stripHtml } from "@/lib/metadata";
 import { getFollowUpStatus } from "@/lib/follow-up";
 import styles from "./job-track.module.css";
+import ApplicationDetails from "./application-details";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 export const metadata = {
@@ -174,18 +175,9 @@ export default async function JobTrackPage() {
           <span className={styles.count}>{applications.length} total</span>
         </div>
       </header>
-      {/* <section className={styles.stats} aria-label="Application overview">
-        {stats.map(({ label, value, icon: Icon }) => (
-          <div key={label} className={styles.stat}>
-            <Icon size={20} aria-hidden="true" />
-            <span className={styles.statValue}>{value}</span>
-            <span>{label}</span>
-          </div>
-        ))}
-      </section> */}
       <section className={styles.list} aria-label="Job applications">
         {applications.map((app) => (
-          <details key={app.id} className={styles.item}>
+          <ApplicationDetails key={app.id} className={styles.item}>
             <summary className={styles.summary}>
               <span className={styles.opportunity}>
                 <span className={styles.title}>{stripHtml(app.title)}</span>
@@ -256,7 +248,7 @@ export default async function JobTrackPage() {
                 <p>No status changes recorded.</p>
               )} */}
             </div>
-          </details>
+          </ApplicationDetails>
         ))}
         {applications.length === 0 && (
           <div className={styles.emptyState}>
