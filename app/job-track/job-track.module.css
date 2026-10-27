@@ -214,7 +214,7 @@
   color: var(--soft);
   transition: transform 0.2s;
 }
-.item[open] .chevron {
+.item[open]:not([data-closing]) .chevron {
   transform: rotate(180deg);
 }
 .body {
@@ -367,23 +367,33 @@
   .list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .item[open],
+  .item[open]:not([data-closing]),
   .emptyState {
     grid-column: 1 / -1;
   }
-  .item:not([open]) .summary {
-    grid-template-columns: minmax(0, 1fr) 18px;
+  .item:is(:not([open]), [data-closing]) .summary {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 42%) 18px;
+    gap: 10px;
+    padding: 20px 18px;
   }
-  .item:not([open]) .summaryBadges {
-    grid-column: 1;
-    justify-content: flex-start;
-    max-width: none;
-  }
-  .item:not([open]) .priorityLevel {
-    text-align: left;
-  }
-  .item:not([open]) .chevron {
+  .item:is(:not([open]), [data-closing]) .summaryBadges {
     grid-column: 2;
+    min-width: 0;
+    justify-content: flex-end;
+    gap: 6px;
+  }
+  .item:is(:not([open]), [data-closing]) .status {
+    padding: 5px 8px;
+    font-size: 0.65rem;
+    overflow-wrap: anywhere;
+  }
+  .item:is(:not([open]), [data-closing]) .priorityLevel {
+    font-size: 0.65rem;
+    text-align: right;
+    margin-right: 0;
+  }
+  .item:is(:not([open]), [data-closing]) .chevron {
+    grid-column: 3;
     grid-row: 1;
   }
   .grid {
