@@ -95,6 +95,19 @@ const jobBoards = [
     description: "Discover opportunities to build your career at a startup.",
     href: "https://www.workatastartup.com/",
   },
+  {
+    name: "Indeed",
+    category: "General",
+    description:
+      "Find a wide range of job opportunities across various industries.",
+    href: "https://www.indeed.com/",
+  },
+  {
+    name: "USA Jobs",
+    category: "Government",
+    description: "Find job opportunities within the U.S. federal government.",
+    href: "https://www.usajobs.gov/",
+  },
 ];
 
 export default function JobBoards() {
