@@ -18,7 +18,7 @@ function SocialLinks() {
             xmlnsXlink="http://www.w3.org/1999/xlink"
             className="h-7 w-7"
           >
-            <title>pdf-document</title>
+            <title>github</title>
             <g
               id="Page-1"
               stroke="none"

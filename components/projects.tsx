@@ -167,9 +167,11 @@ function ProjectCard({
   technologies?: string[];
 }) {
   return (
-    <div
+    <button
+      type="button"
+      aria-haspopup="dialog"
       onClick={onClick}
-      className="group relative overflow-hidden rounded-lg shadow-md transition-transform hover:scale-[1.02] cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring border border-accent-foreground/25"
+      className="group relative overflow-hidden rounded-lg text-left shadow-md transition-transform hover:scale-[1.02] cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring border border-accent-foreground/25"
     >
       {/* Image */}
       <div className="relative aspect-video w-full">
@@ -192,7 +194,7 @@ function ProjectCard({
           {description}
         </p> */}
       </div>
-    </div>
+    </button>
   );
 }
 
